@@ -25,6 +25,18 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends /tmp/nginx_*.deb gettext-base tzdata \
     && rm -rf /var/lib/apt/lists/* /tmp/*.deb
 
+# Version-bump remediation. nginx links PCRE2 and OpenSSL; both carry CVE fixes in
+# Debian bookworm (PCRE2 10.42-1 -> +deb12u2 clears 7 CVEs, OpenSSL 3.0.11 -> 3.0.22
+# clears many). Building on the current base installs the patched versions; this
+# step makes that explicit and FAILS the build if either library is older than its
+# fixed version, so a stale base cannot ship the vulnerable libraries unnoticed.
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends libpcre2-8-0 libssl3; \
+    dpkg --compare-versions "$(dpkg-query -W -f='${Version}' libpcre2-8-0)" ge '10.42-1+deb12u1'; \
+    dpkg --compare-versions "$(dpkg-query -W -f='${Version}' libssl3)" ge '3.0.15-1~deb12u1'; \
+    rm -rf /var/lib/apt/lists/*
+
 # Runtime libraries the prebuilt dynamic modules link against (njs/xslt -> libxml2,
 # xslt -> libxslt, image-filter -> libgd, geoip -> libgeoip). The upstream image
 # pulls these in via its module packages; we copy only the .so files, so install
