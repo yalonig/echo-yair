@@ -1,0 +1,847 @@
+cve,severity,package,source_package,installed_version,fixed_version,fix_state,scanners,suggested_method,title
+CVE-2026-10536,Critical,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,libcurl: libcurl: Use-after-free vulnerability leading to Denial of Service
+CVE-2026-11856,Critical,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: Information disclosure via incorrect Digest authentication header reuse
+CVE-2026-18924,Critical,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: libcurl: Use-after-free in HTTP/2 Server Push with shared connections
+CVE-2026-19931,Critical,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: libcurl: Information disclosure via incorrect connection reuse with Negotiate authentication
+CVE-2026-86414,Critical,curl,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: leaking host credentials to HTTP proxy
+CVE-2026-8924,Critical,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: Cookie injection via malicious HTTP server using super cookies
+CVE-2026-8927,Critical,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: Information disclosure due to uncleared proxy authentication state
+CVE-2026-92388,Critical,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: FTP wildcard write callback mixup
+CVE-2025-0838,Critical,libabsl20220623,abseil,20220623.1-1,20220623.1-1+deb12u1,fixed,grype+trivy,bump,abseil-cpp: Heap Buffer overflow in Abseil
+CVE-2023-6879,Critical,libaom3,aom,3.6.0-1,,affected; wont-fix,grype+trivy,no fix available,aom: heap-buffer-overflow on frame size change
+CVE-2024-5171,Critical,libaom3,aom,3.6.0-1,3.6.0-1+deb12u1,fixed,grype+trivy,bump,libaom: Integer overflow in internal function img_alloc_helper
+CVE-2025-48174,Critical,libavif15,libavif,0.11.1-1,0.11.1-1+deb12u1,fixed,grype+trivy,bump,"In libavif before 1.3.0, makeRoom in stream.c has an integer overflow  ..."
+CVE-2026-111497,Critical,libbrotli1,brotli,1.0.9-2+b6,1.0.9-2+deb12u1,fixed,grype+trivy,bump,brotli: Out-of-Bounds Write in Google Brotli Decoder
+CVE-2026-5450,Critical,libc-bin,glibc,2.36-9+deb12u7,,affected; wont-fix,grype+trivy,no fix available,glibc: glibc: Heap Buffer Overflow in `scanf` with `%mc` format specifier and large width
+CVE-2026-5450,Critical,libc6,glibc,2.36-9+deb12u7,,affected; wont-fix,grype+trivy,no fix available,glibc: glibc: Heap Buffer Overflow in `scanf` with `%mc` format specifier and large width
+CVE-2026-10536,Critical,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,libcurl: libcurl: Use-after-free vulnerability leading to Denial of Service
+CVE-2026-11856,Critical,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: Information disclosure via incorrect Digest authentication header reuse
+CVE-2026-18924,Critical,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: libcurl: Use-after-free in HTTP/2 Server Push with shared connections
+CVE-2026-19931,Critical,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: libcurl: Information disclosure via incorrect connection reuse with Negotiate authentication
+CVE-2026-86414,Critical,libcurl4,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: leaking host credentials to HTTP proxy
+CVE-2026-8924,Critical,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: Cookie injection via malicious HTTP server using super cookies
+CVE-2026-8927,Critical,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: Information disclosure due to uncleared proxy authentication state
+CVE-2026-92388,Critical,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: FTP wildcard write callback mixup
+CVE-2024-45491,Critical,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u1,fixed,grype+trivy,bump,libexpat: Integer Overflow or Wraparound
+CVE-2024-45492,Critical,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u1,fixed,grype+trivy,bump,libexpat: integer overflow
+CVE-2026-33845,Critical,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u7,fixed,grype+trivy,bump,gnutls: GnuTLS: Denial of Service via DTLS zero-length fragment
+CVE-2026-42010,Critical,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u7,fixed,grype+trivy,bump,gnutls: gnutls: Authentication Bypass via NUL Character in Username
+CVE-2024-37371,Critical,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u2,fixed,grype+trivy,bump,krb5: GSS message token handling
+CVE-2024-37371,Critical,libk5crypto3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u2,fixed,grype+trivy,bump,krb5: GSS message token handling
+CVE-2024-37371,Critical,libkrb5-3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u2,fixed,grype+trivy,bump,krb5: GSS message token handling
+CVE-2024-37371,Critical,libkrb5support0,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u2,fixed,grype+trivy,bump,krb5: GSS message token handling
+CVE-2026-7598,Critical,libssh2-1,libssh2,1.10.0-3+b1,1.10.0-3+deb12u1,fixed,grype+trivy,bump,libssh2: integer overflow via large username or password arguments
+CVE-2024-5535,Critical,libssl3,openssl,3.0.11-1~deb12u2,3.0.15-1~deb12u1,fixed,grype+trivy,bump,openssl: SSL_select_next_proto buffer overread
+CVE-2025-15467,Critical,libssl3,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Remote code execution or Denial of Service via oversized Initialization Vector in CMS parsing
+CVE-2026-31789,Critical,libssl3,openssl,3.0.11-1~deb12u2,3.0.19-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Heap buffer overflow on 32-bit systems from large X.509 certificate processing
+CVE-2026-34182,Critical,libssl3,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: CMS AuthEnvelopedData Processing May Accept Forged Messages
+CVE-2026-75803,Critical,libssl3,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u1,fixed,grype+trivy,bump,openssl: openssl: AEAD forgeries possible with empty ciphertext in EVP_Cipher()
+CVE-2026-52490,Critical,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: libtiff: Arbitrary code execution via process_command_opts() function
+CVE-2024-56171,Critical,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u2,fixed,grype+trivy,bump,libxml2: Use-After-Free in libxml2
+CVE-2025-49794,Critical,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u3,fixed,grype+trivy,bump,libxml: Heap use after free (UAF) leads to Denial of service (DoS)
+CVE-2025-49796,Critical,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u3,fixed,grype+trivy,bump,libxml: Type confusion leads to Denial of service (DoS)
+CVE-2026-6653,Critical,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,libxml2: mingw-libxml2: libxml2: Denial of Service via crafted XML input due to use-after-free
+CVE-2026-15176,Critical,nginx,nginx,1.25.5-1~bookworm,,not-fixed,grype,backport,
+CVE-2026-93479,Critical,nginx,nginx,1.25.5-1~bookworm,,not-fixed,grype,backport,
+CVE-2026-97205,Critical,nginx,nginx,1.25.5-1~bookworm,,not-fixed,grype,backport,
+CVE-2024-5535,Critical,openssl,openssl,3.0.11-1~deb12u2,3.0.15-1~deb12u1,fixed,grype+trivy,bump,openssl: SSL_select_next_proto buffer overread
+CVE-2025-15467,Critical,openssl,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Remote code execution or Denial of Service via oversized Initialization Vector in CMS parsing
+CVE-2026-31789,Critical,openssl,openssl,3.0.11-1~deb12u2,3.0.19-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Heap buffer overflow on 32-bit systems from large X.509 certificate processing
+CVE-2026-34182,Critical,openssl,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: CMS AuthEnvelopedData Processing May Accept Forged Messages
+CVE-2026-75803,Critical,openssl,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u1,fixed,grype+trivy,bump,openssl: openssl: AEAD forgeries possible with empty ciphertext in EVP_Cipher()
+CVE-2026-12087,Critical,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,perl-Socket: perl-Socket: Information Disclosure due to Out-of-Bounds Read
+CVE-2026-13221,Critical,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,perl: Perl: Incorrect regular expression processing via large regular expressions
+CVE-2026-42496,Critical,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,perl-archive-tar: perl-archive-tar: Path traversal via crafted symlinks allows arbitrary file access
+CVE-2026-57433,Critical,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,Storable: Storable: Denial of Service via signed integer overflow in deserialization
+CVE-2026-8376,Critical,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,perl: Perl: Heap buffer overflow when compiling regular expressions on 32-bit builds
+CVE-2023-45853,Critical,zlib1g,zlib1g,1:1.2.13.dfsg-1,,will_not_fix,trivy,no fix available,zlib: integer overflow and resultant heap-based buffer overflow in zipOpenNewFileInZip4_6
+CVE-2026-109518,High,apt,apt,2.6.1,2.6.2,fixed,grype+trivy,bump,"On Debian, Ubuntu, and derivative Linux distributions, an on-path atta ..."
+CVE-2026-53613,High,bsdutils,util-linux,1:2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: TOCTOU in the mount program via ancestor directory swap on target path
+CVE-2026-53615,High,bsdutils,util-linux,1:2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Partition metadata compromise via integer overflow in DOS partition parser
+CVE-2026-78410,High,bsdutils,util-linux,1:2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,"util-linux: util-linux: restricted bind mounts do not pin the source, allowing X-mount.owner/group/mode redirection"
+CVE-2024-2398,High,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u6,fixed,grype+trivy,bump,curl: HTTP/2 push headers memory-leak
+CVE-2026-107928,High,curl,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: info leak uploading over WebSockets with GnuTLS
+CVE-2026-12064,High,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: SSH host verification bypass when using schemeless URLs with SFTP/SCP
+CVE-2026-13608,High,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: Authentication bypass in OpenLDAP SASL negotiation via Man-in-the-Middle (MITM) attack
+CVE-2026-5773,High,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: libcurl: Wrong file transfer due to incorrect SMB connection reuse
+CVE-2026-6276,High,curl,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: libcurl: Information disclosure due to cookie leak when reusing connections with custom Host headers
+CVE-2026-80230,High,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: Public key pinning bypass allows unauthenticated connections
+CVE-2026-82209,High,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: libcurl: Information disclosure via improper Public Suffix List boundary check
+CVE-2026-8286,High,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: Insecure connection establishment due to TLS configuration mismatch
+CVE-2026-8458,High,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: libcurl: Unauthorized connection reuse due to a logical error
+CVE-2026-86409,High,curl,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: stale SigV4 headers sent unintended
+CVE-2026-86410,High,curl,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: redirect to SFTP or SCP bypasses host verification
+CVE-2026-87864,High,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: IMAP APPEND plus CRLF conversion command injection
+CVE-2026-87865,High,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: knownhost callback mismatches key as missing
+CVE-2026-8932,High,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,libcurl: libcurl: Security feature bypass due to improper mTLS connection reuse
+CVE-2026-92389,High,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: TFTP direction confusion
+CVE-2026-92390,High,curl,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: -J no-clobber guarantee bypassed with 103 early hints
+CVE-2026-92391,High,curl,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: curl_mime_free stack overflow by recursion
+CVE-2026-94266,High,curl,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: password leak in CURLINFO_EFFECTIVE_URL
+CVE-2025-6297,High,dpkg,dpkg,1.21.22,1.21.23,fixed,grype+trivy,bump,It was discovered that dpkg-deb does not properly sanitize directory p ...
+CVE-2026-2219,High,dpkg,dpkg,1.21.22,1.21.23,fixed,grype+trivy,bump,"It was discovered that dpkg-deb (a component of dpkg, the Debian packa ..."
+CVE-2026-102010,High,gcc-12-base,gcc-12,12.2.0-14,,will_not_fix; wont-fix,grype+trivy,no fix available,gcc-toolset-15-gcc: gcc: gcc-toolset-16: gcc: Denial of Service via use-after-free in binary heap erase_if
+CVE-2026-95619,High,gcc-12-base,gcc-12,12.2.0-14,,fix_deferred; wont-fix,grype+trivy,no fix available,gcc: libstdc++ integer overflow in `new` operator
+CVE-2025-68973,High,gpgv,gnupg2,2.2.40-1.1,2.2.40-1.1+deb12u2,fixed,grype+trivy,bump,GnuPG: GnuPG: Information disclosure and potential arbitrary code execution via out-of-bounds write
+CVE-2026-41992,High,gzip,gzip,1.12-1,,fix_deferred; wont-fix,grype+trivy,no fix available,gzip: gzip: Information disclosure via global buffer overflow in LZH decompression
+CVE-2026-54369,High,libacl1,acl,2.3.1-3,,fix_deferred; wont-fix,grype+trivy,no fix available,acl: Symlink traversal privilege escalation via libacl functions
+CVE-2026-54370,High,libacl1,acl,2.3.1-3,,fix_deferred; wont-fix,grype+trivy,no fix available,acl: TOCTOU Symlink Traversal via getfacl/setfacl
+CVE-2023-39616,High,libaom3,aom,3.6.0-1,,will_not_fix; wont-fix,grype+trivy,no fix available,AOMedia v3.0.0 to v3.5.0 was discovered to contain an invalid read mem ...
+CVE-2026-56208,High,libaom3,aom,3.6.0-1,3.6.0-1+deb12u3,fixed,grype+trivy,bump,libaom: libaom: heap buffer overflow in AV1 encoder first-pass stats buffer via LAP mode
+CVE-2026-56209,High,libaom3,aom,3.6.0-1,3.6.0-1+deb12u3,fixed,grype+trivy,bump,libaom: libaom: arbitrary address write via SVC layer context OOB and cyclic refresh map pointer hijack
+CVE-2026-56210,High,libaom3,aom,3.6.0-1,3.6.0-1+deb12u3,fixed,grype+trivy,bump,libaom: libaom: heap-buffer-overflow read via missing bounds check in ctrl_set_layer_id
+CVE-2026-56211,High,libaom3,aom,3.6.0-1,3.6.0-1+deb12u3,fixed,grype+trivy,bump,libaom: libaom: remote code execution via SVC layer context handling with attacker-controlled frames
+CVE-2026-109518,High,libapt-pkg6.0,apt,2.6.1,2.6.2,fixed,grype+trivy,bump,"On Debian, Ubuntu, and derivative Linux distributions, an on-path atta ..."
+CVE-2026-53613,High,libblkid1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: TOCTOU in the mount program via ancestor directory swap on target path
+CVE-2026-53615,High,libblkid1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Partition metadata compromise via integer overflow in DOS partition parser
+CVE-2026-78410,High,libblkid1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,"util-linux: util-linux: restricted bind mounts do not pin the source, allowing X-mount.owner/group/mode redirection"
+CVE-2025-15281,High,libc-bin,glibc,2.36-9+deb12u7,2.36-9+deb12u14,fixed,grype+trivy,bump,glibc: wordexp with WRDE_REUSE and WRDE_APPEND may return uninitialized memory
+CVE-2025-4802,High,libc-bin,glibc,2.36-9+deb12u7,2.36-9+deb12u11,fixed,grype+trivy,bump,glibc: static setuid binary dlopen may incorrectly search LD_LIBRARY_PATH
+CVE-2026-0861,High,libc-bin,glibc,2.36-9+deb12u7,2.36-9+deb12u14,fixed,grype+trivy,bump,glibc: Integer overflow in memalign leads to heap corruption
+CVE-2026-0915,High,libc-bin,glibc,2.36-9+deb12u7,2.36-9+deb12u14,fixed,grype+trivy,bump,glibc: glibc: Information disclosure via zero-valued network query
+CVE-2026-19499,High,libc-bin,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: Buffer Overflow in strfmon right-justification padding
+CVE-2026-4046,High,libc-bin,glibc,2.36-9+deb12u7,2.36-9+deb12u14,fixed,grype+trivy,bump,glibc: glibc: Denial of Service via iconv() function with specific character sets
+CVE-2026-4437,High,libc-bin,glibc,2.36-9+deb12u7,2.36-9+deb12u14,fixed,grype+trivy,bump,glibc: glibc: Incorrect DNS response parsing via crafted DNS server response
+CVE-2026-5435,High,libc-bin,glibc,2.36-9+deb12u7,,affected; wont-fix,grype+trivy,no fix available,glibc: glibc: Out-of-bounds write via TSIG record processing
+CVE-2026-5928,High,libc-bin,glibc,2.36-9+deb12u7,,affected; wont-fix,grype+trivy,no fix available,glibc: glibc: Information disclosure or denial of service via ungetwc function with specific wide character encodings
+CVE-2026-84243,High,libc-bin,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: glibc: Arbitrary code execution via directory traversal in LANGUAGE environment variable
+CVE-2025-15281,High,libc6,glibc,2.36-9+deb12u7,2.36-9+deb12u14,fixed,grype+trivy,bump,glibc: wordexp with WRDE_REUSE and WRDE_APPEND may return uninitialized memory
+CVE-2025-4802,High,libc6,glibc,2.36-9+deb12u7,2.36-9+deb12u11,fixed,grype+trivy,bump,glibc: static setuid binary dlopen may incorrectly search LD_LIBRARY_PATH
+CVE-2026-0861,High,libc6,glibc,2.36-9+deb12u7,2.36-9+deb12u14,fixed,grype+trivy,bump,glibc: Integer overflow in memalign leads to heap corruption
+CVE-2026-0915,High,libc6,glibc,2.36-9+deb12u7,2.36-9+deb12u14,fixed,grype+trivy,bump,glibc: glibc: Information disclosure via zero-valued network query
+CVE-2026-19499,High,libc6,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: Buffer Overflow in strfmon right-justification padding
+CVE-2026-4046,High,libc6,glibc,2.36-9+deb12u7,2.36-9+deb12u14,fixed,grype+trivy,bump,glibc: glibc: Denial of Service via iconv() function with specific character sets
+CVE-2026-4437,High,libc6,glibc,2.36-9+deb12u7,2.36-9+deb12u14,fixed,grype+trivy,bump,glibc: glibc: Incorrect DNS response parsing via crafted DNS server response
+CVE-2026-5435,High,libc6,glibc,2.36-9+deb12u7,,affected; wont-fix,grype+trivy,no fix available,glibc: glibc: Out-of-bounds write via TSIG record processing
+CVE-2026-5928,High,libc6,glibc,2.36-9+deb12u7,,affected; wont-fix,grype+trivy,no fix available,glibc: glibc: Information disclosure or denial of service via ungetwc function with specific wide character encodings
+CVE-2026-84243,High,libc6,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: glibc: Arbitrary code execution via directory traversal in LANGUAGE environment variable
+CVE-2026-4878,High,libcap2,libcap2,1:2.66-4,1:2.66-4+deb12u3,fixed,grype+trivy,bump,libcap: libcap: Privilege escalation via TOCTOU race condition in cap_set_file()
+CVE-2024-2398,High,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u6,fixed,grype+trivy,bump,curl: HTTP/2 push headers memory-leak
+CVE-2026-107928,High,libcurl4,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: info leak uploading over WebSockets with GnuTLS
+CVE-2026-12064,High,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: SSH host verification bypass when using schemeless URLs with SFTP/SCP
+CVE-2026-13608,High,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: Authentication bypass in OpenLDAP SASL negotiation via Man-in-the-Middle (MITM) attack
+CVE-2026-5773,High,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: libcurl: Wrong file transfer due to incorrect SMB connection reuse
+CVE-2026-6276,High,libcurl4,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: libcurl: Information disclosure due to cookie leak when reusing connections with custom Host headers
+CVE-2026-80230,High,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: Public key pinning bypass allows unauthenticated connections
+CVE-2026-82209,High,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: libcurl: Information disclosure via improper Public Suffix List boundary check
+CVE-2026-8286,High,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: Insecure connection establishment due to TLS configuration mismatch
+CVE-2026-8458,High,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: libcurl: Unauthorized connection reuse due to a logical error
+CVE-2026-86409,High,libcurl4,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: stale SigV4 headers sent unintended
+CVE-2026-86410,High,libcurl4,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: redirect to SFTP or SCP bypasses host verification
+CVE-2026-87864,High,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: IMAP APPEND plus CRLF conversion command injection
+CVE-2026-87865,High,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: knownhost callback mismatches key as missing
+CVE-2026-8932,High,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,libcurl: libcurl: Security feature bypass due to improper mTLS connection reuse
+CVE-2026-92389,High,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: TFTP direction confusion
+CVE-2026-92390,High,libcurl4,curl,7.88.1-10+deb12u5,,fix_deferred; wont-fix,grype+trivy,no fix available,curl: curl: -J no-clobber guarantee bypassed with 103 early hints
+CVE-2026-92391,High,libcurl4,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: curl_mime_free stack overflow by recursion
+CVE-2026-94266,High,libcurl4,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: password leak in CURLINFO_EFFECTIVE_URL
+CVE-2026-33164,High,libde265-0,libde265,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,grype+trivy,bump,libde265 is an open source implementation of the h.265 video codec. Pr ...
+CVE-2026-49295,High,libde265-0,libde265,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,grype+trivy,bump,libde265 is an open source implementation of the h.265 video codec. Pr ...
+CVE-2026-49346,High,libde265-0,libde265,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,grype+trivy,bump,libde265 is an open source implementation of the h.265 video codec. Pr ...
+CVE-2026-54240,High,libde265-0,libde265,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,grype+trivy,bump,libde265 is an open source implementation of the h.265 video codec. Ve ...
+CVE-2026-54241,High,libde265-0,libde265,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,grype+trivy,bump,libde265 is an open source implementation of the h.265 video codec. Ve ...
+CVE-2026-88373,High,libde265-0,libde265,1.0.11-1+deb12u2,,fix_deferred; wont-fix,grype+trivy,no fix available,libde265 commit 4d45a6b contains a NULL pointer dereference vulnerabil ...
+CVE-2023-52425,High,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u2,fixed,grype+trivy,bump,expat: parsing large tokens can trigger a denial of service
+CVE-2024-28757,High,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u4,fixed,grype+trivy,bump,expat: XML Entity Expansion
+CVE-2024-45490,High,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u1,fixed,grype+trivy,bump,libexpat: Negative Length Parsing Vulnerability in libexpat
+CVE-2024-8176,High,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u2,fixed,grype+trivy,bump,libexpat: expat: Improper Restriction of XML Entity Expansion Depth in libexpat
+CVE-2025-59375,High,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u5,fixed,grype+trivy,bump,firefox: thunderbird: expat: libexpat in Expat allows attackers to trigger large dynamic memory allocations via a small document that is submitted for parsing
+CVE-2026-113351,High,libexpat1,expat,2.5.0-1,,fix_deferred; wont-fix,grype+trivy,no fix available,expat: expat: Denial of Service via improper memory tracking in XML_ParserReset
+CVE-2026-115506,High,libexpat1,expat,2.5.0-1,,affected; not-fixed,grype+trivy,no fix available,expat: expat: Denial of Service via delayed entity amplification detection
+CVE-2026-117610,High,libexpat1,expat,2.5.0-1,,affected; not-fixed,grype+trivy,no fix available,expat: expat: Denial of Service via NULL pointer dereference in external entity parsing
+CVE-2026-118370,High,libexpat1,expat,2.5.0-1,,affected; not-fixed,grype+trivy,no fix available,expat: expat: Denial of Service via integer overflow during XML attribute parsing
+CVE-2026-25210,High,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u4,fixed,grype+trivy,bump,libexpat: libexpat: Information disclosure and data integrity issues due to integer overflow in buffer reallocation
+CVE-2026-41080,High,libexpat1,expat,2.5.0-1,,affected; wont-fix,grype+trivy,no fix available,libexpat: expat: libexpat: Denial of Service via hash flooding with crafted XML
+CVE-2026-45186,High,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u4,fixed,grype+trivy,bump,libexpat: denial of service via crafted XML input
+CVE-2026-66046,High,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u4,fixed,grype+trivy,bump,expat: Expat: Denial of Service via quadratic complexity in attribute processing
+CVE-2026-76957,High,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,libexpat: libexpat: Memory corruption vulnerability allows arbitrary code execution or denial of service
+CVE-2026-77214,High,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u5,fixed,grype+trivy,bump,expat: expat: Information disclosure via heap buffer over-read in XML_ParseBuffer
+CVE-2026-93990,High,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u4,fixed,grype+trivy,bump,expat: Expat: XML Injection via Malformed UTF-16 Input
+CVE-2025-27363,High,libfreetype6,freetype,2.12.1+dfsg-5,2.12.1+dfsg-5+deb12u4,fixed,grype+trivy,bump,freetype: OOB write when attempting to parse font subglyph structures related to TrueType GX and variable font files
+CVE-2026-102010,High,libgcc-s1,gcc-12,12.2.0-14,,will_not_fix; wont-fix,grype+trivy,no fix available,gcc-toolset-15-gcc: gcc: gcc-toolset-16: gcc: Denial of Service via use-after-free in binary heap erase_if
+CVE-2026-95619,High,libgcc-s1,gcc-12,12.2.0-14,,fix_deferred; wont-fix,grype+trivy,no fix available,gcc: libstdc++ integer overflow in `new` operator
+CVE-2026-9672,High,libgd3,libgd2,2.3.3-9,2.3.3-9+deb12u1,fixed,grype+trivy,bump,libgd: buffer overflow when processing specially crafted GIF file
+CVE-2025-32988,High,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u5,fixed,grype+trivy,bump,gnutls: Vulnerability in GnuTLS otherName SAN export
+CVE-2025-32990,High,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u5,fixed,grype+trivy,bump,gnutls: Vulnerability in GnuTLS certtool template parsing
+CVE-2026-33846,High,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u7,fixed,grype+trivy,bump,gnutls: GnuTLS: Denial of Service via heap buffer overflow in DTLS handshake fragment reassembly
+CVE-2026-3833,High,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u7,fixed,grype+trivy,bump,gnutls: GnuTLS: Policy bypass due to case-sensitive nameConstraints comparison
+CVE-2026-42009,High,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u7,fixed,grype+trivy,bump,gnutls: gnutls: Denial of Service via DTLS packet reordering vulnerability
+CVE-2026-42011,High,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u7,fixed,grype+trivy,bump,gnutls: gnutls: Security bypass due to incorrect name constraint handling
+CVE-2026-42012,High,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u7,fixed,grype+trivy,bump,gnutls: gnutls: Certificate validation bypass due to improper handling of URI and SRV SANs
+CVE-2026-42013,High,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u7,fixed,grype+trivy,bump,gnutls: gnutls: Certificate validation bypass due to oversized Subject Alternative Name
+CVE-2026-5260,High,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u7,fixed,grype+trivy,bump,gnutls: gnutls: Information disclosure via heap overread in RSA key exchange
+CVE-2024-37370,High,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u2,fixed,grype+trivy,bump,krb5: GSS message token handling
+CVE-2025-24528,High,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u3,fixed,grype+trivy,bump,krb5: overflow when calculating ulog block size
+CVE-2026-107778,High,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,krb5: krb5: Denial of Service via crafted forwarded credentials
+CVE-2026-40355,High,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u5,fixed,grype+trivy,bump,krb5: MIT Kerberos 5: Denial of Service via NULL pointer dereference in NegoEx mechanism
+CVE-2026-40356,High,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u5,fixed,grype+trivy,bump,krb5: MIT Kerberos 5 (krb5): Denial of Service via integer underflow and out-of-bounds read
+CVE-2023-49462,High,libheif1,libheif,1.15.1-1,1.15.1-1+deb12u1,fixed,grype+trivy,bump,libheif v1.17.5 was discovered to contain a segmentation violation via ...
+CVE-2024-41311,High,libheif1,libheif,1.15.1-1,1.15.1-1+deb12u1,fixed,grype+trivy,bump,"In Libheif 1.17.6, insufficient checks in ImageOverlay::parse() decodi ..."
+CVE-2025-68431,High,libheif1,libheif,1.15.1-1,,affected; wont-fix,grype+trivy,no fix available,libheif is an HEIF and AVIF file format decoder and encoder. Prior to  ...
+CVE-2026-120208,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Arbitrary code execution via heap-based buffer overflow
+CVE-2026-32740,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Arbitrary code execution or denial of service via crafted HEIF/AVIF file
+CVE-2026-32741,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Heap buffer overflow vulnerability in image decoding
+CVE-2026-32882,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Denial of Service and Information Disclosure vulnerability
+CVE-2026-41071,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif is a HEIF and AVIF file format decoder and encoder. In version ...
+CVE-2026-47178,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif is a HEIF and AVIF file format decoder and encoder. In version ...
+CVE-2026-47247,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif is a HEIF and AVIF file format decoder and encoder. Prior to v ...
+CVE-2026-48029,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif is a HEIF and AVIF file format decoder and encoder. Versions 1 ...
+CVE-2026-50142,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Denial of Service via unbounded heap allocation in HEIF sequence parser
+CVE-2026-62289,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Denial of Service or data corruption via crafted HEIF/AVIF file
+CVE-2026-62292,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Denial of service via crafted HEIF image processing
+CVE-2026-84384,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Denial of Service due to unbounded memory consumption via crafted HEIF/AVIF files
+CVE-2026-84444,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Out-of-bounds write allows arbitrary code execution via crafted image tile
+CVE-2026-84446,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Denial of Service via crafted HEIF sequence timing data
+CVE-2026-84447,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Denial of Service via crafted HEIF/AVIF image files
+CVE-2026-84450,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif is a HEIF and AVIF file format decoder and encoder. From 1.19. ...
+CVE-2026-84451,High,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif is a HEIF and AVIF file format decoder and encoder. From 1.19. ...
+CVE-2025-5222,High,libicu72,icu,72.1-3,72.1-3+deb12u1,fixed,grype+trivy,bump,icu: Stack buffer overflow in the SRBRoot::addTag function
+CVE-2024-37370,High,libk5crypto3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u2,fixed,grype+trivy,bump,krb5: GSS message token handling
+CVE-2025-24528,High,libk5crypto3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u3,fixed,grype+trivy,bump,krb5: overflow when calculating ulog block size
+CVE-2026-107778,High,libk5crypto3,krb5,1.20.1-2+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,krb5: krb5: Denial of Service via crafted forwarded credentials
+CVE-2026-40355,High,libk5crypto3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u5,fixed,grype+trivy,bump,krb5: MIT Kerberos 5: Denial of Service via NULL pointer dereference in NegoEx mechanism
+CVE-2026-40356,High,libk5crypto3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u5,fixed,grype+trivy,bump,krb5: MIT Kerberos 5 (krb5): Denial of Service via integer underflow and out-of-bounds read
+CVE-2024-37370,High,libkrb5-3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u2,fixed,grype+trivy,bump,krb5: GSS message token handling
+CVE-2025-24528,High,libkrb5-3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u3,fixed,grype+trivy,bump,krb5: overflow when calculating ulog block size
+CVE-2026-107778,High,libkrb5-3,krb5,1.20.1-2+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,krb5: krb5: Denial of Service via crafted forwarded credentials
+CVE-2026-40355,High,libkrb5-3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u5,fixed,grype+trivy,bump,krb5: MIT Kerberos 5: Denial of Service via NULL pointer dereference in NegoEx mechanism
+CVE-2026-40356,High,libkrb5-3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u5,fixed,grype+trivy,bump,krb5: MIT Kerberos 5 (krb5): Denial of Service via integer underflow and out-of-bounds read
+CVE-2024-37370,High,libkrb5support0,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u2,fixed,grype+trivy,bump,krb5: GSS message token handling
+CVE-2025-24528,High,libkrb5support0,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u3,fixed,grype+trivy,bump,krb5: overflow when calculating ulog block size
+CVE-2026-107778,High,libkrb5support0,krb5,1.20.1-2+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,krb5: krb5: Denial of Service via crafted forwarded credentials
+CVE-2026-40355,High,libkrb5support0,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u5,fixed,grype+trivy,bump,krb5: MIT Kerberos 5: Denial of Service via NULL pointer dereference in NegoEx mechanism
+CVE-2026-40356,High,libkrb5support0,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u5,fixed,grype+trivy,bump,krb5: MIT Kerberos 5 (krb5): Denial of Service via integer underflow and out-of-bounds read
+CVE-2023-2953,High,libldap-2.5-0,openldap,2.5.13+dfsg-5,,affected; wont-fix,grype+trivy,no fix available,openldap: null pointer dereference in  ber_memalloc_x  function
+CVE-2025-31115,High,liblzma5,xz-utils,5.4.1-0.2,5.4.1-1,fixed,grype+trivy,bump,xz: XZ has a heap-use-after-free bug in threaded .xz decoder
+CVE-2026-53613,High,libmount1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: TOCTOU in the mount program via ancestor directory swap on target path
+CVE-2026-53615,High,libmount1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Partition metadata compromise via integer overflow in DOS partition parser
+CVE-2026-78410,High,libmount1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,"util-linux: util-linux: restricted bind mounts do not pin the source, allowing X-mount.owner/group/mode redirection"
+CVE-2026-27135,High,libnghttp2-14,nghttp2,1.52.0-1+deb12u1,1.52.0-1+deb12u3,fixed,grype+trivy,bump,nghttp2: nghttp2: Denial of Service via malformed HTTP/2 frames after session termination
+CVE-2025-6020,High,libpam-modules,pam,1.5.2-6+deb12u1,1.5.2-6+deb12u2,fixed,grype+trivy,bump,linux-pam: Linux-pam directory Traversal
+CVE-2025-6020,High,libpam-modules-bin,pam,1.5.2-6+deb12u1,1.5.2-6+deb12u2,fixed,grype+trivy,bump,linux-pam: Linux-pam directory Traversal
+CVE-2025-6020,High,libpam-runtime,pam,1.5.2-6+deb12u1,1.5.2-6+deb12u2,fixed,grype+trivy,bump,linux-pam: Linux-pam directory Traversal
+CVE-2025-6020,High,libpam0g,pam,1.5.2-6+deb12u1,1.5.2-6+deb12u2,fixed,grype+trivy,bump,linux-pam: Linux-pam directory Traversal
+CVE-2026-103111,High,libpcre2-8-0,pcre2,10.42-1,10.42-1+deb12u2,fixed,grype+trivy,bump,pcre2: pcre2: Out-of-bounds write via crafted regular expression
+CVE-2026-86145,High,libpcre2-8-0,pcre2,10.42-1,10.42-1+deb12u1,fixed,grype+trivy,bump,pcre2: PCRE2: Out-of-bounds write allows arbitrary code execution via crafted regular expressions
+CVE-2026-89157,High,libpcre2-8-0,pcre2,10.42-1,10.42-1+deb12u1,fixed,grype+trivy,bump,pcre2: PCRE2: Out-of-bounds write via large pattern input
+CVE-2026-89161,High,libpcre2-8-0,pcre2,10.42-1,10.42-1+deb12u1,fixed,grype+trivy,bump,pcre2: PCRE2: Memory corruption vulnerability in pcre2_jit_match
+CVE-2025-64720,High,libpng16-16,libpng1.6,1.6.39-2,1.6.39-2+deb12u1,fixed,grype+trivy,bump,libpng: LIBPNG buffer overflow
+CVE-2025-65018,High,libpng16-16,libpng1.6,1.6.39-2,1.6.39-2+deb12u1,fixed,grype+trivy,bump,libpng: LIBPNG heap buffer overflow
+CVE-2025-66293,High,libpng16-16,libpng1.6,1.6.39-2,1.6.39-2+deb12u1,fixed,grype+trivy,bump,libpng: LIBPNG out-of-bounds read in png_image_read_composite
+CVE-2026-22695,High,libpng16-16,libpng1.6,1.6.39-2,1.6.39-2+deb12u2,fixed,grype+trivy,bump,libpng: libpng: Denial of service and information disclosure via heap buffer over-read in png_image_finish_read
+CVE-2026-22801,High,libpng16-16,libpng1.6,1.6.39-2,1.6.39-2+deb12u2,fixed,grype+trivy,bump,libpng: libpng: Information disclosure and denial of service via integer truncation in simplified write API
+CVE-2026-25646,High,libpng16-16,libpng1.6,1.6.39-2,1.6.39-2+deb12u3,fixed,grype+trivy,bump,libpng: LIBPNG has a heap buffer overflow in png_set_quantize
+CVE-2026-33416,High,libpng16-16,libpng1.6,1.6.39-2,1.6.39-2+deb12u4,fixed,grype+trivy,bump,libpng: libpng: Arbitrary code execution due to use-after-free vulnerability
+CVE-2026-33636,High,libpng16-16,libpng1.6,1.6.39-2,1.6.39-2+deb12u4,fixed,grype+trivy,bump,libpng: libpng: Information disclosure and denial of service via out-of-bounds read/write in Neon palette expansion
+CVE-2026-107161,High,libsasl2-2,cyrus-sasl2,2.1.28+dfsg-10,2.1.28+dfsg-10+deb12u1,fixed,grype+trivy,bump,cyrus-sasl: Heap buffer overflow in cyrus-sasl add_to_challenge() allows malicious server to crash or compromise DIGEST-MD5 clients
+CVE-2026-107161,High,libsasl2-modules-db,cyrus-sasl2,2.1.28+dfsg-10,2.1.28+dfsg-10+deb12u1,fixed,grype+trivy,bump,cyrus-sasl: Heap buffer overflow in cyrus-sasl add_to_challenge() allows malicious server to crash or compromise DIGEST-MD5 clients
+CVE-2026-53613,High,libsmartcols1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: TOCTOU in the mount program via ancestor directory swap on target path
+CVE-2026-53615,High,libsmartcols1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Partition metadata compromise via integer overflow in DOS partition parser
+CVE-2026-78410,High,libsmartcols1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,"util-linux: util-linux: restricted bind mounts do not pin the source, allowing X-mount.owner/group/mode redirection"
+CVE-2026-58050,High,libssh2-1,libssh2,1.10.0-3+b1,1.10.0-3+deb12u1,fixed,grype+trivy,bump,libssh2: libssh2: Heap buffer overflow via integer overflow in publickey attribute allocation
+CVE-2026-58051,High,libssh2-1,libssh2,1.10.0-3+b1,1.10.0-3+deb12u1,fixed,grype+trivy,bump,libssh2: libssh2: Denial of service or information disclosure via malformed SSH publickey response
+CVE-2026-66032,High,libssh2-1,libssh2,1.10.0-3+b1,1.10.0-3+deb12u1,fixed,grype+trivy,bump,libssh2: libssh2: Arbitrary code execution via double-free in SFTP session
+CVE-2026-66034,High,libssh2-1,libssh2,1.10.0-3+b1,1.10.0-3+deb12u1,fixed,grype+trivy,bump,libssh2: libssh2: Information disclosure and potential arbitrary code execution via heap out-of-bounds read
+CVE-2024-4741,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.14-1~deb12u1,fixed,grype+trivy,bump,openssl: Use After Free with SSL_free_buffers
+CVE-2024-6119,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.14-1~deb12u2,fixed,grype+trivy,bump,openssl: Possible denial of service in X.509 name checks
+CVE-2025-69419,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Arbitrary code execution due to out-of-bounds write in PKCS#12 processing
+CVE-2025-69420,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service via malformed TimeStamp Response
+CVE-2025-69421,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service via malformed PKCS#12 file processing
+CVE-2025-9230,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.17-1~deb12u3,fixed,grype+trivy,bump,openssl: Out-of-bounds read & write in RFC 3211 KEK Unwrap
+CVE-2026-28387,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.19-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Arbitrary code execution due to use-after-free in DANE TLSA authentication
+CVE-2026-28388,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.19-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service due to NULL pointer dereference in delta CRL processing
+CVE-2026-28389,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.19-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service vulnerability in CMS processing
+CVE-2026-28390,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.19-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service due to NULL pointer dereference in CMS EnvelopedData processing
+CVE-2026-31790,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.19-1~deb12u2,fixed,grype+trivy,bump,openssl: openssl: Information Disclosure from Uninitialized Memory via Invalid RSA Public Key
+CVE-2026-34180,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Heap buffer over-read in ASN.1 decoding can lead to denial of service or information disclosure.
+CVE-2026-45445,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: AES-OCB IV Ignored on EVP_Cipher() Path
+CVE-2026-45447,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: Heap Use-After-Free in OpenSSL PKCS7_verify()
+CVE-2026-54874,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u1,fixed,grype+trivy,bump,openssl: excessive memory use buffering DTLS records for a future epoch
+CVE-2026-63072,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u1,fixed,grype+trivy,bump,openssl: heap buffer overflow in CMS key unwrapping
+CVE-2026-63076,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u1,fixed,grype+trivy,bump,openssl: invalid pointer dereference in CMP server via crafted protectionAlg
+CVE-2026-7383,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Heap buffer overflow due to signed integer overflow in Unicode output sizing
+CVE-2026-84782,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u2,fixed,grype+trivy,bump,openssl: compat-openssl: openssl: Information disclosure via DTLS handshake retransmission
+CVE-2026-9076,High,libssl3,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service due to heap out-of-bounds read in CMS password-based decryption
+CVE-2026-102010,High,libstdc++6,gcc-12,12.2.0-14,,will_not_fix; wont-fix,grype+trivy,no fix available,gcc-toolset-15-gcc: gcc: gcc-toolset-16: gcc: Denial of Service via use-after-free in binary heap erase_if
+CVE-2026-95619,High,libstdc++6,gcc-12,12.2.0-14,,fix_deferred; wont-fix,grype+trivy,no fix available,gcc: libstdc++ integer overflow in `new` operator
+CVE-2023-50387,High,libsystemd0,systemd,252.22-1~deb12u1,252.23-1~deb12u1,fixed,grype+trivy,bump,bind9: KeyTrap - Extreme CPU consumption in DNSSEC validator
+CVE-2023-50868,High,libsystemd0,systemd,252.22-1~deb12u1,252.23-1~deb12u1,fixed,grype+trivy,bump,bind9: Preparing an NSEC3 closest encloser proof can exhaust CPU resources
+CVE-2026-16742,High,libsystemd0,systemd,252.22-1~deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,systemd: systemd-homed: Local privilege escalation via missing home-record signature verification
+CVE-2025-13151,High,libtasn1-6,libtasn1-6,4.19.0-2,,affected; wont-fix,grype+trivy,no fix available,libtasn1: libtasn1: Denial of Service via stack-based buffer overflow in asn1_expend_octet_string
+CVE-2023-52355,High,libtiff6,tiff,4.5.0-6+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,libtiff: TIFFRasterScanlineSize64 produce too-big size and could cause OOM
+CVE-2023-52356,High,libtiff6,tiff,4.5.0-6+deb12u1,4.5.0-6+deb12u2,fixed,grype+trivy,bump,libtiff: Segment fault in libtiff  in TIFFReadRGBATileExt() leading to denial of service
+CVE-2024-7006,High,libtiff6,tiff,4.5.0-6+deb12u1,4.5.0-6+deb12u2,fixed,grype+trivy,bump,libtiff: NULL pointer dereference in tif_dirinfo.c
+CVE-2025-9900,High,libtiff6,tiff,4.5.0-6+deb12u1,4.5.0-6+deb12u3,fixed,grype+trivy,bump,libtiff: Libtiff Write-What-Where
+CVE-2026-12912,High,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: libtiff: Heap-based buffer overflow via crafted PixarLog-compressed TIFF image
+CVE-2026-36849,High,libtiff6,tiff,4.5.0-6+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,[Denial of Service via large SamplesPerPixel tag]
+CVE-2026-4775,High,libtiff6,tiff,4.5.0-6+deb12u1,4.5.0-6+deb12u4,fixed,grype+trivy,bump,libtiff: libtiff: Arbitrary code execution or denial of service via signed integer overflow in TIFF file processing
+CVE-2025-69720,High,libtinfo6,ncurses,6.4-4,,affected; wont-fix,grype+trivy,no fix available,ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.
+CVE-2023-50387,High,libudev1,systemd,252.22-1~deb12u1,252.23-1~deb12u1,fixed,grype+trivy,bump,bind9: KeyTrap - Extreme CPU consumption in DNSSEC validator
+CVE-2023-50868,High,libudev1,systemd,252.22-1~deb12u1,252.23-1~deb12u1,fixed,grype+trivy,bump,bind9: Preparing an NSEC3 closest encloser proof can exhaust CPU resources
+CVE-2026-16742,High,libudev1,systemd,252.22-1~deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,systemd: systemd-homed: Local privilege escalation via missing home-record signature verification
+CVE-2026-53613,High,libuuid1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: TOCTOU in the mount program via ancestor directory swap on target path
+CVE-2026-53615,High,libuuid1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Partition metadata compromise via integer overflow in DOS partition parser
+CVE-2026-78410,High,libuuid1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,"util-linux: util-linux: restricted bind mounts do not pin the source, allowing X-mount.owner/group/mode redirection"
+CVE-2026-88806,High,libx11-6,libx11,2:1.8.4-2+deb12u2,,fix_deferred; wont-fix,grype+trivy,no fix available,libX11: libX11: Heap-based buffer overflow via malicious X server
+CVE-2026-88806,High,libx11-data,libx11,2:1.8.4-2+deb12u2,,fix_deferred; wont-fix,grype+trivy,no fix available,libX11: libX11: Heap-based buffer overflow via malicious X server
+CVE-2022-49043,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u2,fixed,grype+trivy,bump,libxml: use-after-free in xmlXIncludeAddNode
+CVE-2024-25062,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u2,fixed,grype+trivy,bump,libxml2: use-after-free in XMLReader
+CVE-2024-34459,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u2,fixed,grype+trivy,bump,libxml2: buffer over-read in xmlHTMLPrintFileContext in xmllint.c
+CVE-2025-24928,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u2,fixed,grype+trivy,bump,libxml2: Stack-based buffer overflow in xmlSnprintfElements of libxml2
+CVE-2025-27113,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u2,fixed,grype+trivy,bump,libxml2: NULL Pointer Dereference in libxml2 xmlPatMatch
+CVE-2025-32414,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u2,fixed,grype+trivy,bump,libxml2: Out-of-Bounds Read in libxml2
+CVE-2025-32415,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u2,fixed,grype+trivy,bump,libxml2: Out-of-bounds Read in xmlSchemaIDCFillNodeTables
+CVE-2025-6021,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u3,fixed,grype+trivy,bump,libxml2: Integer Overflow in xmlBuildQName() Leads to Stack Buffer Overflow in libxml2
+CVE-2026-74860,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,libxml2: double-free/UAF in libxml2 Python bindings
+CVE-2026-86138,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,libxml2: libxml2: Arbitrary code execution via heap-based buffer overflow
+CVE-2026-86140,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,libxml2: libxml2: Arbitrary code execution via stack-based buffer overflow in xmlSnprintfElements
+CVE-2026-86142,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,libxml2: libxml2: Heap-based buffer overflow in xmlXPtrEval due to xpointer length saturation
+CVE-2026-86143,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,libxml2: libxml2: Data integrity issues due to integer overflow in write callbacks
+CVE-2026-86144,High,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,"libxml2: libxml2: Information disclosure, SSRF, or denial of service due to improper parseFlags propagation."
+CVE-2024-55549,High,libxslt1.1,libxslt,1.1.35-1,1.1.35-1+deb12u1,fixed,grype+trivy,bump,libxslt: Use-After-Free in libxslt (xsltGetInheritedNsList)
+CVE-2025-24855,High,libxslt1.1,libxslt,1.1.35-1,1.1.35-1+deb12u1,fixed,grype+trivy,bump,libxslt: Use-After-Free in libxslt numbers.c
+CVE-2025-7424,High,libxslt1.1,libxslt,1.1.35-1,1.1.35-1+deb12u2,fixed,grype+trivy,bump,libxslt: Type confusion in xmlNode.psvi between stylesheet and source nodes
+CVE-2026-53613,High,mount,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: TOCTOU in the mount program via ancestor directory swap on target path
+CVE-2026-53615,High,mount,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Partition metadata compromise via integer overflow in DOS partition parser
+CVE-2026-78410,High,mount,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,"util-linux: util-linux: restricted bind mounts do not pin the source, allowing X-mount.owner/group/mode redirection"
+CVE-2025-69720,High,ncurses-base,ncurses,6.4-4,,affected; wont-fix,grype+trivy,no fix available,ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.
+CVE-2025-69720,High,ncurses-bin,ncurses,6.4-4,,affected; wont-fix,grype+trivy,no fix available,ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.
+CVE-2023-44487,High,nginx,nginx,1.25.5-1~bookworm,,not-fixed,grype,backport,
+CVE-2026-97629,High,nginx,nginx,1.25.5-1~bookworm,,not-fixed,grype,backport,
+CVE-2024-4741,High,openssl,openssl,3.0.11-1~deb12u2,3.0.14-1~deb12u1,fixed,grype+trivy,bump,openssl: Use After Free with SSL_free_buffers
+CVE-2024-6119,High,openssl,openssl,3.0.11-1~deb12u2,3.0.14-1~deb12u2,fixed,grype+trivy,bump,openssl: Possible denial of service in X.509 name checks
+CVE-2025-69419,High,openssl,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Arbitrary code execution due to out-of-bounds write in PKCS#12 processing
+CVE-2025-69420,High,openssl,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service via malformed TimeStamp Response
+CVE-2025-69421,High,openssl,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service via malformed PKCS#12 file processing
+CVE-2025-9230,High,openssl,openssl,3.0.11-1~deb12u2,3.0.17-1~deb12u3,fixed,grype+trivy,bump,openssl: Out-of-bounds read & write in RFC 3211 KEK Unwrap
+CVE-2026-28387,High,openssl,openssl,3.0.11-1~deb12u2,3.0.19-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Arbitrary code execution due to use-after-free in DANE TLSA authentication
+CVE-2026-28388,High,openssl,openssl,3.0.11-1~deb12u2,3.0.19-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service due to NULL pointer dereference in delta CRL processing
+CVE-2026-28389,High,openssl,openssl,3.0.11-1~deb12u2,3.0.19-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service vulnerability in CMS processing
+CVE-2026-28390,High,openssl,openssl,3.0.11-1~deb12u2,3.0.19-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service due to NULL pointer dereference in CMS EnvelopedData processing
+CVE-2026-31790,High,openssl,openssl,3.0.11-1~deb12u2,3.0.19-1~deb12u2,fixed,grype+trivy,bump,openssl: openssl: Information Disclosure from Uninitialized Memory via Invalid RSA Public Key
+CVE-2026-34180,High,openssl,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Heap buffer over-read in ASN.1 decoding can lead to denial of service or information disclosure.
+CVE-2026-45445,High,openssl,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: AES-OCB IV Ignored on EVP_Cipher() Path
+CVE-2026-45447,High,openssl,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: Heap Use-After-Free in OpenSSL PKCS7_verify()
+CVE-2026-54874,High,openssl,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u1,fixed,grype+trivy,bump,openssl: excessive memory use buffering DTLS records for a future epoch
+CVE-2026-63072,High,openssl,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u1,fixed,grype+trivy,bump,openssl: heap buffer overflow in CMS key unwrapping
+CVE-2026-63076,High,openssl,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u1,fixed,grype+trivy,bump,openssl: invalid pointer dereference in CMP server via crafted protectionAlg
+CVE-2026-7383,High,openssl,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Heap buffer overflow due to signed integer overflow in Unicode output sizing
+CVE-2026-84782,High,openssl,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u2,fixed,grype+trivy,bump,openssl: compat-openssl: openssl: Information disclosure via DTLS handshake retransmission
+CVE-2026-9076,High,openssl,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service due to heap out-of-bounds read in CMS password-based decryption
+CVE-2023-31484,High,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u3,fixed,grype+trivy,bump,perl: CPAN.pm does not verify TLS certificates when downloading distributions over HTTPS
+CVE-2024-56406,High,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u2,fixed,grype+trivy,bump,"perl: Perl 5.34, 5.36, 5.38 and 5.40 are vulnerable to a heap buffer overflow when transliterating non-ASCII bytes"
+CVE-2026-42497,High,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,perl-Archive-Tar: perl-Archive-Tar: Arbitrary file modification via crafted hardlinks during archive extraction
+CVE-2026-48959,High,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,perl-IO-Compress: perl-IO-Compress: CPU exhaustion via per-byte read loop in fastForward
+CVE-2026-48962,High,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,perl-IO-Compress: perl-IO-Compress: Arbitrary code execution via attacker-controlled output glob
+CVE-2026-57432,High,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,perl: Perl: Information disclosure via integer overflow in pack/unpack operations
+CVE-2026-7017,High,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,HTTP::Tiny: HTTP::Tiny: Information disclosure via cross-origin redirect of credential headers
+CVE-2026-82560,High,perl-base,perl,5.36.0-7+deb12u1,,affected; not-fixed,grype+trivy,no fix available,Pod::Text versions before 6.1.1 for Perl allow CPU and memory exhausti ...
+CVE-2026-9538,High,perl-base,perl,5.36.0-7+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,perl-Archive-Tar: perl-Archive-Tar: Denial of Service via crafted tar header with large entry size
+CVE-2026-53613,High,util-linux,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: TOCTOU in the mount program via ancestor directory swap on target path
+CVE-2026-53615,High,util-linux,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Partition metadata compromise via integer overflow in DOS partition parser
+CVE-2026-78410,High,util-linux,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,"util-linux: util-linux: restricted bind mounts do not pin the source, allowing X-mount.owner/group/mode redirection"
+CVE-2026-53613,High,util-linux-extra,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: TOCTOU in the mount program via ancestor directory swap on target path
+CVE-2026-53615,High,util-linux-extra,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Partition metadata compromise via integer overflow in DOS partition parser
+CVE-2026-78410,High,util-linux-extra,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,"util-linux: util-linux: restricted bind mounts do not pin the source, allowing X-mount.owner/group/mode redirection"
+CVE-2026-76844,High,zlib1g,zlib,1:1.2.13.dfsg-1,,affected; not-fixed,grype+trivy,no fix available,webpack-dev-middleware: webpack-dev-middleware: Information Disclosure via Path Traversal
+CVE-2026-85091,High,zlib1g,zlib,1:1.2.13.dfsg-1,,affected; not-fixed,grype+trivy,no fix available,zlib: zlib: Heap buffer overflow in gz_vacate() allows arbitrary code execution
+CVE-2026-13595,Medium,bsdutils,util-linux,1:2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: heap use-after-free in libblkid nested partition probing
+CVE-2026-27456,Medium,bsdutils,util-linux,1:2.38.1-5+deb12u1,,affected; wont-fix,grype+trivy,no fix available,util-linux: TOCTOU in the mount program when setting up loop devices
+CVE-2026-3184,Medium,bsdutils,util-linux,1:2.38.1-5+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,util-linux: util-linux: Access control bypass due to improper hostname canonicalization
+CVE-2024-7264,Medium,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u7,fixed,grype+trivy,bump,curl: libcurl: ASN.1 date parser overread
+CVE-2024-8096,Medium,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u8,fixed,grype+trivy,bump,curl: OCSP stapling bypass with GnuTLS
+CVE-2024-9681,Medium,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u9,fixed,grype+trivy,bump,curl: HSTS subdomain overwrites parent cache entry
+CVE-2025-10148,Medium,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: predictable WebSocket mask
+CVE-2025-14524,Medium,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: Information disclosure via cross-protocol redirect with OAuth2 bearer token
+CVE-2025-14819,Medium,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: libcurl: Improper certificate validation due to cached TLS settings reuse
+CVE-2026-1965,Medium,curl,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: Authentication bypass due to incorrect connection reuse with Negotiate authentication
+CVE-2026-3783,Medium,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: curl: Information disclosure via OAuth2 bearer token leakage during HTTP(S) redirect
+CVE-2026-3784,Medium,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: curl: Unauthorized access due to improper HTTP proxy connection reuse
+CVE-2026-4873,Medium,curl,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: Information disclosure due to incorrect TLS connection reuse
+CVE-2026-5545,Medium,curl,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: libcurl: Authentication bypass due to incorrect HTTP Negotiate connection reuse
+CVE-2026-6253,Medium,curl,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: Proxy credential disclosure via redirects to unauthenticated proxies
+CVE-2026-6429,Medium,curl,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: libcurl: Credential leak via reused proxy connection during HTTP redirects
+CVE-2026-7168,Medium,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: libcurl: Information disclosure via incorrect Proxy-Authorization header reuse
+CVE-2026-114690,Medium,gcc-12-base,gcc-12,12.2.0-14,,affected; wont-fix,grype+trivy,no fix available,gcc: Confirmed out-of-bounds read/write in libstdc++ parallel `std
+CVE-2026-114691,Medium,gcc-12-base,gcc-12,12.2.0-14,,affected; wont-fix,grype+trivy,no fix available,gcc: Integer wrap in `std
+CVE-2026-115455,Medium,gcc-12-base,gcc-12,12.2.0-14,,affected; wont-fix,grype+trivy,no fix available,gcc: Stack overflow in std::bitset on libstdc++
+CVE-2025-30258,Medium,gpgv,gnupg2,2.2.40-1.1,,affected; wont-fix,grype+trivy,no fix available,gnupg: verification DoS due to a malicious subkey in the keyring
+CVE-2025-68972,Medium,gpgv,gnupg2,2.2.40-1.1,,affected; wont-fix,grype+trivy,no fix available,gnupg: GnuPG: Signature bypass via form feed character in signed messages
+CVE-2026-41991,Medium,gzip,gzip,1.12-1,,fix_deferred; wont-fix,grype+trivy,no fix available,gzip: gzip: Arbitrary file overwrite via insecure temporary file handling in gzexe utility
+CVE-2026-54371,Medium,libattr1,attr,1:2.5.1-4,,fix_deferred; wont-fix,grype+trivy,no fix available,attr: attr: Symlink Traversal Privilege Escalation via getfattr and setfattr
+CVE-2025-48175,Medium,libavif15,libavif,0.11.1-1,0.11.1-1+deb12u1,fixed,grype+trivy,bump,"In libavif before 1.3.0, avifImageRGBToYUV in reformat.c has integer o ..."
+CVE-2026-13595,Medium,libblkid1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: heap use-after-free in libblkid nested partition probing
+CVE-2026-27456,Medium,libblkid1,util-linux,2.38.1-5+deb12u1,,affected; wont-fix,grype+trivy,no fix available,util-linux: TOCTOU in the mount program when setting up loop devices
+CVE-2026-3184,Medium,libblkid1,util-linux,2.38.1-5+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,util-linux: util-linux: Access control bypass due to improper hostname canonicalization
+CVE-2026-42250,Medium,libbz2-1.0,bzip2,1.0.8-5+b1,,affected; wont-fix,grype+trivy,no fix available,bzip2: bzip2: Denial of Service in bzip2recover via a specially crafted file
+CVE-2025-0395,Medium,libc-bin,glibc,2.36-9+deb12u7,2.36-9+deb12u10,fixed,grype+trivy,bump,glibc: buffer overflow in the GNU C Library's assert()
+CVE-2025-8058,Medium,libc-bin,glibc,2.36-9+deb12u7,2.36-9+deb12u13,fixed,grype+trivy,bump,glibc: Double free in glibc
+CVE-2026-18374,Medium,libc-bin,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: glibc: Heap buffer overflow via attacker-controlled fopen mode string
+CVE-2026-19542,Medium,libc-bin,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: Fix out-of-bounds array write in tdelete
+CVE-2026-4438,Medium,libc-bin,glibc,2.36-9+deb12u7,2.36-9+deb12u14,fixed,grype+trivy,bump,glibc: glibc: Invalid DNS hostname returned via gethostbyaddr functions
+CVE-2026-6238,Medium,libc-bin,glibc,2.36-9+deb12u7,,affected; wont-fix,grype+trivy,no fix available,glibc: glibc: Application crash or uninitialized memory read via crafted DNS response
+CVE-2026-6368,Medium,libc-bin,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: glibc: Process abort due to invalid memory in wordexp
+CVE-2026-6791,Medium,libc-bin,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: Glibc: Denial of Service via stack exhaustion during tilde expansion
+CVE-2026-77117,Medium,libc-bin,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: Non-progress DoS in SHIFT_JISX0213 -&gt
+CVE-2026-80489,Medium,libc-bin,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: Non-progress DoS in EUC_JISX0213 -> UCS-4 conversion state
+CVE-2026-8674,Medium,libc-bin,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: glibc DNS stub resolver: Denial of Service via long search domain in configuration
+CVE-2026-86805,Medium,libc-bin,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: glibc: Privilege escalation and arbitrary code execution via TOCTOU race condition in dynamic loader
+CVE-2026-89092,Medium,libc-bin,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: nscd stack overflow leads to degraded DNS resolution
+CVE-2026-95818,Medium,libc-bin,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: glibc: Local attacker can cause denial of service and information disclosure via stack-based buffer overflow.
+CVE-2025-0395,Medium,libc6,glibc,2.36-9+deb12u7,2.36-9+deb12u10,fixed,grype+trivy,bump,glibc: buffer overflow in the GNU C Library's assert()
+CVE-2025-8058,Medium,libc6,glibc,2.36-9+deb12u7,2.36-9+deb12u13,fixed,grype+trivy,bump,glibc: Double free in glibc
+CVE-2026-18374,Medium,libc6,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: glibc: Heap buffer overflow via attacker-controlled fopen mode string
+CVE-2026-19542,Medium,libc6,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: Fix out-of-bounds array write in tdelete
+CVE-2026-4438,Medium,libc6,glibc,2.36-9+deb12u7,2.36-9+deb12u14,fixed,grype+trivy,bump,glibc: glibc: Invalid DNS hostname returned via gethostbyaddr functions
+CVE-2026-6238,Medium,libc6,glibc,2.36-9+deb12u7,,affected; wont-fix,grype+trivy,no fix available,glibc: glibc: Application crash or uninitialized memory read via crafted DNS response
+CVE-2026-6368,Medium,libc6,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: glibc: Process abort due to invalid memory in wordexp
+CVE-2026-6791,Medium,libc6,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: Glibc: Denial of Service via stack exhaustion during tilde expansion
+CVE-2026-77117,Medium,libc6,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: Non-progress DoS in SHIFT_JISX0213 -&gt
+CVE-2026-80489,Medium,libc6,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: Non-progress DoS in EUC_JISX0213 -> UCS-4 conversion state
+CVE-2026-8674,Medium,libc6,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: glibc DNS stub resolver: Denial of Service via long search domain in configuration
+CVE-2026-86805,Medium,libc6,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: glibc: Privilege escalation and arbitrary code execution via TOCTOU race condition in dynamic loader
+CVE-2026-89092,Medium,libc6,glibc,2.36-9+deb12u7,,fix_deferred; wont-fix,grype+trivy,no fix available,glibc: nscd stack overflow leads to degraded DNS resolution
+CVE-2026-95818,Medium,libc6,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: glibc: Local attacker can cause denial of service and information disclosure via stack-based buffer overflow.
+CVE-2025-1390,Medium,libcap2,libcap2,1:2.66-4,1:2.66-4+deb12u1,fixed,grype+trivy,bump,libcap: pam_cap: Fix potential configuration parsing error
+CVE-2024-7264,Medium,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u7,fixed,grype+trivy,bump,curl: libcurl: ASN.1 date parser overread
+CVE-2024-8096,Medium,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u8,fixed,grype+trivy,bump,curl: OCSP stapling bypass with GnuTLS
+CVE-2024-9681,Medium,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u9,fixed,grype+trivy,bump,curl: HSTS subdomain overwrites parent cache entry
+CVE-2025-10148,Medium,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: predictable WebSocket mask
+CVE-2025-14524,Medium,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: Information disclosure via cross-protocol redirect with OAuth2 bearer token
+CVE-2025-14819,Medium,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: libcurl: Improper certificate validation due to cached TLS settings reuse
+CVE-2026-1965,Medium,libcurl4,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: Authentication bypass due to incorrect connection reuse with Negotiate authentication
+CVE-2026-3783,Medium,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: curl: Information disclosure via OAuth2 bearer token leakage during HTTP(S) redirect
+CVE-2026-3784,Medium,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: curl: Unauthorized access due to improper HTTP proxy connection reuse
+CVE-2026-4873,Medium,libcurl4,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: Information disclosure due to incorrect TLS connection reuse
+CVE-2026-5545,Medium,libcurl4,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: libcurl: Authentication bypass due to incorrect HTTP Negotiate connection reuse
+CVE-2026-6253,Medium,libcurl4,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: curl: Proxy credential disclosure via redirects to unauthenticated proxies
+CVE-2026-6429,Medium,libcurl4,curl,7.88.1-10+deb12u5,,affected; wont-fix,grype+trivy,no fix available,curl: libcurl: Credential leak via reused proxy connection during HTTP redirects
+CVE-2026-7168,Medium,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u15,fixed,grype+trivy,bump,curl: libcurl: Information disclosure via incorrect Proxy-Authorization header reuse
+CVE-2023-32570,Medium,libdav1d6,dav1d,1.0.0-2+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,VideoLAN dav1d before 1.2.0 has a thread_task.c race condition that ca ...
+CVE-2023-51792,Medium,libde265-0,libde265,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,grype+trivy,bump,Buffer Overflow vulnerability in libde265 v1.0.12 allows a local attac ...
+CVE-2024-38949,Medium,libde265-0,libde265,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,grype+trivy,bump,Heap Buffer Overflow vulnerability in Libde265 v1.0.15 allows attacker ...
+CVE-2024-38950,Medium,libde265-0,libde265,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,grype+trivy,bump,Heap Buffer Overflow vulnerability in Libde265 v1.0.15 allows attacker ...
+CVE-2026-33165,Medium,libde265-0,libde265,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,grype+trivy,bump,libde265 is an open source implementation of the h.265 video codec. Pr ...
+CVE-2026-45382,Medium,libde265-0,libde265,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,grype+trivy,bump,libde265 is an open source implementation of the h.265 video codec. Pr ...
+CVE-2026-45383,Medium,libde265-0,libde265,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,grype+trivy,bump,libde265 is an open source implementation of the h.265 video codec. Ve ...
+CVE-2026-49337,Medium,libde265-0,libde265,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,grype+trivy,bump,libde265 is an open source implementation of the h.265 video codec. Pr ...
+CVE-2024-50602,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u2,fixed,grype+trivy,bump,libexpat: expat: DoS via XML_ResumeParser
+CVE-2025-66382,Medium,libexpat1,expat,2.5.0-1,,fix_deferred; wont-fix,grype+trivy,no fix available,libexpat: libexpat: Denial of service via crafted file processing
+CVE-2026-102633,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u5,fixed,grype+trivy,bump,expat: expat: Denial of Service via integer overflow in expat_realloc
+CVE-2026-32776,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u4,fixed,grype+trivy,bump,libexpat: libexpat: Denial of Service due to NULL pointer dereference
+CVE-2026-32777,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u4,fixed,grype+trivy,bump,libexpat: libexpat: Denial of Service via infinite loop in DTD content parsing
+CVE-2026-32778,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u4,fixed,grype+trivy,bump,libexpat: libexpat: Denial of Service via NULL pointer dereference after out-of-memory condition
+CVE-2026-50219,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,expat: libexpat: Use-after-free vulnerability due to improper handler call depth tracking
+CVE-2026-56131,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,libexpat: libexpat: Use-after-free vulnerability due to insufficient handler call depth tracking
+CVE-2026-56132,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u5,fixed,grype+trivy,bump,expat: libexpat: Arbitrary Code Execution via Heap-based Buffer Overflow
+CVE-2026-56403,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,libexpat: libexpat: Arbitrary code execution due to integer overflow in storeAtts
+CVE-2026-56404,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,libexpat: libexpat: Arbitrary Code Execution via integer overflow in addBinding
+CVE-2026-56405,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,libexpat: libexpat: Information disclosure and arbitrary code execution via integer overflow
+CVE-2026-56406,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,libexpat: libexpat: Arbitrary code execution via integer overflow in XML_ParseBuffer
+CVE-2026-56407,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,libexpat: libexpat: Arbitrary code execution due to integer overflow
+CVE-2026-56408,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,libexpat: libexpat: Information disclosure and arbitrary code execution via integer overflow
+CVE-2026-56409,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,libexpat: libexpat: Integer overflow in xmlwf may lead to information disclosure or arbitrary code execution
+CVE-2026-56410,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,libexpat: libexpat: Integer overflow in xmlwf can lead to information disclosure and arbitrary code execution.
+CVE-2026-56411,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,expat: libexpat: Integer Overflow Vulnerability Leading to Information Disclosure or Code Execution
+CVE-2026-56412,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,libexpat: libexpat: Use-after-free vulnerability due to improper handling of XML CDATA sections
+CVE-2026-72522,Medium,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u3,fixed,grype+trivy,bump,expat: libexpat: Denial of Service due to incorrect Unicode surrogate handling
+CVE-2026-95512,Medium,libfreetype6,freetype,2.12.1+dfsg-5,,fix_deferred; wont-fix,grype+trivy,no fix available,freetype: FreeType: Denial of Service via repeated subroutine allocations in CID font loader
+CVE-2026-114690,Medium,libgcc-s1,gcc-12,12.2.0-14,,affected; wont-fix,grype+trivy,no fix available,gcc: Confirmed out-of-bounds read/write in libstdc++ parallel `std
+CVE-2026-114691,Medium,libgcc-s1,gcc-12,12.2.0-14,,affected; wont-fix,grype+trivy,no fix available,gcc: Integer wrap in `std
+CVE-2026-115455,Medium,libgcc-s1,gcc-12,12.2.0-14,,affected; wont-fix,grype+trivy,no fix available,gcc: Stack overflow in std::bitset on libstdc++
+CVE-2026-41989,Medium,libgcrypt20,libgcrypt20,1.10.1-3,1.10.1-3+deb12u1,fixed,grype+trivy,bump,Libgcrypt: Libgcrypt: Denial of Service and buffer overflow via crafted ECDH ciphertext
+CVE-2024-12243,Medium,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u4,fixed,grype+trivy,bump,gnutls: GnuTLS Impacted by Inefficient DER Decoding in libtasn1 Leading to Remote DoS
+CVE-2024-28834,Medium,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u3,fixed,grype+trivy,bump,gnutls: vulnerable to Minerva side-channel information leak
+CVE-2024-28835,Medium,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u3,fixed,grype+trivy,bump,gnutls: potential crash during chain building/verification
+CVE-2025-14831,Medium,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u6,fixed,grype+trivy,bump,gnutls: GnuTLS: Denial of Service via excessive resource consumption during certificate verification
+CVE-2025-32989,Medium,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u5,fixed,grype+trivy,bump,gnutls: Vulnerability in GnuTLS SCT extension parsing
+CVE-2025-6395,Medium,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u5,fixed,grype+trivy,bump,gnutls: NULL pointer dereference in _gnutls_figure_common_ciphersuite()
+CVE-2025-9820,Medium,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u6,fixed,grype+trivy,bump,gnutls: Stack-based Buffer Overflow in gnutls_pkcs11_token_init() Function
+CVE-2026-42014,Medium,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u7,fixed,grype+trivy,bump,gnutls: gnutls: Use-after-free in gnutls_pkcs11_token_set_pin
+CVE-2026-42015,Medium,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u7,fixed,grype+trivy,bump,gnutls: gnutls: Memory corruption due to off-by-one error in PKCS#12 bag handling
+CVE-2024-26462,Medium,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u3,fixed,grype+trivy,bump,krb5: Memory leak at /krb5/src/kdc/ndr.c
+CVE-2025-3576,Medium,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u4,fixed,grype+trivy,bump,krb5: Kerberos RC4-HMAC-MD5 Checksum Vulnerability Enabling Message Spoofing via MD5 Collisions
+CVE-2026-107708,Medium,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,krb5: krb5: Denial of Service via malformed PAC in S4U2Proxy requests
+CVE-2023-29659,Medium,libheif1,libheif,1.15.1-1,1.15.1-1+deb12u1,fixed,grype+trivy,bump,A Segmentation fault caused by a floating point exception exists in li ...
+CVE-2026-32738,Medium,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Unsigned integer underflow leads to Denial of Service
+CVE-2026-32739,Medium,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Denial of Service via crafted HEIF sequence file
+CVE-2026-32814,Medium,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Information Disclosure via Crafted HEIF/AVIF Files
+CVE-2026-41069,Medium,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif is a HEIF and AVIF file format decoder and encoder. In version ...
+CVE-2026-47254,Medium,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Heap-buffer-overflow due to out-of-bounds write in sample timing table
+CVE-2026-47709,Medium,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif is a HEIF and AVIF file format decoder and encoder. Versions p ...
+CVE-2026-47714,Medium,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif is a HEIF and AVIF file format decoder and encoder. In version ...
+CVE-2026-49271,Medium,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Denial of Service via crafted HEIF file due to integer wrap-around
+CVE-2026-84448,Medium,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif is a HEIF and AVIF file format decoder and encoder. Prior to 1 ...
+CVE-2026-84449,Medium,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif is a HEIF and AVIF file format decoder and encoder. Prior to 1 ...
+CVE-2024-26462,Medium,libk5crypto3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u3,fixed,grype+trivy,bump,krb5: Memory leak at /krb5/src/kdc/ndr.c
+CVE-2025-3576,Medium,libk5crypto3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u4,fixed,grype+trivy,bump,krb5: Kerberos RC4-HMAC-MD5 Checksum Vulnerability Enabling Message Spoofing via MD5 Collisions
+CVE-2026-107708,Medium,libk5crypto3,krb5,1.20.1-2+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,krb5: krb5: Denial of Service via malformed PAC in S4U2Proxy requests
+CVE-2024-26462,Medium,libkrb5-3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u3,fixed,grype+trivy,bump,krb5: Memory leak at /krb5/src/kdc/ndr.c
+CVE-2025-3576,Medium,libkrb5-3,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u4,fixed,grype+trivy,bump,krb5: Kerberos RC4-HMAC-MD5 Checksum Vulnerability Enabling Message Spoofing via MD5 Collisions
+CVE-2026-107708,Medium,libkrb5-3,krb5,1.20.1-2+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,krb5: krb5: Denial of Service via malformed PAC in S4U2Proxy requests
+CVE-2024-26462,Medium,libkrb5support0,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u3,fixed,grype+trivy,bump,krb5: Memory leak at /krb5/src/kdc/ndr.c
+CVE-2025-3576,Medium,libkrb5support0,krb5,1.20.1-2+deb12u1,1.20.1-2+deb12u4,fixed,grype+trivy,bump,krb5: Kerberos RC4-HMAC-MD5 Checksum Vulnerability Enabling Message Spoofing via MD5 Collisions
+CVE-2026-107708,Medium,libkrb5support0,krb5,1.20.1-2+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,krb5: krb5: Denial of Service via malformed PAC in S4U2Proxy requests
+CVE-2026-34743,Medium,liblzma5,xz-utils,5.4.1-0.2,5.4.1-1+deb12u1,fixed,grype+trivy,bump,xz: XZ Utils: Denial of Service via buffer overflow in index decoding
+CVE-2026-13595,Medium,libmount1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: heap use-after-free in libblkid nested partition probing
+CVE-2026-27456,Medium,libmount1,util-linux,2.38.1-5+deb12u1,,affected; wont-fix,grype+trivy,no fix available,util-linux: TOCTOU in the mount program when setting up loop devices
+CVE-2026-3184,Medium,libmount1,util-linux,2.38.1-5+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,util-linux: util-linux: Access control bypass due to improper hostname canonicalization
+CVE-2024-28182,Medium,libnghttp2-14,nghttp2,1.52.0-1+deb12u1,1.52.0-1+deb12u2,fixed,grype+trivy,bump,nghttp2: CONTINUATION frames DoS
+CVE-2026-58055,Medium,libnghttp2-14,nghttp2,1.52.0-1+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,nghttp2: nghttp2: HTTP Request/Response Smuggling and Response-Queue Poisoning via ambiguous HTTP/1.1 Upgrade requests
+CVE-2026-13757,Medium,libp11-kit0,p11-kit,0.24.1-2,,fix_deferred; wont-fix,grype+trivy,no fix available,p11-kit: Stack exhaustion via unbounded recursion in RPC attribute parsing
+CVE-2026-18938,Medium,libp11-kit0,p11-kit,0.24.1-2,,fix_deferred; wont-fix,grype+trivy,no fix available,p11-kit: Integer overflow in RPC attribute-array length calculation can under-allocate nested attribute storage on 32 bit systems
+CVE-2024-10041,Medium,libpam-modules,pam,1.5.2-6+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,pam: libpam: Libpam vulnerable to read hashed password
+CVE-2024-22365,Medium,libpam-modules,pam,1.5.2-6+deb12u1,1.5.2-6+deb12u2,fixed,grype+trivy,bump,pam: allowing unprivileged user to block another user namespace
+CVE-2026-54411,Medium,libpam-modules,pam,1.5.2-6+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,linux-pam: Plaintext password recovery via timing discrepancy in pam_userdb module
+CVE-2024-10041,Medium,libpam-modules-bin,pam,1.5.2-6+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,pam: libpam: Libpam vulnerable to read hashed password
+CVE-2024-22365,Medium,libpam-modules-bin,pam,1.5.2-6+deb12u1,1.5.2-6+deb12u2,fixed,grype+trivy,bump,pam: allowing unprivileged user to block another user namespace
+CVE-2026-54411,Medium,libpam-modules-bin,pam,1.5.2-6+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,linux-pam: Plaintext password recovery via timing discrepancy in pam_userdb module
+CVE-2024-10041,Medium,libpam-runtime,pam,1.5.2-6+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,pam: libpam: Libpam vulnerable to read hashed password
+CVE-2024-22365,Medium,libpam-runtime,pam,1.5.2-6+deb12u1,1.5.2-6+deb12u2,fixed,grype+trivy,bump,pam: allowing unprivileged user to block another user namespace
+CVE-2026-54411,Medium,libpam-runtime,pam,1.5.2-6+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,linux-pam: Plaintext password recovery via timing discrepancy in pam_userdb module
+CVE-2024-10041,Medium,libpam0g,pam,1.5.2-6+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,pam: libpam: Libpam vulnerable to read hashed password
+CVE-2024-22365,Medium,libpam0g,pam,1.5.2-6+deb12u1,1.5.2-6+deb12u2,fixed,grype+trivy,bump,pam: allowing unprivileged user to block another user namespace
+CVE-2026-54411,Medium,libpam0g,pam,1.5.2-6+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,linux-pam: Plaintext password recovery via timing discrepancy in pam_userdb module
+CVE-2026-89156,Medium,libpcre2-8-0,pcre2,10.42-1,10.42-1+deb12u1,fixed,grype+trivy,bump,PCRE2: PCRE2: Out-of-bounds read via invalid UTF data during JIT fallback
+CVE-2026-89158,Medium,libpcre2-8-0,pcre2,10.42-1,10.42-1+deb12u1,fixed,grype+trivy,bump,PCRE2: PCRE2: Out-of-bounds write via integer overflow on 32-bit platforms
+CVE-2026-89160,Medium,libpcre2-8-0,pcre2,10.42-1,10.42-1+deb12u1,fixed,grype+trivy,bump,pcre2: PCRE2: Denial of Service via out-of-bounds read during invalid UTF matching
+CVE-2025-64505,Medium,libpng16-16,libpng1.6,1.6.39-2,1.6.39-2+deb12u1,fixed,grype+trivy,bump,libpng: LIBPNG heap buffer overflow via malformed palette index
+CVE-2025-64506,Medium,libpng16-16,libpng1.6,1.6.39-2,1.6.39-2+deb12u1,fixed,grype+trivy,bump,libpng: LIBPNG heap buffer over-read
+CVE-2026-34757,Medium,libpng16-16,libpng1.6,1.6.39-2,1.6.39-2+deb12u5,fixed,grype+trivy,bump,libpng: libpng: Information disclosure and data corruption via use-after-free vulnerability
+CVE-2026-46675,Medium,libpng16-16,libpng1.6,1.6.39-2,1.6.39-2+deb12u6,fixed,grype+trivy,bump,libpng: libpng: Use-after-free in sequential reader when png_read_end called without reading image rows
+CVE-2026-13595,Medium,libsmartcols1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: heap use-after-free in libblkid nested partition probing
+CVE-2026-27456,Medium,libsmartcols1,util-linux,2.38.1-5+deb12u1,,affected; wont-fix,grype+trivy,no fix available,util-linux: TOCTOU in the mount program when setting up loop devices
+CVE-2026-3184,Medium,libsmartcols1,util-linux,2.38.1-5+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,util-linux: util-linux: Access control bypass due to improper hostname canonicalization
+CVE-2025-15661,Medium,libssh2-1,libssh2,1.10.0-3+b1,1.10.0-3+deb12u1,fixed,grype+trivy,bump,libssh2: libssh2: Information disclosure and denial of service via crafted SFTP response
+CVE-2023-5678,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.13-1~deb12u1,fixed,grype+trivy,bump,openssl: Generating excessively long X9.42 DH keys or checking excessively long X9.42 DH keys or parameters may be very slow
+CVE-2023-6129,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.13-1~deb12u1,fixed,grype+trivy,bump,openssl: POLY1305 MAC implementation corrupts vector registers on PowerPC
+CVE-2023-6237,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.13-1~deb12u1,fixed,grype+trivy,bump,openssl: Excessive time spent checking invalid RSA public keys
+CVE-2024-0727,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.13-1~deb12u1,fixed,grype+trivy,bump,openssl: denial of service via null dereference
+CVE-2024-13176,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.16-1~deb12u1,fixed,grype+trivy,bump,openssl: Timing side-channel in ECDSA signature computation
+CVE-2024-2511,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.14-1~deb12u1,fixed,grype+trivy,bump,openssl: Unbounded memory growth with session handling in TLSv1.3
+CVE-2024-4603,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.14-1~deb12u1,fixed,grype+trivy,bump,openssl: Excessive time spent checking DSA keys and parameters
+CVE-2024-9143,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.15-1~deb12u1,fixed,grype+trivy,bump,openssl: Low-level invalid GF(2^m) parameters lead to OOB memory access
+CVE-2025-68160,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service due to out-of-bounds write in BIO filter
+CVE-2025-69418,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Information disclosure and data tampering via specific low-level OCB encryption/decryption calls
+CVE-2025-9232,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.17-1~deb12u3,fixed,grype+trivy,bump,openssl: Out-of-bounds read in HTTP client no_proxy handling
+CVE-2026-22795,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service due to type confusion in PKCS#12 file processing
+CVE-2026-22796,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service via type confusion in PKCS#7 signature verification
+CVE-2026-35189,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u2,fixed,grype+trivy,bump,openssl: openssl: Denial of Service via excessive memory allocation in CRL distribution point processing
+CVE-2026-42766,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: Possible NULL Dereference in Password-Based CMS Decryption
+CVE-2026-42767,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u1,fixed,grype+trivy,bump,openssl: NULL Pointer Dereference in CRMF EncryptedValue Decryption
+CVE-2026-45446,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: Incorrect Tag Processing for Empty Messages in AES-GCM-SIV and AES-SIV modes
+CVE-2026-54872,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Private key recovery via timing side-channel in generic elliptic curve operations
+CVE-2026-63074,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u1,fixed,grype+trivy,bump,openssl: CMP indefinite cache growth of ExtraCerts
+CVE-2026-75805,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u2,fixed,grype+trivy,bump,openssl: openssl: Denial of Service via crafted CMP certificate revocation response
+CVE-2026-75806,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service via undersized DTLS record
+CVE-2026-77696,Medium,libssl3,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Private key recovery via SM2 timing side-channel
+CVE-2026-114690,Medium,libstdc++6,gcc-12,12.2.0-14,,affected; wont-fix,grype+trivy,no fix available,gcc: Confirmed out-of-bounds read/write in libstdc++ parallel `std
+CVE-2026-114691,Medium,libstdc++6,gcc-12,12.2.0-14,,affected; wont-fix,grype+trivy,no fix available,gcc: Integer wrap in `std
+CVE-2026-115455,Medium,libstdc++6,gcc-12,12.2.0-14,,affected; wont-fix,grype+trivy,no fix available,gcc: Stack overflow in std::bitset on libstdc++
+CVE-2025-4598,Medium,libsystemd0,systemd,252.22-1~deb12u1,252.38-1~deb12u1,fixed,grype+trivy,bump,systemd-coredump: race condition that allows a local attacker to crash a SUID program and gain read access to the resulting core dump
+CVE-2026-15059,Medium,libsystemd0,systemd,252.22-1~deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,systemd: systemd-oomd: Unprivileged users can terminate arbitrary processes via IPC API
+CVE-2026-29111,Medium,libsystemd0,systemd,252.22-1~deb12u1,252.39-1~deb12u2,fixed,grype+trivy,bump,systemd: systemd: Arbitrary code execution or Denial of Service via spurious IPC API call data
+CVE-2026-40225,Medium,libsystemd0,systemd,252.22-1~deb12u1,252.39-1~deb12u2,fixed,grype+trivy,bump,systemd: udev in systemd: Privilege escalation via malicious hardware devices and unsanitized kernel output
+CVE-2026-40226,Medium,libsystemd0,systemd,252.22-1~deb12u1,252.39-1~deb12u2,fixed,grype+trivy,bump,systemd: systemd nspawn: Escape-to-host action via crafted config file
+CVE-2026-4105,Medium,libsystemd0,systemd,252.22-1~deb12u1,252.39-1~deb12u2,fixed,grype+trivy,bump,systemd: systemd: Privilege escalation via improper access control in RegisterMachine D-Bus method
+CVE-2024-12133,Medium,libtasn1-6,libtasn1-6,4.19.0-2,4.19.0-2+deb12u1,fixed,grype+trivy,bump,libtasn1: Inefficient DER Decoding in libtasn1 Leading to Potential Remote DoS
+CVE-2023-25433,Medium,libtiff6,tiff,4.5.0-6+deb12u1,4.5.0-6+deb12u2,fixed,grype+trivy,bump,libtiff: Buffer Overflow via /libtiff/tools/tiffcrop.c
+CVE-2023-26965,Medium,libtiff6,tiff,4.5.0-6+deb12u1,4.5.0-6+deb12u2,fixed,grype+trivy,bump,libtiff: heap-based use after free via a crafted TIFF image in loadImage() in tiffcrop.c
+CVE-2023-26966,Medium,libtiff6,tiff,4.5.0-6+deb12u1,4.5.0-6+deb12u2,fixed,grype+trivy,bump,libtiff: Buffer Overflow in uv_encode()
+CVE-2023-2908,Medium,libtiff6,tiff,4.5.0-6+deb12u1,4.5.0-6+deb12u2,fixed,grype+trivy,bump,libtiff: null pointer dereference in tif_dir.c
+CVE-2023-3618,Medium,libtiff6,tiff,4.5.0-6+deb12u1,4.5.0-6+deb12u2,fixed,grype+trivy,bump,libtiff: segmentation fault in Fax3Encode in libtiff/tif_fax3.c
+CVE-2023-6277,Medium,libtiff6,tiff,4.5.0-6+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,libtiff: Out-of-memory in TIFFOpen via a craft file
+CVE-2026-18495,Medium,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: libtiff: heap-buffer overflow via numeric truncation in the JPEG raw passthrough
+CVE-2023-50495,Medium,libtinfo6,ncurses,6.4-4,,affected; wont-fix,grype+trivy,no fix available,ncurses: segmentation fault via _nc_wrap_entry()
+CVE-2025-6141,Medium,libtinfo6,ncurses,6.4-4,,affected; wont-fix,grype+trivy,no fix available,gnu-ncurses: ncurses Stack Buffer Overflow
+CVE-2025-4598,Medium,libudev1,systemd,252.22-1~deb12u1,252.38-1~deb12u1,fixed,grype+trivy,bump,systemd-coredump: race condition that allows a local attacker to crash a SUID program and gain read access to the resulting core dump
+CVE-2026-15059,Medium,libudev1,systemd,252.22-1~deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,systemd: systemd-oomd: Unprivileged users can terminate arbitrary processes via IPC API
+CVE-2026-29111,Medium,libudev1,systemd,252.22-1~deb12u1,252.39-1~deb12u2,fixed,grype+trivy,bump,systemd: systemd: Arbitrary code execution or Denial of Service via spurious IPC API call data
+CVE-2026-40225,Medium,libudev1,systemd,252.22-1~deb12u1,252.39-1~deb12u2,fixed,grype+trivy,bump,systemd: udev in systemd: Privilege escalation via malicious hardware devices and unsanitized kernel output
+CVE-2026-40226,Medium,libudev1,systemd,252.22-1~deb12u1,252.39-1~deb12u2,fixed,grype+trivy,bump,systemd: systemd nspawn: Escape-to-host action via crafted config file
+CVE-2026-4105,Medium,libudev1,systemd,252.22-1~deb12u1,252.39-1~deb12u2,fixed,grype+trivy,bump,systemd: systemd: Privilege escalation via improper access control in RegisterMachine D-Bus method
+CVE-2026-13595,Medium,libuuid1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: heap use-after-free in libblkid nested partition probing
+CVE-2026-27456,Medium,libuuid1,util-linux,2.38.1-5+deb12u1,,affected; wont-fix,grype+trivy,no fix available,util-linux: TOCTOU in the mount program when setting up loop devices
+CVE-2026-3184,Medium,libuuid1,util-linux,2.38.1-5+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,util-linux: util-linux: Access control bypass due to improper hostname canonicalization
+CVE-2026-94283,Medium,libx11-6,libx11,2:1.8.4-2+deb12u2,,fix_deferred; wont-fix,grype+trivy,no fix available,libX11: libX11: Denial of Service via out-of-bounds read in XIM attribute parser
+CVE-2026-94284,Medium,libx11-6,libx11,2:1.8.4-2+deb12u2,,fix_deferred; wont-fix,grype+trivy,no fix available,libX11: libX11: Denial of Service via out-of-bounds read in XIM trigger-key registration parser
+CVE-2026-94285,Medium,libx11-6,libx11,2:1.8.4-2+deb12u2,,fix_deferred; wont-fix,grype+trivy,no fix available,libX11: libX11: Denial of Service via out-of-bounds read in byte-oriented codeset parser
+CVE-2026-94283,Medium,libx11-data,libx11,2:1.8.4-2+deb12u2,,fix_deferred; wont-fix,grype+trivy,no fix available,libX11: libX11: Denial of Service via out-of-bounds read in XIM attribute parser
+CVE-2026-94284,Medium,libx11-data,libx11,2:1.8.4-2+deb12u2,,fix_deferred; wont-fix,grype+trivy,no fix available,libX11: libX11: Denial of Service via out-of-bounds read in XIM trigger-key registration parser
+CVE-2026-94285,Medium,libx11-data,libx11,2:1.8.4-2+deb12u2,,fix_deferred; wont-fix,grype+trivy,no fix available,libX11: libX11: Denial of Service via out-of-bounds read in byte-oriented codeset parser
+CVE-2023-39615,Medium,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u2,fixed,grype+trivy,bump,libxml2: crafted xml can cause global buffer overflow
+CVE-2023-45322,Medium,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u2,fixed,grype+trivy,bump,libxml2: use-after-free in xmlUnlinkNode() in tree.c
+CVE-2025-9714,Medium,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u5,fixed,grype+trivy,bump,libxslt: libxml2: Inifinite recursion at exsltDynMapFunction function in libexslt/dynamic.c
+CVE-2026-0990,Medium,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u6,fixed,grype+trivy,bump,libxml2: libxml2: Denial of Service via uncontrolled recursion in XML catalog processing
+CVE-2026-1757,Medium,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u6,fixed,grype+trivy,bump,libxml2: Memory Leak Leading to Local Denial of Service in xmllint Interactive Shell
+CVE-2026-76781,Medium,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,libxml2: libxml2: NULL pointer dereference parsing nextCatalog without catalog attribute
+CVE-2026-4367,Medium,libxpm4,libxpm,1:3.5.12-1.1+deb12u1,,affected; wont-fix,grype+trivy,no fix available,libXpm: libXpm: Denial of Service via out-of-bounds read in XPM file parsing
+CVE-2026-94287,Medium,libxpm4,libxpm,1:3.5.12-1.1+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,libXpm: libXpm: Denial of Service via unsigned integer underflow
+CVE-2023-40403,Medium,libxslt1.1,libxslt,1.1.35-1,1.1.35-1+deb12u2,fixed,grype+trivy,bump,libxslt: Processing web content may disclose sensitive information
+CVE-2025-10911,Medium,libxslt1.1,libxslt,1.1.35-1,,fix_deferred; wont-fix,grype+trivy,no fix available,libxslt: use-after-free with key data stored cross-RVT
+CVE-2023-4641,Medium,login,shadow,1:4.13+dfsg1-1+b1,1:4.13+dfsg1-1+deb12u1,fixed,grype+trivy,bump,shadow-utils: possible password leak during passwd(1) change
+CVE-2026-13595,Medium,mount,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: heap use-after-free in libblkid nested partition probing
+CVE-2026-27456,Medium,mount,util-linux,2.38.1-5+deb12u1,,affected; wont-fix,grype+trivy,no fix available,util-linux: TOCTOU in the mount program when setting up loop devices
+CVE-2026-3184,Medium,mount,util-linux,2.38.1-5+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,util-linux: util-linux: Access control bypass due to improper hostname canonicalization
+CVE-2023-50495,Medium,ncurses-base,ncurses,6.4-4,,affected; wont-fix,grype+trivy,no fix available,ncurses: segmentation fault via _nc_wrap_entry()
+CVE-2025-6141,Medium,ncurses-base,ncurses,6.4-4,,affected; wont-fix,grype+trivy,no fix available,gnu-ncurses: ncurses Stack Buffer Overflow
+CVE-2023-50495,Medium,ncurses-bin,ncurses,6.4-4,,affected; wont-fix,grype+trivy,no fix available,ncurses: segmentation fault via _nc_wrap_entry()
+CVE-2025-6141,Medium,ncurses-bin,ncurses,6.4-4,,affected; wont-fix,grype+trivy,no fix available,gnu-ncurses: ncurses Stack Buffer Overflow
+CVE-2026-95101,Medium,nginx,nginx,1.25.5-1~bookworm,,not-fixed,grype,backport,
+CVE-2023-5678,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.13-1~deb12u1,fixed,grype+trivy,bump,openssl: Generating excessively long X9.42 DH keys or checking excessively long X9.42 DH keys or parameters may be very slow
+CVE-2023-6129,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.13-1~deb12u1,fixed,grype+trivy,bump,openssl: POLY1305 MAC implementation corrupts vector registers on PowerPC
+CVE-2023-6237,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.13-1~deb12u1,fixed,grype+trivy,bump,openssl: Excessive time spent checking invalid RSA public keys
+CVE-2024-0727,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.13-1~deb12u1,fixed,grype+trivy,bump,openssl: denial of service via null dereference
+CVE-2024-13176,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.16-1~deb12u1,fixed,grype+trivy,bump,openssl: Timing side-channel in ECDSA signature computation
+CVE-2024-2511,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.14-1~deb12u1,fixed,grype+trivy,bump,openssl: Unbounded memory growth with session handling in TLSv1.3
+CVE-2024-4603,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.14-1~deb12u1,fixed,grype+trivy,bump,openssl: Excessive time spent checking DSA keys and parameters
+CVE-2024-9143,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.15-1~deb12u1,fixed,grype+trivy,bump,openssl: Low-level invalid GF(2^m) parameters lead to OOB memory access
+CVE-2025-68160,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service due to out-of-bounds write in BIO filter
+CVE-2025-69418,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Information disclosure and data tampering via specific low-level OCB encryption/decryption calls
+CVE-2025-9232,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.17-1~deb12u3,fixed,grype+trivy,bump,openssl: Out-of-bounds read in HTTP client no_proxy handling
+CVE-2026-22795,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service due to type confusion in PKCS#12 file processing
+CVE-2026-22796,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.18-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service via type confusion in PKCS#7 signature verification
+CVE-2026-35189,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u2,fixed,grype+trivy,bump,openssl: openssl: Denial of Service via excessive memory allocation in CRL distribution point processing
+CVE-2026-42766,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: Possible NULL Dereference in Password-Based CMS Decryption
+CVE-2026-42767,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u1,fixed,grype+trivy,bump,openssl: NULL Pointer Dereference in CRMF EncryptedValue Decryption
+CVE-2026-45446,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: Incorrect Tag Processing for Empty Messages in AES-GCM-SIV and AES-SIV modes
+CVE-2026-54872,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Private key recovery via timing side-channel in generic elliptic curve operations
+CVE-2026-63074,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u1,fixed,grype+trivy,bump,openssl: CMP indefinite cache growth of ExtraCerts
+CVE-2026-75805,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u2,fixed,grype+trivy,bump,openssl: openssl: Denial of Service via crafted CMP certificate revocation response
+CVE-2026-75806,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Denial of Service via undersized DTLS record
+CVE-2026-77696,Medium,openssl,openssl,3.0.11-1~deb12u2,3.0.22-1~deb12u2,fixed,grype+trivy,bump,openssl: OpenSSL: Private key recovery via SM2 timing side-channel
+CVE-2023-4641,Medium,passwd,shadow,1:4.13+dfsg1-1+b1,1:4.13+dfsg1-1+deb12u1,fixed,grype+trivy,bump,shadow-utils: possible password leak during passwd(1) change
+CVE-2025-15649,Medium,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,perl-IO-Compress: perl-IO-Compress: Denial of Service via malformed DOS date in zip header
+CVE-2025-40909,Medium,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u3,fixed,grype+trivy,bump,perl: Perl threads have a working directory race condition where file operations may target unintended paths
+CVE-2026-15534,Medium,perl-base,perl,5.36.0-7+deb12u1,,affected; not-fixed,grype+trivy,no fix available,perl: Perl: Arbitrary code execution via out-of-bounds memory access in regular expression engine.
+CVE-2026-19487,Medium,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,perl: Perl: Incorrect regular expression matching can lead to wrong access or filtering decisions.
+CVE-2026-7010,Medium,perl-base,perl,5.36.0-7+deb12u1,5.36.0-7+deb12u4,fixed,grype+trivy,bump,HTTP::Tiny versions before 0.093 for Perl do not validate CRLF in HTTP ...
+CVE-2026-5958,Medium,sed,sed,4.9-1,4.9-1+deb12u1,fixed,grype+trivy,bump,sed: GNU sed TOCTOU race condition
+CVE-2026-18477,Medium,tar,tar,1.34+dfsg-1.2+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,tar: tar: TOCTOU in incremental dumpdir 'X' rename handling allows restore path escape
+CVE-2026-18508,Medium,tar,tar,1.34+dfsg-1.2+deb12u1,,fix_deferred; wont-fix,grype+trivy,no fix available,tar: tar: --one-top-level hardlink targets not confined to top-level directory enabling arbitrary file overwrite
+CVE-2026-5704,Medium,tar,tar,1.34+dfsg-1.2+deb12u1,,affected; wont-fix,grype+trivy,no fix available,tar: tar: Hidden file injection via crafted archives
+CVE-2026-13595,Medium,util-linux,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: heap use-after-free in libblkid nested partition probing
+CVE-2026-27456,Medium,util-linux,util-linux,2.38.1-5+deb12u1,,affected; wont-fix,grype+trivy,no fix available,util-linux: TOCTOU in the mount program when setting up loop devices
+CVE-2026-3184,Medium,util-linux,util-linux,2.38.1-5+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,util-linux: util-linux: Access control bypass due to improper hostname canonicalization
+CVE-2026-13595,Medium,util-linux-extra,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: heap use-after-free in libblkid nested partition probing
+CVE-2026-27456,Medium,util-linux-extra,util-linux,2.38.1-5+deb12u1,,affected; wont-fix,grype+trivy,no fix available,util-linux: TOCTOU in the mount program when setting up loop devices
+CVE-2026-3184,Medium,util-linux-extra,util-linux,2.38.1-5+deb12u1,,will_not_fix; wont-fix,grype+trivy,no fix available,util-linux: util-linux: Access control bypass due to improper hostname canonicalization
+CVE-2026-27171,Medium,zlib1g,zlib,1:1.2.13.dfsg-1,,affected; wont-fix,grype+trivy,no fix available,zlib: zlib: Denial of Service via infinite loop in CRC32 combine functions
+CVE-2011-3374,Low,apt,apt,2.6.1,,affected; not-fixed,grype+trivy,no fix available,"It was found that apt-key in apt, all versions, do not correctly valid ..."
+TEMP-0841856-B18BAF,Low,bash,bash,5.2.15-2+b2,,affected,trivy,no fix available,[Privilege escalation possible to other user than root]
+CVE-2022-0563,Low,bsdutils,util-linux,1:2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: partial disclosure of arbitrary files in chfn and chsh when compiled with libreadline
+CVE-2025-14104,Low,bsdutils,util-linux,1:2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Heap buffer overread in setpwnam() when processing 256-byte usernames
+CVE-2016-2781,Low,coreutils,coreutils,9.1-1,,will_not_fix; wont-fix,grype+trivy,no fix available,coreutils: Non-privileged session can escape to the parent session in chroot
+CVE-2017-18018,Low,coreutils,coreutils,9.1-1,,affected; not-fixed,grype+trivy,no fix available,coreutils: race condition vulnerability in chown and chgrp
+CVE-2025-5278,Low,coreutils,coreutils,9.1-1,,affected; not-fixed,grype+trivy,no fix available,coreutils: Heap Buffer Under-Read in GNU Coreutils sort via Key Specification
+CVE-2026-56391,Low,coreutils,coreutils,9.1-1,,affected; not-fixed,grype+trivy,no fix available,coreutils: GNU coreutils uniq: Denial of Service and information disclosure via out-of-bounds read with multibyte input
+CVE-2026-56392,Low,coreutils,coreutils,9.1-1,,affected; not-fixed,grype+trivy,no fix available,coreutils: GNU coreutils unexpand: Denial of Service via crafted tab stop values
+CVE-2024-11053,Low,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u10,fixed,grype+trivy,bump,curl: curl netrc password leak
+CVE-2024-2004,Low,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u6,fixed,grype+trivy,bump,curl: Usage of disabled protocol
+CVE-2024-2379,Low,curl,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: QUIC certificate check bypass with wolfSSL
+CVE-2025-0167,Low,curl,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u11,fixed,grype+trivy,bump,When asked to use a `.netrc` file for credentials **and** to follow HT ...
+CVE-2025-0725,Low,curl,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,libcurl: Buffer Overflow in libcurl via zlib Integer Overflow
+CVE-2025-10966,Low,curl,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: Curl missing SFTP host verification with wolfSSH backend
+CVE-2025-14017,Low,curl,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: curl: Security bypass due to global TLS option changes in multi-threaded LDAPS transfers
+CVE-2025-15079,Low,curl,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: Host verification bypass during SSH transfers
+CVE-2025-15224,Low,curl,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: libssh key passphrase bypass without agent set
+CVE-2026-87866,Low,curl,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: curl: wolfSSL public-key pinning bypass
+CVE-2026-9547,Low,curl,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: curl: Man-in-the-middle attack via SSH host key bypass
+CVE-2026-102473,Low,dash,dash,0.5.12-2,,affected; not-fixed,grype+trivy,no fix available,dash: dash: Super-polynomial backtracking in pmatch when libc fnmatch is disabled
+CVE-2026-102474,Low,dash,dash,0.5.12-2,,affected; not-fixed,grype+trivy,no fix available,dash: dash: Heap out-of-bounds write in conv_escape via undersized Unicode escape reservation
+CVE-2026-53910,Low,diffutils,diffutils,1:3.8-4,,affected; not-fixed,grype+trivy,no fix available,diffutils: heap‑based buffer overflow due to multiple signed integer overflows in line‑mapping calculations
+CVE-2022-27943,Low,gcc-12-base,gcc-12,12.2.0-14,,affected; not-fixed,grype+trivy,no fix available,binutils: libiberty/rust-demangle.c in GNU GCC 11.2 allows stack exhaustion in demangle_const
+CVE-2023-4039,Low,gcc-12-base,gcc-12,12.2.0-14,12.2.0-14+deb12u1,fixed,grype+trivy,bump,gcc: -fstack-protector fails to guard dynamic stack allocations on ARM64
+CVE-2022-3219,Low,gpgv,gnupg2,2.2.40-1.1,,affected; not-fixed,grype+trivy,no fix available,gnupg: denial of service issue (resource consumption) using compressed packets
+CVE-2026-105712,Low,gpgv,gnupg2,2.2.40-1.1,,fix_deferred; wont-fix,grype+trivy,no fix available,gnupg2: gnupg: Arbitrary file overwrite via symlink traversal in gpgtar
+CVE-2026-57062,Low,gpgv,gnupg2,2.2.40-1.1,,fix_deferred; wont-fix,grype+trivy,no fix available,GnuPG: Incorrect cryptographic message parsing
+CVE-2011-3374,Low,libapt-pkg6.0,apt,2.6.1,,affected; not-fixed,grype+trivy,no fix available,"It was found that apt-key in apt, all versions, do not correctly valid ..."
+CVE-2022-0563,Low,libblkid1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: partial disclosure of arbitrary files in chfn and chsh when compiled with libreadline
+CVE-2025-14104,Low,libblkid1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Heap buffer overread in setpwnam() when processing 256-byte usernames
+CVE-2010-4756,Low,libc-bin,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: glob implementation can cause excessive CPU and memory consumption due to crafted glob expressions
+CVE-2018-20796,Low,libc-bin,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: uncontrolled recursion in function check_dst_limits_calc_pos_1 in posix/regexec.c
+CVE-2019-1010022,Low,libc-bin,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: stack guard protection bypass
+CVE-2019-1010023,Low,libc-bin,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: running ldd on malicious ELF leads to code execution because of wrong size computation
+CVE-2019-1010024,Low,libc-bin,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: ASLR bypass using cache of thread stack and heap
+CVE-2019-1010025,Low,libc-bin,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: information disclosure of heap addresses of pthread_created thread
+CVE-2019-9192,Low,libc-bin,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: uncontrolled recursion in function check_dst_limits_calc_pos_1 in posix/regexec.c
+CVE-2026-97399,Low,libc-bin,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: glibc: Denial of Service via out-of-bounds read in strncasecmp
+CVE-2010-4756,Low,libc6,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: glob implementation can cause excessive CPU and memory consumption due to crafted glob expressions
+CVE-2018-20796,Low,libc6,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: uncontrolled recursion in function check_dst_limits_calc_pos_1 in posix/regexec.c
+CVE-2019-1010022,Low,libc6,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: stack guard protection bypass
+CVE-2019-1010023,Low,libc6,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: running ldd on malicious ELF leads to code execution because of wrong size computation
+CVE-2019-1010024,Low,libc6,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: ASLR bypass using cache of thread stack and heap
+CVE-2019-1010025,Low,libc6,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: information disclosure of heap addresses of pthread_created thread
+CVE-2019-9192,Low,libc6,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: uncontrolled recursion in function check_dst_limits_calc_pos_1 in posix/regexec.c
+CVE-2026-97399,Low,libc6,glibc,2.36-9+deb12u7,,affected; not-fixed,grype+trivy,no fix available,glibc: glibc: Denial of Service via out-of-bounds read in strncasecmp
+CVE-2024-11053,Low,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u10,fixed,grype+trivy,bump,curl: curl netrc password leak
+CVE-2024-2004,Low,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u6,fixed,grype+trivy,bump,curl: Usage of disabled protocol
+CVE-2024-2379,Low,libcurl4,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: QUIC certificate check bypass with wolfSSL
+CVE-2025-0167,Low,libcurl4,curl,7.88.1-10+deb12u5,7.88.1-10+deb12u11,fixed,grype+trivy,bump,When asked to use a `.netrc` file for credentials **and** to follow HT ...
+CVE-2025-0725,Low,libcurl4,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,libcurl: Buffer Overflow in libcurl via zlib Integer Overflow
+CVE-2025-10966,Low,libcurl4,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: Curl missing SFTP host verification with wolfSSH backend
+CVE-2025-14017,Low,libcurl4,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: curl: Security bypass due to global TLS option changes in multi-threaded LDAPS transfers
+CVE-2025-15079,Low,libcurl4,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: Host verification bypass during SSH transfers
+CVE-2025-15224,Low,libcurl4,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: libssh key passphrase bypass without agent set
+CVE-2026-87866,Low,libcurl4,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: curl: wolfSSL public-key pinning bypass
+CVE-2026-9547,Low,libcurl4,curl,7.88.1-10+deb12u5,,affected; not-fixed,grype+trivy,no fix available,curl: curl: Man-in-the-middle attack via SSH host key bypass
+CVE-2025-61147,Low,libde265-0,libde265,1.0.11-1+deb12u2,,affected; not-fixed,grype+trivy,no fix available,strukturag libde265 commit d9fea9d wa discovered to contain a segmenta ...
+CVE-2023-52426,Low,libexpat1,expat,2.5.0-1,,affected; not-fixed,grype+trivy,no fix available,expat: recursive XML entity expansion vulnerability
+CVE-2026-24515,Low,libexpat1,expat,2.5.0-1,2.5.0-1+deb12u4,fixed,grype+trivy,bump,libexpat: libexpat null pointer dereference
+CVE-2022-27943,Low,libgcc-s1,gcc-12,12.2.0-14,,affected; not-fixed,grype+trivy,no fix available,binutils: libiberty/rust-demangle.c in GNU GCC 11.2 allows stack exhaustion in demangle_const
+CVE-2023-4039,Low,libgcc-s1,gcc-12,12.2.0-14,12.2.0-14+deb12u1,fixed,grype+trivy,bump,gcc: -fstack-protector fails to guard dynamic stack allocations on ARM64
+CVE-2018-6829,Low,libgcrypt20,libgcrypt20,1.10.1-3,,affected; not-fixed,grype+trivy,no fix available,libgcrypt: ElGamal implementation doesn't have semantic security due to incorrectly encoded plaintexts possibly allowing to obtain sensitive information
+CVE-2024-2236,Low,libgcrypt20,libgcrypt20,1.10.1-3,,affected; not-fixed,grype+trivy,no fix available,libgcrypt: vulnerable to Marvin Attack
+CVE-2011-3389,Low,libgnutls30,gnutls28,3.7.9-2+deb12u2,,affected; not-fixed,grype+trivy,no fix available,HTTPS: block-wise chosen-plaintext attack against SSL/TLS (BEAST)
+CVE-2026-5419,Low,libgnutls30,gnutls28,3.7.9-2+deb12u2,3.7.9-2+deb12u7,fixed,grype+trivy,bump,gnutls: gnutls: Information disclosure via timing side-channel in PKCS#7 padding removal
+CVE-2026-67693,Low,libgnutls30,gnutls28,3.7.9-2+deb12u2,,affected; not-fixed,grype+trivy,no fix available,gnutls: gnutls: Information disclosure via contradictory Key Usage and Extended Key Usage extensions
+CVE-2026-88647,Low,libgnutls30,gnutls28,3.7.9-2+deb12u2,,affected; not-fixed,grype+trivy,no fix available,gnutls: gnutls: Information disclosure via hostname verification bypass
+CVE-2026-88648,Low,libgnutls30,gnutls28,3.7.9-2+deb12u2,,affected; not-fixed,grype+trivy,no fix available,gnutls: gnutls: Cross-domain certificate restriction bypass via incomplete X.509 validation
+CVE-2026-95184,Low,libgnutls30,gnutls28,3.7.9-2+deb12u2,,affected; not-fixed,grype+trivy,no fix available,gnutls: gnutls: legitimate user certificates incorrectly rejected causing denial of service
+CVE-2026-95210,Low,libgnutls30,gnutls28,3.7.9-2+deb12u2,,affected; not-fixed,grype+trivy,no fix available,gnutls: gnutls: certificates with invalid extensions incorrectly accepted
+CVE-2018-5709,Low,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: integer overflow in dbentry->n_key_data in kadmin/dbutil/dump.c
+CVE-2024-26458,Low,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: Memory leak at /krb5/src/lib/rpc/pmap_rmt.c
+CVE-2024-26461,Low,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: Memory leak at /krb5/src/lib/gssapi/krb5/k5sealv3.c
+CVE-2026-11850,Low,libgssapi-krb5-2,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: krb5: integer underflow in berval2tl_data() leads to heap out-of-bounds read
+CVE-2023-49463,Low,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif v1.17.5 was discovered to contain a segmentation violation via ...
+CVE-2024-25269,Low,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif <= 1.17.6 contains a memory leak in the function JpegEncoder:: ...
+CVE-2026-3949,Low,libheif1,libheif,1.15.1-1,,affected; not-fixed,grype+trivy,no fix available,libheif: libheif: Out-of-bounds read via local argument manipulation
+CVE-2017-9937,Low,libjbig0,jbigkit,2.1-6.1,,affected; not-fixed,grype+trivy,no fix available,libtiff: memory malloc failure in tif_jbig.c could cause DOS.
+CVE-2018-5709,Low,libk5crypto3,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: integer overflow in dbentry->n_key_data in kadmin/dbutil/dump.c
+CVE-2024-26458,Low,libk5crypto3,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: Memory leak at /krb5/src/lib/rpc/pmap_rmt.c
+CVE-2024-26461,Low,libk5crypto3,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: Memory leak at /krb5/src/lib/gssapi/krb5/k5sealv3.c
+CVE-2026-11850,Low,libk5crypto3,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: krb5: integer underflow in berval2tl_data() leads to heap out-of-bounds read
+CVE-2018-5709,Low,libkrb5-3,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: integer overflow in dbentry->n_key_data in kadmin/dbutil/dump.c
+CVE-2024-26458,Low,libkrb5-3,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: Memory leak at /krb5/src/lib/rpc/pmap_rmt.c
+CVE-2024-26461,Low,libkrb5-3,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: Memory leak at /krb5/src/lib/gssapi/krb5/k5sealv3.c
+CVE-2026-11850,Low,libkrb5-3,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: krb5: integer underflow in berval2tl_data() leads to heap out-of-bounds read
+CVE-2018-5709,Low,libkrb5support0,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: integer overflow in dbentry->n_key_data in kadmin/dbutil/dump.c
+CVE-2024-26458,Low,libkrb5support0,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: Memory leak at /krb5/src/lib/rpc/pmap_rmt.c
+CVE-2024-26461,Low,libkrb5support0,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: Memory leak at /krb5/src/lib/gssapi/krb5/k5sealv3.c
+CVE-2026-11850,Low,libkrb5support0,krb5,1.20.1-2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,krb5: krb5: integer underflow in berval2tl_data() leads to heap out-of-bounds read
+CVE-2015-3276,Low,libldap-2.5-0,openldap,2.5.13+dfsg-5,,affected; not-fixed,grype+trivy,no fix available,openldap: incorrect multi-keyword mode cipherstring parsing
+CVE-2017-14159,Low,libldap-2.5-0,openldap,2.5.13+dfsg-5,,affected; not-fixed,grype+trivy,no fix available,openldap: Privilege escalation via PID file manipulation
+CVE-2017-17740,Low,libldap-2.5-0,openldap,2.5.13+dfsg-5,,affected; not-fixed,grype+trivy,no fix available,openldap: contrib/slapd-modules/nops/nops.c attempts to free stack buffer allowing remote attackers to cause a denial of service
+CVE-2020-15719,Low,libldap-2.5-0,openldap,2.5.13+dfsg-5,,affected; not-fixed,grype+trivy,no fix available,openldap: Certificate validation incorrectly matches name against CN-ID
+CVE-2026-22185,Low,libldap-2.5-0,openldap,2.5.13+dfsg-5,,affected; not-fixed,grype+trivy,no fix available,OpenLDAP: OpenLDAP LMDB: Denial of Service and Information Disclosure via Heap Buffer Underflow
+CVE-2022-0563,Low,libmount1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: partial disclosure of arbitrary files in chfn and chsh when compiled with libreadline
+CVE-2025-14104,Low,libmount1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Heap buffer overread in setpwnam() when processing 256-byte usernames
+CVE-2021-4214,Low,libpng16-16,libpng1.6,1.6.39-2,,affected; not-fixed,grype+trivy,no fix available,libpng: hardcoded value leads to heap-overflow
+CVE-2025-28162,Low,libpng16-16,libpng1.6,1.6.39-2,,affected; wont-fix,grype+trivy,no fix available,libpng: libpng: Denial of Service via buffer overflow in pngimage utility
+CVE-2025-28164,Low,libpng16-16,libpng1.6,1.6.39-2,,affected; not-fixed,grype+trivy,no fix available,libpng: libpng: Denial of Service via buffer overflow in png_create_read_struct() function
+CVE-2026-3713,Low,libpng16-16,libpng1.6,1.6.39-2,,affected; not-fixed,grype+trivy,no fix available,libpng: libpng: Heap-based buffer overflow in pnm2png allows information disclosure and denial of service
+CVE-2022-0563,Low,libsmartcols1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: partial disclosure of arbitrary files in chfn and chsh when compiled with libreadline
+CVE-2025-14104,Low,libsmartcols1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Heap buffer overread in setpwnam() when processing 256-byte usernames
+CVE-2025-27587,Low,libssl3,openssl,3.0.11-1~deb12u2,,affected; not-fixed,grype+trivy,no fix available,OpenSSL 3.0.0 through 3.3.2 on the PowerPC architecture is vulnerable  ...
+CVE-2026-42770,Low,libssl3,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: FFC-DH Peer Validation Uses Attacker-Supplied q
+CVE-2022-27943,Low,libstdc++6,gcc-12,12.2.0-14,,affected; not-fixed,grype+trivy,no fix available,binutils: libiberty/rust-demangle.c in GNU GCC 11.2 allows stack exhaustion in demangle_const
+CVE-2023-4039,Low,libstdc++6,gcc-12,12.2.0-14,12.2.0-14+deb12u1,fixed,grype+trivy,bump,gcc: -fstack-protector fails to guard dynamic stack allocations on ARM64
+CVE-2013-4392,Low,libsystemd0,systemd,252.22-1~deb12u1,,affected; not-fixed,grype+trivy,no fix available,systemd: TOCTOU race condition when updating file permissions and SELinux security contexts
+CVE-2023-31437,Low,libsystemd0,systemd,252.22-1~deb12u1,,affected; not-fixed,grype+trivy,no fix available,An issue was discovered in systemd 253. An attacker can modify a seale ...
+CVE-2023-31438,Low,libsystemd0,systemd,252.22-1~deb12u1,,affected; not-fixed,grype+trivy,no fix available,An issue was discovered in systemd 253. An attacker can truncate a sea ...
+CVE-2023-31439,Low,libsystemd0,systemd,252.22-1~deb12u1,,affected; not-fixed,grype+trivy,no fix available,An issue was discovered in systemd 253. An attacker can modify the con ...
+CVE-2026-40228,Low,libsystemd0,systemd,252.22-1~deb12u1,,affected; wont-fix,grype+trivy,no fix available,systemd: systemd-journald: Unintended output to user terminals via logger command
+CVE-2017-16232,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,"libtiff: Memory leaks in tif_open.c, tif_lzw.c, and tif_aux.c"
+CVE-2018-10126,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: NULL pointer dereference in the jpeg_fdct_16x16 function in jfdctint.c
+CVE-2022-1210,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,tiff: Malicious file leads to a denial of service in TIFF File Handler
+CVE-2023-1916,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: out-of-bounds read in extractImageSection() in tools/tiffcrop.c
+CVE-2023-3164,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: heap-buffer-overflow in extractImageSection()
+CVE-2023-6228,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: heap-based buffer overflow in cpStripToTile() in tools/tiffcp.c
+CVE-2024-13978,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; wont-fix,grype+trivy,no fix available,libtiff: LibTIFF Null Pointer Dereference
+CVE-2025-61143,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: libtiff: Denial of Service via NULL pointer dereference in tif_open.c
+CVE-2025-61144,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: libtiff: Denial of Service via buffer overflow
+CVE-2025-61145,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: libtiff: Denial of service via double free in tiffcrop.c
+CVE-2025-8176,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: LibTIFF Use-After-Free Vulnerability
+CVE-2025-8177,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: LibTIFF Buffer Overflow
+CVE-2025-8534,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: Libtiff Null Pointer Dereference Vulnerability
+CVE-2025-8851,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: LibTIFF Stack-based buffer overflow
+CVE-2025-8961,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: LibTIFF memory corruption
+CVE-2025-9165,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: LibTIFF memory leak
+CVE-2026-52491,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: libtiff: Arbitrary code execution via thumbnail.c: main() component
+CVE-2026-52492,Low,libtiff6,tiff,4.5.0-6+deb12u1,,affected; not-fixed,grype+trivy,no fix available,libtiff: libtiff: Arbitrary code execution via crafted TIFF image
+CVE-2013-4392,Low,libudev1,systemd,252.22-1~deb12u1,,affected; not-fixed,grype+trivy,no fix available,systemd: TOCTOU race condition when updating file permissions and SELinux security contexts
+CVE-2023-31437,Low,libudev1,systemd,252.22-1~deb12u1,,affected; not-fixed,grype+trivy,no fix available,An issue was discovered in systemd 253. An attacker can modify a seale ...
+CVE-2023-31438,Low,libudev1,systemd,252.22-1~deb12u1,,affected; not-fixed,grype+trivy,no fix available,An issue was discovered in systemd 253. An attacker can truncate a sea ...
+CVE-2023-31439,Low,libudev1,systemd,252.22-1~deb12u1,,affected; not-fixed,grype+trivy,no fix available,An issue was discovered in systemd 253. An attacker can modify the con ...
+CVE-2026-40228,Low,libudev1,systemd,252.22-1~deb12u1,,affected; wont-fix,grype+trivy,no fix available,systemd: systemd-journald: Unintended output to user terminals via logger command
+CVE-2022-0563,Low,libuuid1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: partial disclosure of arbitrary files in chfn and chsh when compiled with libreadline
+CVE-2025-14104,Low,libuuid1,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Heap buffer overread in setpwnam() when processing 256-byte usernames
+CVE-2025-6170,Low,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u3,fixed,grype+trivy,bump,libxml2: Stack Buffer Overflow in xmllint Interactive Shell Command Handling
+CVE-2025-8732,Low,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u6,fixed,grype+trivy,bump,libxml2: libxml2: Uncontrolled Recursion Vulnerability
+CVE-2026-0989,Low,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u6,fixed,grype+trivy,bump,libxml2: Unbounded RelaxNG Include Recursion Leading to Stack Overflow
+CVE-2026-0992,Low,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u6,fixed,grype+trivy,bump,libxml2: libxml2: Denial of Service via crafted XML catalogs
+CVE-2026-11979,Low,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,,affected; not-fixed,grype+trivy,no fix available,libxml2: libxml2: Arbitrary code execution in xmlcatalog utility via buffer overflow
+CVE-2015-9019,Low,libxslt1.1,libxslt,1.1.35-1,,affected; not-fixed,grype+trivy,no fix available,libxslt: math.random() in xslt uses unseeded randomness
+CVE-2025-11731,Low,libxslt1.1,libxslt,1.1.35-1,,affected; wont-fix,grype+trivy,no fix available,libxslt: Type Confusion in exsltFuncResultCompfunction of libxslt
+CVE-2007-5686,Low,login,shadow,1:4.13+dfsg1-1+b1,,affected; not-fixed,grype+trivy,no fix available,initscripts in rPath Linux 1 sets insecure permissions for the /var/lo ...
+CVE-2023-29383,Low,login,shadow,1:4.13+dfsg1-1+b1,1:4.13+dfsg1-1+deb12u1,fixed,grype+trivy,bump,shadow: Improper input validation in shadow-utils package utility chfn
+CVE-2024-56433,Low,login,shadow,1:4.13+dfsg1-1+b1,,affected; wont-fix,grype+trivy,no fix available,shadow-utils: Default subordinate ID configuration in /etc/login.defs could lead to compromise
+TEMP-0628843-DBAD28,Low,login,login,1:4.13+dfsg1-1+b1,,affected,trivy,no fix available,[more related to CVE-2005-4890]
+CVE-2022-0563,Low,mount,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: partial disclosure of arbitrary files in chfn and chsh when compiled with libreadline
+CVE-2025-14104,Low,mount,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Heap buffer overread in setpwnam() when processing 256-byte usernames
+CVE-2025-27587,Low,openssl,openssl,3.0.11-1~deb12u2,,affected; not-fixed,grype+trivy,no fix available,OpenSSL 3.0.0 through 3.3.2 on the PowerPC architecture is vulnerable  ...
+CVE-2026-42770,Low,openssl,openssl,3.0.11-1~deb12u2,3.0.20-1~deb12u2,fixed,grype+trivy,bump,openssl: FFC-DH Peer Validation Uses Attacker-Supplied q
+CVE-2007-5686,Low,passwd,shadow,1:4.13+dfsg1-1+b1,,affected; not-fixed,grype+trivy,no fix available,initscripts in rPath Linux 1 sets insecure permissions for the /var/lo ...
+CVE-2023-29383,Low,passwd,shadow,1:4.13+dfsg1-1+b1,1:4.13+dfsg1-1+deb12u1,fixed,grype+trivy,bump,shadow: Improper input validation in shadow-utils package utility chfn
+CVE-2024-56433,Low,passwd,shadow,1:4.13+dfsg1-1+b1,,affected; wont-fix,grype+trivy,no fix available,shadow-utils: Default subordinate ID configuration in /etc/login.defs could lead to compromise
+TEMP-0628843-DBAD28,Low,passwd,passwd,1:4.13+dfsg1-1+b1,,affected,trivy,no fix available,[more related to CVE-2005-4890]
+CVE-2011-4116,Low,perl-base,perl,5.36.0-7+deb12u1,,affected; not-fixed,grype+trivy,no fix available,perl: File:: Temp insecure temporary file handling
+CVE-2023-31486,Low,perl-base,perl,5.36.0-7+deb12u1,,affected; not-fixed,grype+trivy,no fix available,http-tiny: perl: insecure TLS cert default
+TEMP-0517018-A83CE6,Low,sysvinit-utils,sysvinit-utils,3.06-4,,affected,trivy,no fix available,[sysvinit: no-root option in expert installer exposes locally exploitable security flaw]
+CVE-2005-2541,Low,tar,tar,1.34+dfsg-1.2+deb12u1,,affected; not-fixed,grype+trivy,no fix available,tar: does not properly warn the user when extracting setuid or setgid files
+TEMP-0290435-0B57B5,Low,tar,tar,1.34+dfsg-1.2+deb12u1,,affected,trivy,no fix available,[tar's rmt command may have undesired side effects]
+CVE-2022-0563,Low,util-linux,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: partial disclosure of arbitrary files in chfn and chsh when compiled with libreadline
+CVE-2025-14104,Low,util-linux,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Heap buffer overread in setpwnam() when processing 256-byte usernames
+CVE-2022-0563,Low,util-linux-extra,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: partial disclosure of arbitrary files in chfn and chsh when compiled with libreadline
+CVE-2025-14104,Low,util-linux-extra,util-linux,2.38.1-5+deb12u1,,affected; not-fixed,grype+trivy,no fix available,util-linux: util-linux: Heap buffer overread in setpwnam() when processing 256-byte usernames
+CVE-2009-4487,Negligible,nginx,nginx,1.25.5-1~bookworm,,not-fixed,grype,backport,
+CVE-2013-0337,Negligible,nginx,nginx,1.25.5-1~bookworm,,not-fixed,grype,backport,
+DLA-4726-1,Unknown,ca-certificates,ca-certificates,20230311,20250419~deb12u1,fixed,trivy,bump,ca-certificates - CA certificates update
+DLA-4845-1,Unknown,ca-certificates,ca-certificates,20230311,20250419~deb12u2,fixed,trivy,bump,ca-certificates - security update
+TEMP-0000000-A338F9,Unknown,libde265-0,libde265-0,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,trivy,bump,[GHSA-mm7m-v26f-wf8x: heap-use-after-free in decoder_context::reset() via dangling previous_slice_header]
+TEMP-0000000-FE6BBE,Unknown,libde265-0,libde265-0,1.0.11-1+deb12u2,1.0.11-1+deb12u3,fixed,trivy,bump,[GHSA-xp3h-6f5r-8cxp: Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition') and Use After Free and Double Free in libde265]
+TEMP-0000000-0A1CC5,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-74mj-m37q-h3q9]
+TEMP-0000000-0F03E5,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-qfj5-c4pq-q998: Out-of-bounds heap read in unc_encoder_rgb_pixel_interleave when an alpha plane is attached to an image whose chroma format carries no alpha]
+TEMP-0000000-153207,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-vr5j-9r89-725x: CPU amplification in unci decode path surviving GHSA-24wx-9w62-c96w fix]
+TEMP-0000000-16F469,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-pfcm-ffqg-84hx]
+TEMP-0000000-177737,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-73j7-gvm9-x8q6]
+TEMP-0000000-18A2CE,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-r7gr-2xm2-23wf: Heap out-of-bounds read in libheif alpha compositing via mismatched per-channel bit depths (uncompressed codec)]
+TEMP-0000000-1B5D39,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-h4h8-qgvc-m7r2: OpenJPEG decoder: tile and component counts of a JPEG 2000 codestream cause allocations of several gigabytes regardless of the security limits]
+TEMP-0000000-1FC908,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-gff5-3vgr-p8h2]
+TEMP-0000000-21F713,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-7pwf-qh74-p35w: Caller-configured security limits not enforced for MINI-box parsing]
+TEMP-0000000-25573F,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-fpr5-xpfr-vcq3]
+TEMP-0000000-301DE5,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-q7mw-2fmm-5q94: Out-of-bounds read in libsharpyuv through sample values above the image's bit depth]
+TEMP-0000000-35A060,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-9rpf-2x22-78m9]
+TEMP-0000000-415AE1,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-6fqc-p7r8-2g36: CPU amplification: a generically compressed `unci` item is decompressed once per tile]
+TEMP-0000000-4EF776,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-9rj8-5mp5-26c9: Out-of-bounds read in RGB-YCbCr identity-matrix colour conversion with mismatched per-channel bit depths]
+TEMP-0000000-5124DE,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-hvwh-xpj6-ph5x: Error message used after free in heif-enc input loaders]
+TEMP-0000000-57F868,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-8p2c-9wv4-rx4p: NULL pointer dereference in `Track_Visual::decode_next_image_sample()` when a sequence chunk references a non-visual sample entry]
+TEMP-0000000-625D50,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-rcqc-842v-m26h]
+TEMP-0000000-6C5194,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-v5rj-g4wv-j5w3: Uncompressed codec returns chroma samples above the declared bit depth in mixed interleave mode]
+TEMP-0000000-75D4C4,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-hpg4-g2gc-pq42]
+TEMP-0000000-78AC20,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-4jqm-2x34-6f6r: Heap buffer overflow in SVT-AV1 encoder for high-bit-depth alpha channels]
+TEMP-0000000-7FD9AF,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-35mc-3887-rr37]
+TEMP-0000000-809756,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-3gwx-cjv4-jr74: Reachable assertion when decoding a grid image with an alpha plane of more than 16 bits]
+TEMP-0000000-81967A,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-hhg3-fxg7-3gxw]
+TEMP-0000000-8A4B18,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-fcmw-5764-7rq8: Decompressed `unci` tile data escapes the memory budget in the `cmpC` `image_tile` branch]
+TEMP-0000000-9253BB,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-hqpw-h8p6-22q9: Heap out-of-bounds read in the FFmpeg decoder plugin: input passed to av_parser_parse2() without padding]
+TEMP-0000000-9465BB,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-jx54-6rm6-2cgj]
+TEMP-0000000-956D99,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-9c75-9g8r-4728: JPEG 2000 pclr zero-column allocation amplification bypasses max_total_memory]
+TEMP-0000000-98A003,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-48p4-gj45-w9v6]
+TEMP-0000000-BBE297,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-w7mc-p8jc-p853: heap OOB read / info disclosure (Op_YCbCr420_to_RRGGBBaa]
+TEMP-0000000-C11E78,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-xwcv-cp39-m2w4]
+TEMP-0000000-C86CAF,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-7qm8-hj35-269r]
+TEMP-0000000-D2EEB5,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-86ch-j429-fpr2: HEVC size limits can be skipped before decoding with the FFmpeg decoder plugin]
+TEMP-0000000-DB3DE2,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-qwpf-5wf7-r996: Heap-use-after-free and double free in ImageItem::encode_to_bitstream_and_boxes (shallow copy of ImageDescription::m_tai_timestamp)]
+TEMP-0000000-E83054,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-2g6j-vhr6-6wrj]
+TEMP-0000000-F2B97A,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-v8qw-hwjv-44hw: AV1/libaom path allows allocation before libheif rejects mismatched coded dimensions]
+TEMP-0000000-FDE8B2,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-vv35-6hxg-95x8: Decoded image can have another bit depth than the image handle reports]
+TEMP-1148137-089975,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-xrp2-63fq-jm8q: Unbounded iref entry list and unbounded recursion in the reference-cycle check crash the parser]
+TEMP-1148137-126A7B,Unknown,libheif1,libheif1,1.15.1-1,,affected,trivy,no fix available,[GHSA-vg7w-rp49-4fc2: The max_items security limit is not enforced for iinf child boxes]
+DLA-4783-1,Unknown,liblzma5,liblzma5,5.4.1-0.2,5.4.1-1+deb12u2,fixed,trivy,bump,xz-utils - security update
+TEMP-1147318-639065,Unknown,liblzma5,liblzma5,5.4.1-0.2,5.4.1-1+deb12u2,fixed,trivy,bump,[GHSA-5qpq-xqfv-j9pg: Invalid write if a decoder is reinitialized after allocation failure]
+DSA-5990-1,Unknown,libxml2,libxml2,2.9.14+dfsg-1.3~deb12u1,2.9.14+dfsg-1.3~deb12u4,fixed,trivy,bump,libxml2 - security update
+DSA-5979-2,Unknown,libxslt1.1,libxslt1.1,1.1.35-1,1.1.35-1+deb12u3,fixed,trivy,bump,libxslt - regression update
+DLA-4792-1,Unknown,tzdata,tzdata,2024a-0+deb12u1,2026c-0+deb12u1,fixed,trivy,bump,tzdata - new timezone database
+DLA-4854-1,Unknown,tzdata,tzdata,2024a-0+deb12u1,2026e-0+deb12u1,fixed,trivy,bump,tzdata - new timezone database
+DLA-4867-1,Unknown,tzdata,tzdata,2024a-0+deb12u1,2026f-0+deb12u1,fixed,trivy,bump,tzdata - new timezone database
