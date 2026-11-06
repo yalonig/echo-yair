@@ -4,6 +4,9 @@ dist/
 *.deb
 *.tar.gz
 
+# Raw scanner JSON: large and regenerable. Keep the readable .txt/.csv reports.
+scans/**/*.json
+
 # Python
 .venv/
 __pycache__/
