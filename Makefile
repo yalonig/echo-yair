@@ -5,7 +5,7 @@ SHELL := bash
 include versions.env
 export
 
-.PHONY: help doctor pin scan-baseline deb
+.PHONY: help doctor pin scan-baseline deb image
 
 help: ## Show available commands
 	@awk 'BEGIN {FS = ":.*## "} /^[a-zA-Z_-]+:.*## / {printf "  %-14s %s\n", $$1, $$2}' Makefile
@@ -21,3 +21,6 @@ scan-baseline: ## Scan the pinned upstream image and build the triage table
 
 deb: ## Build the patched nginx .deb from source in a clean Debian base
 	@bash scripts/build-deb.sh
+
+image: ## Build the drop-in container image from the .deb
+	@bash scripts/build-image.sh

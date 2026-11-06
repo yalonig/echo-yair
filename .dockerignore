@@ -1,0 +1,7 @@
+.git
+scans
+tools
+test
+build
+*.md
+dist/*.txt

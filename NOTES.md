@@ -38,3 +38,24 @@ rule and skips the broken download. See `build/build.sh` step 5.
 Takeaway: pinning the upstream packaging to a fixed revision makes the build
 reproducible, but it does not protect against an external URL that rots. A fully
 hermetic build would vendor that helper too.
+
+## Keeping the dynamic modules without rebuilding them
+
+The upstream image ships four dynamic modules (geoip, image-filter, njs, xslt)
+that the default config does not load. A from-scratch image omits them, which is
+allowed for extras but is a visible gap for a "drop-in".
+
+Rather than rebuild all four from source (njs alone is a separate project with
+its own tarball), we copy the prebuilt `.so` files from the upstream image.
+nginx builds modules with `--with-compat`, so a stock module loads into any
+same-version nginx; ours is the same 1.25.5, also `--with-compat`. Two snags:
+
+1. First load failed with `... is not binary compatible` only if compat is
+   missing — ours passed that check, confirming the ABI assumption.
+2. Then it failed with `libxml2.so.2: cannot open shared object file`. The .so
+   files link extra libraries (njs/xslt -> libxml2, xslt -> libxslt,
+   image-filter -> libgd, geoip -> libgeoip) that the upstream image got via its
+   module packages. Copying only the .so files left those out, so we install the
+   runtime libraries explicitly in the Containerfile.
+
+Verified: `nginx -t` loads all four modules in the final image.
