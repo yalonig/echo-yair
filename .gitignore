@@ -1,0 +1,14 @@
+# Build outputs
+build/work/
+dist/
+*.deb
+*.tar.gz
+
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Secrets and local settings
+.env
+.env.*
