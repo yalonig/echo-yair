@@ -48,18 +48,21 @@ make -C pkg-oss/debian rules-base
 tree="${WORK}/pkg-oss/debian/debuild-base/${srcdir}"
 test -d "$tree" || { echo "ERROR: expected source tree not found at ${tree}" >&2; exit 1; }
 
-log "6/8  Queue and verify backport patches"
-mkdir -p "$tree/debian/patches"
+log "6/8  Apply and verify backport patches"
+# Apply patches directly to the source tree that debian/rules compiles (it copies
+# $(CURDIR)/src into the build dir). We do NOT rely on dpkg-source/quilt to apply
+# the series at build time: in this setup that step did not run, shipping an
+# unpatched binary. Applying here and verifying makes the backport deterministic.
 shopt -s nullglob
 patches=("$PATCH_DIR"/*.patch)
 [ "${#patches[@]}" -gt 0 ] || { echo "ERROR: no patches found in ${PATCH_DIR}" >&2; exit 1; }
 for p in "${patches[@]}"; do
   name="$(basename "$p")"
-  cp "$p" "$tree/debian/patches/$name"
-  grep -qxF "$name" "$tree/debian/patches/series" 2>/dev/null || echo "$name" >> "$tree/debian/patches/series"
-  # Fail loudly if a patch does not apply; dpkg-source applies the series at build.
-  ( cd "$tree" && patch -p1 --dry-run --fuzz=0 < "debian/patches/$name" >/dev/null )
-  echo "    queued ${name} (applies cleanly)" >&2
+  ( cd "$tree" && patch -p1 --fuzz=0 < "$p" )
+  # Confirm it is now applied: a reverse dry-run must succeed.
+  ( cd "$tree" && patch -R -p1 --fuzz=0 --dry-run < "$p" >/dev/null ) \
+    || { echo "ERROR: ${name} did not apply to the source" >&2; exit 1; }
+  echo "    applied and verified ${name}" >&2
 done
 
 log "7/8  Record our build version and changelog entry"
