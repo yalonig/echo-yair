@@ -5,7 +5,7 @@ SHELL := bash
 include versions.env
 export
 
-.PHONY: help doctor pin
+.PHONY: help doctor pin scan-baseline
 
 help: ## Show available commands
 	@awk 'BEGIN {FS = ":.*## "} /^[a-zA-Z_-]+:.*## / {printf "  %-10s %s\n", $$1, $$2}' Makefile
@@ -15,3 +15,6 @@ doctor: ## Check the local toolchain
 
 pin: ## Resolve image tags and save their digests
 	@bash scripts/pin-images.sh
+
+scan-baseline: ## Scan the pinned upstream image and build the triage table
+	@bash scripts/scan.sh "$(UPSTREAM_IMAGE)@$(UPSTREAM_DIGEST)" scans/baseline baseline
