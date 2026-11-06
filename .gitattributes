@@ -1,0 +1,7 @@
+# Keep scripts usable in Linux containers when the repo is edited on Windows.
+* text=auto eol=lf
+*.patch -text
+*.png binary
+*.jpg binary
+*.tar.gz binary
+*.deb binary
