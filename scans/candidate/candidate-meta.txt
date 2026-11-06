@@ -1,0 +1,34 @@
+image: echo-nginx:1.25.5
+scanned_at: 2026-11-06T20:16:49Z
+
+# trivy
+Version: 0.76.2
+Vulnerability DB:
+  Version: 2
+  UpdatedAt: 2026-11-06 12:55:02.577403897 +0000 UTC
+  NextUpdate: 2026-11-07 12:55:02.577403513 +0000 UTC
+  DownloadedAt: 2026-11-06 14:41:58.430514337 +0000 UTC
+Java DB:
+  Version: 1
+  UpdatedAt: 2026-11-06 01:10:43.741478979 +0000 UTC
+  NextUpdate: 2026-11-09 01:10:43.741478889 +0000 UTC
+  DownloadedAt: 2026-11-06 14:45:03.701295789 +0000 UTC
+
+# grype
+Application:         grype
+Version:             0.121.2
+BuildDate:           2026-11-05T21:17:09Z
+GitCommit:           82d7a0ea911946b99343c672056867d372f9b319
+GitDescription:      v0.121.2
+Platform:            linux/amd64
+GoVersion:           go1.27.3
+Compiler:            gc
+Syft Version:        v1.57.0
+Supported DB Schema: 6
+
+# grype database
+Path:      /home/yairh/.cache/grype/db/6/vulnerability.db
+Schema:    v6.1.10
+Built:     2026-11-06T06:21:59Z
+From:      https://grype.anchore.io/databases/v6/vulnerability-db_v6.1.10_2026-11-05T00:22:43Z_1793946119.tar.zst?checksum=sha256%3Afdc0c98e98e2c0599ae2909148a1d9002de603347726c09119a5c2458b178c23
+Status:    valid

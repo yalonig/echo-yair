@@ -12,7 +12,9 @@ prefix="$3"
 base="${out_dir}/${prefix}"
 
 mkdir -p "$out_dir"
-docker pull --quiet "$image" >/dev/null
+# Pull only if the image is not already present (the candidate image is built
+# locally and has no registry to pull from).
+docker image inspect "$image" >/dev/null 2>&1 || docker pull --quiet "$image" >/dev/null
 
 printf 'Scanning %s with Trivy\n' "$image"
 trivy image --scanners vuln --format json --output "${base}-trivy.json" "$image"
