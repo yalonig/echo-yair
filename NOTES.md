@@ -59,3 +59,23 @@ same-version nginx; ours is the same 1.25.5, also `--with-compat`. Two snags:
    runtime libraries explicitly in the Containerfile.
 
 Verified: `nginx -t` loads all four modules in the final image.
+
+## The backport compiled but was not in the binary
+
+The compatibility suite's CVE test caught this: the drop-in image returned 200
+on the alias+rewrite trigger, exactly like the unpatched upstream, instead of the
+patched build's 500. The parity tests all passed, so the image was a faithful
+drop-in -- of the *unpatched* nginx.
+
+Cause: the build added the patch to `debian/patches/series` and trusted
+`dpkg-buildpackage` (source format "3.0 (quilt)") to apply the series at build
+time. In this setup that application did not happen, so nginx compiled from the
+pristine source.
+
+Fix: apply the patch directly to the source tree that `debian/rules` compiles
+(it copies `$(CURDIR)/src` into the build dir), then verify with a reverse
+dry-run that it is really applied before building. The behavioural CVE test now
+passes.
+
+Lesson: "the patch applies cleanly" is not "the patch is in the binary." Only a
+test that exercises the fixed behaviour proves the backport shipped.
