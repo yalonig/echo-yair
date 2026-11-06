@@ -5,7 +5,7 @@ SHELL := bash
 include versions.env
 export
 
-.PHONY: help doctor pin scan-baseline scan-candidate deb image test
+.PHONY: help doctor pin scan-baseline scan-candidate deb image test all
 
 help: ## Show available commands
 	@awk 'BEGIN {FS = ":.*## "} /^[a-zA-Z_-]+:.*## / {printf "  %-15s %s\n", $$1, $$2}' Makefile
@@ -31,3 +31,9 @@ image: ## Build the drop-in container image from the .deb
 
 test: ## Compare the candidate image against upstream (requires: make image)
 	@bash scripts/run-tests.sh
+
+all: ## Full pipeline: build the .deb and image, run the tests, rescan and diff
+	@$(MAKE) deb
+	@$(MAKE) image
+	@$(MAKE) test
+	@$(MAKE) scan-candidate
