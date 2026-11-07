@@ -13,7 +13,7 @@ help: ## Show available commands
 doctor: ## Check the local toolchain
 	@bash scripts/doctor.sh
 
-pin: ## Resolve image tags and save their digests
+pin: ## Re-resolve image tags and OVERWRITE the pinned digests (only to move the pins)
 	@bash scripts/pin-images.sh
 
 scan-baseline: ## Scan the pinned upstream image and build the triage table

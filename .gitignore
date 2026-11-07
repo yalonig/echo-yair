@@ -1,5 +1,4 @@
 # Build outputs
-build/work/
 dist/
 *.deb
 *.tar.gz

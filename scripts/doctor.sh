@@ -17,6 +17,16 @@ for tool in git make python3 openssl docker trivy grype; do
   check_tool "$tool"
 done
 
+# The tools use Python 3.10+ syntax; check now rather than crash at the first scan.
+if command -v python3 >/dev/null 2>&1; then
+  if python3 -c 'import sys; sys.exit(sys.version_info < (3, 10))'; then
+    printf 'OK       python3 >= 3.10 (%s)\n' "$(python3 -c 'import platform; print(platform.python_version())')"
+  else
+    printf 'OLD      python3 %s (need 3.10+)\n' "$(python3 -c 'import platform; print(platform.python_version())')"
+    failed=1
+  fi
+fi
+
 if command -v docker >/dev/null 2>&1; then
   if docker info >/dev/null 2>&1; then
     printf 'OK       docker daemon\n'
@@ -26,14 +36,14 @@ if command -v docker >/dev/null 2>&1; then
   fi
 fi
 
-if grep -q $'\r' Makefile versions.env scripts/*.sh; then
+if grep -q $'\r' Makefile versions.env scripts/*.sh build/*.sh Containerfile; then
   printf 'BAD      CRLF line endings found; re-clone after adding .gitattributes\n'
   failed=1
 else
   printf 'OK       LF line endings\n'
 fi
 
-# Resources. The full pipeline (5 package builds, 2 images, 4 scans) peaks around
+# Resources. The full pipeline (6 packages, 2 images, 5 scans) peaks around
 # 8 GB of disk and needs a few GB of RAM for the scanners. Running out mid-build
 # is not a clean failure (on WSL it can corrupt the distro), so check up front.
 need_gb=10; warn_gb=20

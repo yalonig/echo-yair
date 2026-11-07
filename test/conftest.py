@@ -45,13 +45,13 @@ class Server:
         self.https_url = https_url
 
     def logs(self):
-        out = subprocess.run(["docker", "logs", self.cid], capture_output=True, text=True)
+        out = subprocess.run(["docker", "logs", self.cid], check=False, capture_output=True, text=True)
         return out.stdout + out.stderr
 
     def startup_lines(self):
         """The entrypoint's own output: stdout up to and including its
         'ready for start up' line (later stdout is the access log)."""
-        out = subprocess.run(["docker", "logs", self.cid], capture_output=True, text=True)
+        out = subprocess.run(["docker", "logs", self.cid], check=False, capture_output=True, text=True)
         lines = []
         for line in out.stdout.splitlines():
             lines.append(line)
@@ -114,7 +114,7 @@ def _pair(*, mounts=(), env=None, https=False, ready_path="/"):
         yield started
     finally:
         if cids:  # one call: docker removes several containers concurrently
-            subprocess.run(["docker", "rm", "-f", *cids.values()], capture_output=True)
+            subprocess.run(["docker", "rm", "-f", *cids.values()], check=False, capture_output=True)
 
 
 def _self_signed_cert(dest_dir):
