@@ -5,7 +5,7 @@ SHELL := bash
 include versions.env
 export
 
-.PHONY: help doctor pin scan-baseline scan-candidate pcre2 deb image test all
+.PHONY: help doctor pin scan-baseline scan-candidate pcre2 deb image test vex all
 
 help: ## Show available commands
 	@awk 'BEGIN {FS = ":.*## "} /^[a-zA-Z_-]+:.*## / {printf "  %-15s %s\n", $$1, $$2}' Makefile
@@ -35,9 +35,13 @@ image: ## Build the drop-in container image from the .debs
 test: ## Compare the candidate image against upstream (requires: make image)
 	@bash scripts/run-tests.sh
 
-all: ## Full pipeline: build both packages and the image, test, rescan and diff
+vex: ## Generate the OpenVEX document and verify it suppresses the backport CVE
+	@bash scripts/vex.sh
+
+all: ## Full pipeline: build both packages and the image, test, rescan, diff and VEX
 	@$(MAKE) pcre2
 	@$(MAKE) deb
 	@$(MAKE) image
 	@$(MAKE) test
 	@$(MAKE) scan-candidate
+	@$(MAKE) vex

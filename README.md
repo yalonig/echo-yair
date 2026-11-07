@@ -198,8 +198,7 @@ reproduces the original image exactly:
   installed. Verified: `nginx -t` loads all four.
 
 Two intentional differences from the original: the package version carries a
-`+echo1` suffix (so the rebuild is traceable), and the image is **261 MB vs
-276 MB** — the smaller size is from `--no-install-recommends` and a cleaner layer
+`+echo1` suffix (so the rebuild is traceable), and the image is **262 MB vs 276 MB** — the smaller size is from `--no-install-recommends` and a cleaner layer
 set, not from dropping anything.
 
 ---
@@ -216,6 +215,19 @@ header ignored is `Date`; gzip bodies are compared decoded.
 A 16th test proves the backport changed behaviour, as described above. Scenarios
 are data (`test/scenarios.yaml`), so adding a case is a one-line edit.
 
+**What "working correctly" means here:** for every scenario the candidate returns
+the same HTTP status, the same response headers (ignoring `Date`, which each server
+sets from its own clock), and the same body bytes as the original — and for the one
+patched case, it diverges in exactly the intended way. Any difference fails the
+suite with a non-zero exit, so a pass means byte-for-byte parity on everything the
+test exercises, not just "it serves a page."
+
+**What it does *not* cover:** TLS/HTTPS (the scenarios run over plain HTTP on port
+80), performance and concurrency, the dynamic modules under real load, and configs
+beyond the single shared test config. Those are out of scope for a compatibility
+check of the default request-handling surface — the goal is to catch a behavioural
+regression from the rebuild, not to benchmark the server.
+
 ---
 
 ## Scanning and VEX
@@ -226,12 +238,27 @@ a scanner that matches on version alone can't tell the code is fixed — so Gryp
 keeps flagging it on the rebuilt image.
 
 The correct way to resolve that is a **VEX** (Vulnerability Exploitability
-eXchange) document: a signed statement that CVE-2026-15176 is `fixed` in this
-build, which a scanner consumes (`grype --vex`) to drop the finding. The product
-identifier must match the rebuilt package's PURL
-(`pkg:deb/debian/nginx@1.25.5-1~bookworm+echo1`). This is the one bonus item not
-implemented here; VEX matching against locally-built images is notoriously
-finicky, and it was out of scope for the time spent.
+eXchange) document: a statement that CVE-2026-15176 is `fixed` in this build,
+which a scanner consumes (`grype --vex`) to move the finding to its ignore list.
+We ship one at `vex/echo-nginx.openvex.json` (OpenVEX v0.2.0).
+
+It is generated, not hand-written: `tools/make_vex.py` reads the candidate Grype
+report and copies the vulnerable package's PURL verbatim, so the document can
+never drift from what the scanner actually emitted. The one wrinkle is the
+*product* identifier. Grype applies a statement when its product matches the
+scanned image and its subcomponent matches the vulnerable package. A locally
+built image was never pushed to a registry, so it has no single canonical
+reference — Grype may know it by its tag, its image ID, or its manifest digest.
+Rather than guess, the generator lists all three as products for the one
+statement, so the assertion matches however Grype refers to the image.
+
+`make vex` regenerates the document and re-runs Grype against the candidate with
+`--vex --show-suppressed`, then asserts CVE-2026-15176 has moved from the active
+match list to the suppressed list — the bonus, done and self-verifying. It is
+also the last step of `make all`.
+
+The PCRE2 bump needs no VEX: its version string changes, so both scanners drop
+those CVEs on their own.
 
 ---
 
@@ -246,12 +273,14 @@ build/
   patches/
     CVE-2026-15176.patch  # the backport, with DEP-3 provenance
 Containerfile             # the drop-in image, with the version-bump gate
-scripts/                  # doctor, pin-images, scan, build-deb, build-image, run-tests
+scripts/                  # doctor, pin-images, scan, build-deb, build-image, run-tests, vex
 tools/
   triage.py               # merge Trivy + Grype reports into one CVE table
   diff_scans.py           # baseline-vs-candidate diff
+  make_vex.py             # generate the OpenVEX doc from the candidate scan
 test/                     # pytest compat suite, scenarios, fixtures
 scans/                    # committed baseline + candidate reports and the diff
+vex/                      # OpenVEX doc asserting the backport CVE is fixed
 versions.env              # every pinned input (digests, nginx version, pkg-oss ref)
 TRIAGE.md                 # which CVEs were chosen and why
 NOTES.md                  # decisions and the things that broke along the way
