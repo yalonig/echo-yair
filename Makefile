@@ -21,12 +21,14 @@ scan-baseline: ## Scan the pinned upstream image and build the triage table
 
 scan-candidate: ## Scan the built candidate image and diff it against the baseline
 	@bash scripts/scan.sh "echo-nginx:$(NGINX_VERSION)" scans/candidate candidate
-	@python3 tools/diff_scans.py --baseline scans/baseline/baseline-triage.csv --candidate scans/candidate/candidate-triage.csv --output scans/candidate/diff.md
+	@python3 tools/diff_scans.py --baseline scans/baseline/baseline-triage.csv --candidate scans/candidate/candidate-triage.csv \
+		--baseline-packages scans/baseline/baseline-packages.txt --candidate-packages scans/candidate/candidate-packages.txt \
+		--fail-on-missing --output scans/candidate/diff.md
 
 pcre2: ## Build the version-bumped PCRE2 .deb from Debian source
 	@bash scripts/build-pcre2.sh
 
-deb: ## Build the patched nginx .deb from source in a clean Debian base
+deb: ## Build the patched nginx .deb + its 4 module .debs from source in a clean Debian base
 	@bash scripts/build-deb.sh
 
 image: ## Build the drop-in container image from the .debs
@@ -38,10 +40,12 @@ test: ## Compare the candidate image against upstream (requires: make image)
 vex: ## Generate the OpenVEX document and verify it suppresses the backport CVE
 	@bash scripts/vex.sh
 
-all: ## Full pipeline: build both packages and the image, test, rescan, diff and VEX
+all: ## Full pipeline: preflight, build all packages + image, test, scan both images (same DB), diff, VEX
+	@$(MAKE) doctor
 	@$(MAKE) pcre2
 	@$(MAKE) deb
 	@$(MAKE) image
 	@$(MAKE) test
+	@$(MAKE) scan-baseline
 	@$(MAKE) scan-candidate
 	@$(MAKE) vex

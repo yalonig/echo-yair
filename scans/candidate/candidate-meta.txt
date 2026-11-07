@@ -1,5 +1,5 @@
 image: echo-nginx:1.25.5
-scanned_at: 2026-11-07T00:50:15Z
+scanned_at: 2026-11-07T12:03:16Z
 
 # trivy
 Version: 0.76.2

@@ -34,6 +34,10 @@ grype "$image" --output "table=${base}-grype.txt" --output "json=${base}-grype.j
   grype db status
 } >"${base}-meta.txt"
 
+# Full package inventory, so the diff can tell "fixed by a newer version" from
+# "package not shipped" (component removal).
+docker run --rm --entrypoint dpkg-query "$image" -W -f='${Package}\n' | sort -u >"${base}-packages.txt"
+
 python3 tools/triage.py \
   --trivy "${base}-trivy.json" \
   --grype "${base}-grype.json" \

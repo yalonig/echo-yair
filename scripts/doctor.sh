@@ -13,7 +13,7 @@ check_tool() {
   fi
 }
 
-for tool in git make python3 docker trivy grype; do
+for tool in git make python3 openssl docker trivy grype; do
   check_tool "$tool"
 done
 
@@ -31,6 +31,37 @@ if grep -q $'\r' Makefile versions.env scripts/*.sh; then
   failed=1
 else
   printf 'OK       LF line endings\n'
+fi
+
+# Resources. The full pipeline (5 package builds, 2 images, 4 scans) peaks around
+# 8 GB of disk and needs a few GB of RAM for the scanners. Running out mid-build
+# is not a clean failure (on WSL it can corrupt the distro), so check up front.
+need_gb=10; warn_gb=20
+
+free_gb() { df -Pk "$1" 2>/dev/null | awk 'NR==2 {printf "%d", $4/1048576}'; }
+check_disk() {  # <path> <label>
+  local gb; gb="$(free_gb "$1")"; [ -n "$gb" ] || return 0
+  if [ "$gb" -lt "$need_gb" ]; then
+    printf 'LOW      disk: %s GB free on %s (need %s GB)\n' "$gb" "$2" "$need_gb"; failed=1
+  elif [ "$gb" -lt "$warn_gb" ]; then
+    printf 'WARN     disk: %s GB free on %s (%s+ GB recommended)\n' "$gb" "$2" "$warn_gb"
+  else
+    printf 'OK       disk: %s GB free on %s\n' "$gb" "$2"
+  fi
+}
+
+check_disk . "the repo filesystem"
+# Under WSL + Docker Desktop, Docker's and the distro's virtual disks live on the
+# Windows drive and grow until it is full -- that drive is the one that matters.
+if grep -qi microsoft /proc/version 2>/dev/null && [ -d /mnt/c ]; then
+  check_disk /mnt/c "Windows C: (holds Docker's virtual disk)"
+fi
+
+mem_gb="$(awk '/MemTotal/ {printf "%d", $2/1048576}' /proc/meminfo 2>/dev/null)"
+if [ -n "$mem_gb" ] && [ "$mem_gb" -lt 4 ]; then
+  printf 'WARN     memory: %s GB visible; scanners may fail below ~4 GB\n' "$mem_gb"
+elif [ -n "$mem_gb" ]; then
+  printf 'OK       memory: %s GB\n' "$mem_gb"
 fi
 
 exit "$failed"

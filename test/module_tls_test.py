@@ -1,8 +1,10 @@
 """Checks beyond raw response parity, tied to the specific remediation work:
 
- - the njs and image-filter dynamic modules are present AND behave (we went to
-   trouble to keep all four modules, so prove two of them actually run);
- - the TLS listener serves (exercises the bumped OpenSSL end to end, not just
+ - all four dynamic modules (which we compile from source) load in both images
+   -- the fixture loads all six module objects, so a bad module fails to boot --
+   and two of them behave: our njs matches upstream's byte-for-byte, and
+   image-filter produces a valid image;
+ - the TLS listener serves (exercises the newer OpenSSL end to end, not just
    its version string);
  - the CVE-2026-15176 backport is surgical: a plain alias (no rewrite) is
    untouched.
@@ -51,7 +53,7 @@ def test_image_filter_module_works(ext_servers):
 
 def test_tls_listener_parity(ext_servers):
     """The candidate serves HTTPS identically to upstream -- this is the end-to-
-    end exercise of the bumped OpenSSL, beyond the version-string check in the
+    end exercise of the newer OpenSSL, beyond the version-string check in the
     Containerfile gate."""
     for path in ("/", "/njs"):
         up = _get(ext_servers["upstream"].https_url + path, verify=False)

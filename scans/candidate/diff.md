@@ -1,11 +1,16 @@
 # Baseline vs candidate scan diff
 
 - Baseline findings:  846
-- Candidate findings: 357
-- **Removed by the rebuild: 489**  (Critical: 47 | High: 201 | Medium: 173 | Low: 57 | Unknown: 11)
-- Still present: 357  (Critical: 9 | High: 89 | Medium: 109 | Low: 110 | Negligible: 2 | Unknown: 38)
+- Candidate findings: 465
+- **Fixed (package still shipped, newer version): 381**  (Critical: 31 | High: 162 | Medium: 158 | Low: 19 | Unknown: 11)
+- Gone because the package is not shipped: 0  (none)
+- Still present: 465  (Critical: 25 | High: 128 | Medium: 124 | Low: 148 | Negligible: 2 | Unknown: 38)
 
-## Version bump: PCRE2 (7 removed)
+## Drop-in check: upstream packages missing from the candidate
+
+None: every one of the 149 packages in the upstream image is also in the candidate, so no finding was removed by dropping a component.
+
+## Version bump: PCRE2 (7 fixed)
 
 | CVE | Severity | Package | Installed | Fixed in |
 |---|---|---|---|---|
@@ -19,14 +24,14 @@
 
 ## Backport: CVE-2026-15176
 
-Still reported by the scanner (the package version is unchanged), as expected for a backport. This is the VEX candidate.
+Still reported by the scanner (the package version is unchanged), as expected for a backport. This is the VEX candidate; see `make vex`.
 
-## Largest removed groups
+## Largest fixed groups (newer versions from the current base)
 
-- curl: 104
-- openssl: 97
-- krb5: 52
+- openssl: 96
 - expat: 33
+- krb5: 28
+- curl: 28
 - gnutls28: 21
 - libxml2: 21
 - glibc: 18
