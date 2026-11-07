@@ -1,6 +1,7 @@
 """Compatibility tests: the candidate image must respond identically to the
 upstream image across a set of scenarios, and must carry the CVE-2026-15176 fix."""
 import pathlib
+import re
 import socket
 
 import pytest
@@ -48,17 +49,22 @@ def _fetch_raw(base, payload):
     host, port = base.removeprefix("http://").split(":")
     with socket.create_connection((host, int(port)), timeout=5) as sock:
         sock.sendall(payload.encode("latin-1"))
-        sock.settimeout(5)
-        chunks = []
-        try:
-            while True:
+        raw = b""
+        while True:
+            try:
                 data = sock.recv(4096)
-                if not data:
+            except socket.timeout:
+                break
+            if not data:
+                break  # server closed the connection
+            raw += data
+            # Stop as soon as the full response is in: on a kept-alive connection
+            # waiting for the server to close would just burn the timeout.
+            head, sep, body = raw.partition(b"\r\n\r\n")
+            if sep and head.startswith(b"HTTP/"):
+                length = re.search(rb"(?im)^content-length:\s*(\d+)", head)
+                if length and len(body) >= int(length.group(1)):
                     break
-                chunks.append(data)
-        except socket.timeout:
-            pass
-    raw = b"".join(chunks)
     # drop the Date: header line so two servers compare equal
     keep = [ln for ln in raw.split(b"\r\n") if not ln.lower().startswith(b"date:")]
     return b"\r\n".join(keep)

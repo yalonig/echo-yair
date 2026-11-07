@@ -220,8 +220,10 @@ apt resolves their runtime libraries from the packages' own dependencies:
 Intentional, visible differences: every package we built carries a `+echo1` version
 suffix so the rebuild is traceable, which also shows in the two release variables
 (`PKG_RELEASE=1~bookworm+echo1`, `NJS_RELEASE=3~bookworm+echo1`). Everything else —
-the `nginx` passwd entry, the other environment variables, entrypoint, cmd, ports,
-stop signal — matches the original. Also expected: the packaged files carry our
+the `nginx` passwd and group entries, the other environment variables, user,
+working directory, entrypoint, cmd, ports, stop signal, and the path/type/mode/owner
+of every file nginx and the entrypoint own — matches the original, and
+`test/contract_test.py` fails if any of it drifts. Also expected: the packaged files carry our
 build date, so the default pages' `Last-Modified`/`ETag` headers differ (contents and
 sizes are identical). Image size: **278.2 MB vs 273.1 MB** (+1.8%).
 With identical package sets, that difference is in what's inside the packages
@@ -267,6 +269,14 @@ and most of the entrypoint:
 - the entrypoint's **template feature** works the same: a `*.template` file plus an
   environment variable is rendered (via `envsubst`) and served identically.
 
+A fourth file (`test/contract_test.py`) checks what no HTTP request can see — the
+brief's "filesystem layout, user, working directory, ports, and entrypoint exactly":
+image metadata from `docker inspect` (user, workdir, entrypoint, cmd, ports, stop
+signal, volumes, platform, every env variable), the `nginx` passwd/group entries, and
+the path, type, mode, owner and symlink target of everything under nginx's and the
+entrypoint's directories. The only differences it allows are the `+echo1` release
+suffix and the image labels.
+
 **Do the tests actually test?** A parity test alone can pass vacuously: if both
 images broke the same way (a failed mount, a dropped connection), they would still
 "match". So every scenario is **anchored**: it states the status or bytes nginx must
@@ -277,8 +287,10 @@ runs the whole suite against images that must fail it:
 - **upstream vs itself:** every parity test passes (identical images) and *only* the
   CVE test fails, because that image isn't patched. So the CVE test detects the fix,
   and the parity tests don't flag a correct match.
-- **upstream vs nginx 1.27:** the HTTP, raw-socket, default-config and CVE tests all
-  fail, as they must for a server that isn't a drop-in.
+- **upstream vs nginx 1.27:** 22 tests fail — all 11 HTTP scenarios, the default
+  pages, the env contract, the CVE test and 3 of the 4 raw-socket cases — as they
+  must for a server that isn't a drop-in. (The fourth raw case, HTTP/0.9, rightly
+  passes: it returns the bare page, with no status line or version header.)
 
 **What "working correctly" means here:** for every scenario the candidate returns
 the same HTTP status, the same response headers (ignoring `Date`, which each server
@@ -345,7 +357,7 @@ tools/
   triage.py               # merge Trivy + Grype reports into one CVE table
   diff_scans.py           # baseline-vs-candidate diff: fixed vs not-shipped, drop-in package check
   make_vex.py             # generate the OpenVEX doc from the candidate scan
-test/                     # pytest suites: compat, module/TLS, out-of-the-box defaults
+test/                     # pytest suites: compat, module/TLS, out-of-the-box, image contract
 scans/                    # committed reports, package lists, and the diff
 vex/                      # OpenVEX doc asserting the backport CVE is fixed
 versions.env              # every pinned input (digests, versions, checksums, pkg-oss commit)
