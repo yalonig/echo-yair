@@ -34,9 +34,13 @@ runs it first, so a low-disk machine gets a clear error instead of a crash mid-b
 ## Quick start
 
 ```bash
-make pin            # resolve the base/upstream image tags to fixed digests (once)
 make all            # doctor -> pcre2 -> deb -> image -> test -> scans -> vex
+make selfcheck      # prove the tests can fail
 ```
+
+`versions.env` already pins every input. Don't run `make pin` to set up: it
+re-resolves the image tags and **overwrites** those pins with whatever the tags point
+to today. Use it only when you deliberately want to move to newer base images.
 
 Individual stages:
 
@@ -366,7 +370,7 @@ build/
   patches/
     CVE-2026-15176.patch  # the backport, with DEP-3 provenance
 Containerfile             # the drop-in image, with the build gate
-scripts/                  # doctor, pin-images, scan, build-deb, build-pcre2, build-image, run-tests, vex
+scripts/                  # doctor, pin-images, scan, build-deb, build-pcre2, build-image, run-tests, selfcheck, vex
 tools/
   triage.py               # merge Trivy + Grype reports into one CVE table
   diff_scans.py           # baseline-vs-candidate diff: fixed vs not-shipped, drop-in package check

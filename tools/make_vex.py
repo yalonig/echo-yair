@@ -26,6 +26,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import sys
 from datetime import datetime, timezone
 
@@ -152,8 +153,6 @@ def main() -> None:
 
     report = load_report(args.grype_json)
     doc = build_document(report, args.cve or BACKPORT_FIXED)
-
-    import os
 
     os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
     with open(args.output, "w", encoding="utf-8") as fh:

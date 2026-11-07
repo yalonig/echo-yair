@@ -25,3 +25,4 @@ set_value BUILD_BASE_DIGEST "$base_digest"
 printf 'Pinned %s to %s\n' "$UPSTREAM_IMAGE" "$upstream_digest"
 printf 'Pinned %s to %s\n' "$BUILD_BASE_IMAGE" "$base_digest"
 docker run --rm "$UPSTREAM_IMAGE" nginx -v
+printf '\nversions.env now points at these digests. Commit it only if you meant to move the pins.\n'

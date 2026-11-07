@@ -3,6 +3,7 @@ upstream image across a set of scenarios, and must carry the CVE-2026-15176 fix.
 import pathlib
 import re
 import socket
+import time
 
 import pytest
 import requests
@@ -53,7 +54,7 @@ def _fetch_raw(base, payload):
         while True:
             try:
                 data = sock.recv(4096)
-            except socket.timeout:
+            except TimeoutError:
                 break
             if not data:
                 break  # server closed the connection
@@ -108,6 +109,17 @@ def test_raw_parity(servers, scenario):
     )
 
 
+def _logged(server, needle, timeout=5.0):
+    """Docker delivers container logs asynchronously, so poll briefly instead of
+    racing it."""
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        if needle in server.logs():
+            return True
+        time.sleep(0.2)
+    return needle in server.logs()
+
+
 def test_cve_2026_15176_is_fixed(servers):
     """The backport adds a guard in ngx_http_map_uri_to_path(). On the alias+rewrite
     trigger the patched build refuses to map $request_filename -- it logs an alert
@@ -120,7 +132,7 @@ def test_cve_2026_15176_is_fixed(servers):
     upstream = requests.get(servers["upstream"].base_url + path, timeout=10)
 
     # The guard fires on the patched build only.
-    assert guard in servers["candidate"].logs(), (
+    assert _logged(servers["candidate"], guard), (
         "patched build should log the alias/rewrite guard for the trigger request"
     )
     assert guard not in servers["upstream"].logs(), (

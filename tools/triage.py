@@ -7,7 +7,7 @@ import json
 from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Callable, Iterable, Iterator
+from collections.abc import Callable, Iterable, Iterator
 
 SEVERITY_ORDER = ("Critical", "High", "Medium", "Low", "Negligible", "Unknown")
 COLUMNS = (
