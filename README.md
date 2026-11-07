@@ -6,7 +6,7 @@ true drop-in replacement. The whole project reproduces from a clean checkout wit
 one command.
 
 ```bash
-make all      # preflight, build 5 packages + the image, test, scan both images, diff, VEX
+make all      # preflight, build 6 packages + the image, test, scan both images, diff, VEX
 ```
 
 - **nginx and its four dynamic modules** (geoip, image-filter, njs, xslt) are
@@ -25,8 +25,8 @@ make all      # preflight, build 5 packages + the image, test, scan both images,
 
 ## Prerequisites
 
-Linux (or WSL2 on Windows) with `docker`, `make`, `python3`, `git`, `openssl`, and
-the two scanners `trivy` and `grype`. The full pipeline needs roughly **10 GB of
+Linux (or WSL2 on Windows) with `docker`, `make`, `python3` (3.10+), `git`, `openssl`,
+and the two scanners `trivy` and `grype`. The full pipeline needs roughly **10 GB of
 free disk** (on WSL, on the Windows drive that holds Docker's virtual disk) and
 **4 GB+ of RAM** for the scanners. `make doctor` checks all of this and `make all`
 runs it first, so a low-disk machine gets a clear error instead of a crash mid-build.
@@ -46,7 +46,7 @@ Individual stages:
 
 | Command | What it does |
 |---|---|
-| `make doctor` | Check tools, disk and memory. |
+| `make doctor` | Check tools (incl. Python 3.10+), line endings, disk and memory. |
 | `make pcre2` | Rebuild the version-bumped PCRE2 `.deb` from Debian source. |
 | `make deb` | Compile nginx + its 4 module `.deb`s from source in a clean `debian:bookworm-slim`. |
 | `make image` | Build the drop-in image `echo-nginx:1.25.5` from those `.deb`s. |
@@ -143,7 +143,9 @@ database gave identical totals (846 → 465, 381 fixed) with a few CVEs re-rated
 - **None came from dropping a component.** Each scan records the image's full
   package list, and `make scan-candidate` uses both lists to split every
   disappeared finding into "fixed (newer version)" vs "package not shipped" —
-  failing the run if any upstream package is missing. Verified: the two images have **identical package sets** (149 packages each) — nothing missing, nothing extra.
+  failing the run if any upstream package is missing. Verified: the two images
+  have **identical package sets** (149 packages each) — nothing missing, nothing
+  extra.
 - **The backport is *not* in the fixed count — by design.** The scanner still
   reports CVE-2026-15176 because the version string didn't change. With the VEX
   document applied, Grype suppresses it (Grype's own count goes from 421 to 420
@@ -233,9 +235,9 @@ suffix so the rebuild is traceable, which also shows in the two release variable
 the `nginx` passwd and group entries, the other environment variables, user,
 working directory, entrypoint, cmd, ports, stop signal, and the path/type/mode/owner
 of every file nginx and the entrypoint own — matches the original, and
-`test/contract_test.py` fails if any of it drifts. Also expected: the packaged files carry our
-build date, so the default pages' `Last-Modified`/`ETag` headers differ (contents and
-sizes are identical). Image size: **278.2 MB vs 273.1 MB** (+1.8%).
+`test/contract_test.py` fails if any of it drifts. Also expected: the packaged
+files carry our build date, so the default pages' `Last-Modified`/`ETag` headers
+differ (contents and sizes are identical). Image size: **278.2 MB vs 273.1 MB** (+1.8%).
 With identical package sets, that difference is in what's inside the packages
 (newer versions from the refreshed base, and our own builds), not extra components.
 
@@ -307,8 +309,9 @@ runs the whole suite against images that must fail it:
   and the parity tests don't flag a correct match.
 - **upstream vs nginx 1.27:** 24 tests fail, including all 11 HTTP scenarios, the
   default pages, the large download and range, the env contract, the CVE test and
-  3 of the 4 raw-socket cases, as they must for a server that isn't a drop-in. (The fourth raw case, HTTP/0.9, rightly
-  passes: it returns the bare page, with no status line or version header.)
+  3 of the 4 raw-socket cases, as they must for a server that isn't a drop-in.
+  (The fourth raw case, HTTP/0.9, rightly passes: it returns the bare page, with
+  no status line or version header.)
 
 **What "working correctly" means here:** for every scenario the candidate returns
 the same HTTP status, the same response headers (ignoring `Date`, which each server
@@ -321,9 +324,10 @@ test exercises, not just "it serves a page."
 
 **What it does *not* cover:** performance and concurrency, modules under real load,
 the geoip and xslt modules' behaviour beyond loading, and IPv6 traffic (the IPv6
-`listen` line is checked through `nginx -T`, but no request is sent over IPv6). Those are out of scope
-for a compatibility check of the request-handling surface — the goal is to catch a
-behavioural regression from the rebuild, not to benchmark the server.
+`listen` line is checked through `nginx -T`, but no request is sent over IPv6).
+Those are out of scope for a compatibility check of the request-handling
+surface — the goal is to catch a behavioural regression from the rebuild, not to
+benchmark the server.
 
 ---
 
@@ -407,6 +411,11 @@ NOTES.md                  # decisions and the things that broke along the way
 - **The build filled the disk.** The module builds left gigabytes of build trees in
   Docker's disk; on WSL the Windows drive filled up mid-scan and corrupted the
   distro. Build trees are now deleted in-layer and `make doctor` checks disk first.
+- **Tests that could not fail.** Running the suite against images that *must* fail
+  it (`make selfcheck`) exposed tests that passed no matter what: parity checks
+  that only compared the two images to each other, and a gzip check whose silent
+  `except` swallowed every decode error. Each test is now anchored to what nginx
+  must return, and the self-check is part of the deliverable.
 - A `set -e` trap: a failed `docker pull` inside a command substitution didn't stop
   the script, hiding the real error behind a later one.
 
@@ -443,8 +452,9 @@ Where it hurt, and I had to catch it:
   data contradicted. I caught it by having it audit the repo line by line against
   the original brief and checking the claims against the scan data.
 - It introduced the `set -e` bug above; it first asserted the CVE fix would return
-  HTTP 500 when the real patched behaviour is an empty 200 plus a log line; and at
-  one point it claimed it had updated a file when it hadn't.
+  HTTP 500 when the real patched behaviour is an empty 200 plus a log line; it
+  wrote tests that could not fail (see above); and at one point it claimed it had
+  updated a file when it hadn't.
 
 I verified every claim against the actual build and scan output rather than taking
 its word — which is how both the patch-not-in-the-binary and the not-shipped
