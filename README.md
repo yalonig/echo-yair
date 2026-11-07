@@ -301,9 +301,9 @@ runs the whole suite against images that must fail it:
 - **upstream vs itself:** every parity test passes (identical images) and *only* the
   CVE test fails, because that image isn't patched. So the CVE test detects the fix,
   and the parity tests don't flag a correct match.
-- **upstream vs nginx 1.27:** 24 tests fail — all 11 HTTP scenarios, the default
-  pages, the large download and range, the env contract, the CVE test and 3 of the
-  4 raw-socket cases — as they must for a server that isn't a drop-in. (The fourth raw case, HTTP/0.9, rightly
+- **upstream vs nginx 1.27:** 24 tests fail, including all 11 HTTP scenarios, the
+  default pages, the large download and range, the env contract, the CVE test and
+  3 of the 4 raw-socket cases, as they must for a server that isn't a drop-in. (The fourth raw case, HTTP/0.9, rightly
   passes: it returns the bare page, with no status line or version header.)
 
 **What "working correctly" means here:** for every scenario the candidate returns
