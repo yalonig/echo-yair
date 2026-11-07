@@ -220,7 +220,7 @@ Intentional, visible differences: every package we built carries a `+echo1` vers
 suffix so the rebuild is traceable, which also shows in the two release variables
 (`PKG_RELEASE=1~bookworm+echo1`, `NJS_RELEASE=3~bookworm+echo1`). Everything else —
 the `nginx` passwd entry, the other environment variables, entrypoint, cmd, ports,
-stop signal — matches the original. Image size: **278.2 MB vs 273.1 MB** (+1.9%).
+stop signal — matches the original. Image size: **278.2 MB vs 273.1 MB** (+1.8%).
 With identical package sets, that difference is in what's inside the packages
 (newer versions from the refreshed base, and our own builds), not extra components.
 
