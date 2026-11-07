@@ -134,8 +134,10 @@ Lesson: a number that only goes down is not evidence. Ask *why* each finding lef
 
 ## The build filled the Windows drive and corrupted WSL
 
-The module builds compile nginx nine times (each module also builds a debug
-variant), and each build tree stayed baked into the throwaway build image. On WSL,
+The build compiles nginx twice (the normal binary and `nginx-debug`, both shipped
+in upstream's package) plus eight module-only builds (each of the four modules in
+a normal and a `-debug.so` variant), with njs also building the QuickJS engine and
+its CLI -- and every build tree stayed baked into the throwaway build image. On WSL,
 Docker's virtual disk and the distro's live on the Windows drive and only grow.
 The drive hit 0 bytes free mid-scan; Ubuntu crashed, then failed to start with
 I/O errors (`getpwnam ... failed 5`) until WSL was restarted.

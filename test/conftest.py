@@ -82,7 +82,7 @@ def _mapped_port(cid, container_port):
     return mapping.splitlines()[0].rsplit(":", 1)[-1]
 
 
-def _start(name, image, *, mounts=(), env=None, https=False, ready_path="/"):
+def _launch(image, *, mounts=(), env=None, https=False):
     args = ["run", "-d", "--rm", "-p", "127.0.0.1::80"]
     if https:
         args += ["-p", "127.0.0.1::443"]
@@ -90,27 +90,30 @@ def _start(name, image, *, mounts=(), env=None, https=False, ready_path="/"):
         args += ["-v", f"{src}:{dst}:ro"]
     for key, value in (env or {}).items():
         args += ["-e", f"{key}={value}"]
-    cid = _docker(*args, image)
-    try:
-        base = f"http://127.0.0.1:{_mapped_port(cid, 80)}"
-        https_url = f"https://127.0.0.1:{_mapped_port(cid, 443)}" if https else None
-        _wait_ready(base + ready_path)
-    except Exception:
-        subprocess.run(["docker", "rm", "-f", cid], capture_output=True)  # never leak
-        raise
+    return _docker(*args, image)
+
+
+def _ready(name, cid, *, https=False, ready_path="/"):
+    base = f"http://127.0.0.1:{_mapped_port(cid, 80)}"
+    https_url = f"https://127.0.0.1:{_mapped_port(cid, 443)}" if https else None
+    _wait_ready(base + ready_path)
     return Server(name, cid, base, https_url)
 
 
 @contextlib.contextmanager
-def _pair(**kwargs):
-    started = {}
+def _pair(*, mounts=(), env=None, https=False, ready_path="/"):
+    """Start both containers first, then wait for both, so they boot in parallel.
+    Every launched container is removed afterwards, even if startup failed."""
+    cids, started = {}, {}
     try:
         for name, image in IMAGES.items():
-            started[name] = _start(name, image, **kwargs)
+            cids[name] = _launch(image, mounts=mounts, env=env, https=https)
+        for name, cid in cids.items():
+            started[name] = _ready(name, cid, https=https, ready_path=ready_path)
         yield started
     finally:
-        for s in started.values():
-            subprocess.run(["docker", "rm", "-f", s.cid], capture_output=True)
+        if cids:  # one call: docker removes several containers concurrently
+            subprocess.run(["docker", "rm", "-f", *cids.values()], capture_output=True)
 
 
 def _self_signed_cert(dest_dir):

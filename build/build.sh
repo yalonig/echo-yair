@@ -151,6 +151,6 @@ done
 log "Built packages:"; ls -la "$OUT_DIR" >&2
 log "nginx -V of the built binary:"; cat "$OUT_DIR/nginx-V.txt" >&2
 
-# Drop the build tree (sources, 9 compiles incl. debug objects) in this same
+# Drop the build tree (sources, both nginx builds, all module objects) in this same
 # layer, so the throwaway build image does not keep gigabytes on disk.
 cd /; rm -rf "$WORK"
