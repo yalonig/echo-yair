@@ -215,6 +215,14 @@ header ignored is `Date`; gzip bodies are compared decoded.
 A 16th test proves the backport changed behaviour, as described above. Scenarios
 are data (`test/scenarios.yaml`), so adding a case is a one-line edit.
 
+A second file (`test/module_tls_test.py`) goes past raw parity to the things the
+rebuild specifically touched: it loads the **njs** and **image-filter** dynamic
+modules and checks njs returns byte-identical output on both builds, that
+image-filter produces a valid resized image (not byte-compared — the rebuild may
+carry a newer libgd), that the candidate serves over **TLS** identically to the
+original (an end-to-end exercise of the bumped OpenSSL), and that the backport
+leaves a plain, non-rewritten `alias` untouched — proof the fix is surgical.
+
 **What "working correctly" means here:** for every scenario the candidate returns
 the same HTTP status, the same response headers (ignoring `Date`, which each server
 sets from its own clock), and the same body bytes as the original — and for the one
@@ -222,11 +230,11 @@ patched case, it diverges in exactly the intended way. Any difference fails the
 suite with a non-zero exit, so a pass means byte-for-byte parity on everything the
 test exercises, not just "it serves a page."
 
-**What it does *not* cover:** TLS/HTTPS (the scenarios run over plain HTTP on port
-80), performance and concurrency, the dynamic modules under real load, and configs
-beyond the single shared test config. Those are out of scope for a compatibility
-check of the default request-handling surface — the goal is to catch a behavioural
-regression from the rebuild, not to benchmark the server.
+**What it does *not* cover:** performance and concurrency, the dynamic modules
+under real load, and the geoip and xslt modules' behaviour (only njs and
+image-filter are exercised; all four are load-checked by `nginx -t`). Those are
+out of scope for a compatibility check of the request-handling surface — the goal
+is to catch a behavioural regression from the rebuild, not to benchmark the server.
 
 ---
 

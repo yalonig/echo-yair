@@ -15,7 +15,7 @@ fi
 
 run_pytest() {
   env UPSTREAM_IMAGE="${UPSTREAM_IMAGE}" CANDIDATE_IMAGE="$candidate" \
-      "$@" -v test/compat_test.py
+      "$@" -v test/
 }
 
 # Prefer an isolated venv on a native filesystem (not the Windows mount).
