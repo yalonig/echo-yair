@@ -2,20 +2,29 @@
 # kind: http  -> sent with the requests library
 # kind: raw   -> sent as raw bytes over a socket (for malformed requests that a
 #                normal HTTP client would "fix" before sending)
+#
+# Anchors: `status` (http) / `expect` (raw prefix) is what nginx MUST return.
+# They are checked against the upstream image before comparing, so a scenario
+# can't silently stop testing what it claims (e.g. both images 404 on a broken
+# mount, or both close the connection and "match" on empty bytes). Requests ask
+# for the identity encoding unless they set Accept-Encoding; `encoding` +
+# `body_starts` prove the gzip case really was gzipped and decodes to the file.
 
-- {name: root,              kind: http, method: GET,  path: /}
-- {name: not_found,         kind: http, method: GET,  path: /does-not-exist}
-- {name: head_root,         kind: http, method: HEAD, path: /}
-- {name: static_text,       kind: http, method: GET,  path: /big.txt}
-- {name: range,             kind: http, method: GET,  path: /big.txt, headers: {Range: "bytes=0-99"}}
-- {name: range_unsat,       kind: http, method: GET,  path: /big.txt, headers: {Range: "bytes=999999-"}}
-- {name: conditional_future,kind: http, method: GET,  path: /big.txt, headers: {If-Modified-Since: "Thu, 31 Dec 2099 23:59:59 GMT"}}
-- {name: gzip,              kind: http, method: GET,  path: /big.txt, headers: {Accept-Encoding: "gzip"}}
-- {name: redirect,          kind: http, method: GET,  path: /redirect}
-- {name: post_not_allowed,  kind: http, method: POST, path: /, body_bytes: 10}
-- {name: body_too_large,    kind: http, method: POST, path: /, body_bytes: 2048}
+- {name: root,              kind: http, method: GET,  path: /,               status: 200}
+- {name: not_found,         kind: http, method: GET,  path: /does-not-exist, status: 404}
+- {name: head_root,         kind: http, method: HEAD, path: /,               status: 200}
+- {name: static_text,       kind: http, method: GET,  path: /big.txt,        status: 200, body_starts: "line 0000"}
+- {name: range,             kind: http, method: GET,  path: /big.txt,        status: 206, headers: {Range: "bytes=0-99"}}
+- {name: range_unsat,       kind: http, method: GET,  path: /big.txt,        status: 416, headers: {Range: "bytes=999999-"}}
+# nginx's default `if_modified_since exact` only answers 304 on an exact date match.
+- {name: conditional_future,kind: http, method: GET,  path: /big.txt,        status: 200, headers: {If-Modified-Since: "Thu, 31 Dec 2099 23:59:59 GMT"}}
+- {name: gzip,              kind: http, method: GET,  path: /big.txt,        status: 200, encoding: gzip, body_starts: "line 0000", headers: {Accept-Encoding: "gzip"}}
+- {name: redirect,          kind: http, method: GET,  path: /redirect,       status: 301}
+- {name: post_not_allowed,  kind: http, method: POST, path: /,               status: 405, body_bytes: 10}
+- {name: body_too_large,    kind: http, method: POST, path: /,               status: 413, body_bytes: 2048}
 
-- {name: no_host_http11,    kind: raw, payload: "GET / HTTP/1.1\r\n\r\n"}
-- {name: unknown_method,    kind: raw, payload: "WIBBLE / HTTP/1.1\r\nHost: localhost\r\n\r\n"}
-- {name: http09,            kind: raw, payload: "GET /\r\n"}
-- {name: bad_request_line,  kind: raw, payload: "not a request\r\n\r\n"}
+- {name: no_host_http11,    kind: raw, expect: "HTTP/1.1 400", payload: "GET / HTTP/1.1\r\n\r\n"}
+- {name: unknown_method,    kind: raw, expect: "HTTP/1.1 405", payload: "WIBBLE / HTTP/1.1\r\nHost: localhost\r\n\r\n"}
+# HTTP/0.9 has no status line: nginx answers with the bare body.
+- {name: http09,            kind: raw, expect: "<!doctype html>", payload: "GET /\r\n"}
+- {name: bad_request_line,  kind: raw, expect: "HTTP/1.1 400", payload: "not a request\r\n\r\n"}

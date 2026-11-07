@@ -47,6 +47,7 @@ Individual stages:
 | `make deb` | Compile nginx + its 4 module `.deb`s from source in a clean `debian:bookworm-slim`. |
 | `make image` | Build the drop-in image `echo-nginx:1.25.5` from those `.deb`s. |
 | `make test` | Boot both images and assert identical responses + prove the CVE fix. |
+| `make selfcheck` | Prove the tests can fail: run them against images that must fail them. |
 | `make scan-baseline` | Scan the original image (Trivy + Grype) and record its package list. |
 | `make scan-candidate` | Scan the rebuilt image and diff it; **fails if an upstream package is missing**. |
 | `make vex` | Generate the OpenVEX document and prove it suppresses the backport CVE. |
@@ -220,7 +221,9 @@ Intentional, visible differences: every package we built carries a `+echo1` vers
 suffix so the rebuild is traceable, which also shows in the two release variables
 (`PKG_RELEASE=1~bookworm+echo1`, `NJS_RELEASE=3~bookworm+echo1`). Everything else —
 the `nginx` passwd entry, the other environment variables, entrypoint, cmd, ports,
-stop signal — matches the original. Image size: **278.2 MB vs 273.1 MB** (+1.8%).
+stop signal — matches the original. Also expected: the packaged files carry our
+build date, so the default pages' `Last-Modified`/`ETag` headers differ (contents and
+sizes are identical). Image size: **278.2 MB vs 273.1 MB** (+1.8%).
 With identical package sets, that difference is in what's inside the packages
 (newer versions from the refreshed base, and our own builds), not extra components.
 
@@ -249,15 +252,46 @@ rebuild specifically touched:
   of the newer OpenSSL);
 - the backport leaves a plain, non-rewritten `alias` untouched — proof the fix is surgical.
 
+A third file (`test/default_test.py`) boots both images **with nothing mounted** —
+exactly how someone runs them with `docker run` — because the suites above mount
+their own `nginx.conf`, which bypasses the image's packaged config, default pages
+and most of the entrypoint:
+
+- the default responses (welcome page, `50x.html`, the default 404 page, `HEAD`) match;
+- the **effective configuration** (`nginx -T`, after the entrypoint ran) is identical
+  — same packaged `nginx.conf`, `conf.d/default.conf` and `mime.types`, transformed
+  the same way;
+- the **entrypoint's startup output** matches line for line. Its IPv6 step only edits
+  `default.conf` after checking it against the checksum dpkg recorded for the
+  package, so this also checks our packaging;
+- the entrypoint's **template feature** works the same: a `*.template` file plus an
+  environment variable is rendered (via `envsubst`) and served identically.
+
+**Do the tests actually test?** A parity test alone can pass vacuously: if both
+images broke the same way (a failed mount, a dropped connection), they would still
+"match". So every scenario is **anchored**: it states the status or bytes nginx must
+return (`200` plus "Welcome to nginx!", `416`, `HTTP/1.1 400`, an 8×8 resized PNG, …),
+checked against upstream *before* the images are compared. And `make selfcheck`
+runs the whole suite against images that must fail it:
+
+- **upstream vs itself:** every parity test passes (identical images) and *only* the
+  CVE test fails, because that image isn't patched. So the CVE test detects the fix,
+  and the parity tests don't flag a correct match.
+- **upstream vs nginx 1.27:** the HTTP, raw-socket, default-config and CVE tests all
+  fail, as they must for a server that isn't a drop-in.
+
 **What "working correctly" means here:** for every scenario the candidate returns
 the same HTTP status, the same response headers (ignoring `Date`, which each server
 sets from its own clock), and the same body bytes as the original — and for the one
-patched case, it diverges in exactly the intended way. Any difference fails the
+patched case, it diverges in exactly the intended way. (The one exception is the
+default pages' `Last-Modified`/`ETag`, which come from file timestamps — see *Drop-in
+image*; their bodies and sizes are still compared.) Any difference fails the
 suite with a non-zero exit, so a pass means byte-for-byte parity on everything the
 test exercises, not just "it serves a page."
 
 **What it does *not* cover:** performance and concurrency, modules under real load,
-and the geoip and xslt modules' behaviour beyond loading. Those are out of scope
+the geoip and xslt modules' behaviour beyond loading, and IPv6 traffic (the IPv6
+`listen` line is checked through `nginx -T`, but no request is sent over IPv6). Those are out of scope
 for a compatibility check of the request-handling surface — the goal is to catch a
 behavioural regression from the rebuild, not to benchmark the server.
 
@@ -311,7 +345,7 @@ tools/
   triage.py               # merge Trivy + Grype reports into one CVE table
   diff_scans.py           # baseline-vs-candidate diff: fixed vs not-shipped, drop-in package check
   make_vex.py             # generate the OpenVEX doc from the candidate scan
-test/                     # pytest compat + module/TLS suites, scenarios, fixtures
+test/                     # pytest suites: compat, module/TLS, out-of-the-box defaults
 scans/                    # committed reports, package lists, and the diff
 vex/                      # OpenVEX doc asserting the backport CVE is fixed
 versions.env              # every pinned input (digests, versions, checksums, pkg-oss commit)

@@ -1,6 +1,5 @@
 """Compatibility tests: the candidate image must respond identically to the
 upstream image across a set of scenarios, and must carry the CVE-2026-15176 fix."""
-import gzip
 import pathlib
 import socket
 
@@ -23,25 +22,26 @@ def _norm_headers(headers):
 
 def _fetch_http(base, scenario):
     body = b"x" * scenario["body_bytes"] if "body_bytes" in scenario else None
+    # requests advertises gzip on every request by default, which would silently
+    # gzip every scenario and leave the plain path untested. Ask for the identity
+    # encoding unless a scenario negotiates something else explicitly.
+    headers = {"Accept-Encoding": "identity", **(scenario.get("headers") or {})}
     resp = requests.request(
         scenario.get("method", "GET"),
         base + scenario["path"],
-        headers=scenario.get("headers"),
+        headers=headers,
         data=body,
         allow_redirects=False,
         timeout=10,
     )
     headers = _norm_headers(resp.headers)
-    content = resp.content
-    # gzip framing can differ byte-for-byte; compare the decoded payload instead.
+    # requests transparently decodes gzip, so resp.content is the payload. The
+    # compressed bytes may legitimately differ between builds, so compare the
+    # decoded payload; keep Content-Encoding (both must have gzipped), drop the
+    # compressed length.
     if headers.get("content-encoding") == "gzip":
-        try:
-            content = gzip.decompress(content)
-        except OSError:
-            pass
-        headers.pop("content-encoding", None)
         headers.pop("content-length", None)
-    return resp.status_code, headers, content
+    return resp.status_code, headers, resp.content
 
 
 def _fetch_raw(base, payload):
@@ -68,6 +68,20 @@ def _fetch_raw(base, payload):
 def test_http_parity(servers, scenario):
     upstream = _fetch_http(servers["upstream"].base_url, scenario)
     candidate = _fetch_http(servers["candidate"].base_url, scenario)
+    # Anchor first: upstream must do what the scenario claims, or a match proves nothing.
+    assert upstream[0] == scenario["status"], (
+        f"{scenario['name']}: upstream returned {upstream[0]}, scenario expects "
+        f"{scenario['status']} -- the scenario no longer tests what it claims"
+    )
+    if "encoding" in scenario:
+        assert upstream[1].get("content-encoding") == scenario["encoding"], (
+            f"{scenario['name']}: upstream did not use {scenario['encoding']}")
+    else:
+        assert "content-encoding" not in upstream[1], (
+            f"{scenario['name']}: response was encoded although identity was requested")
+    if "body_starts" in scenario:
+        assert upstream[2].startswith(scenario["body_starts"].encode()), (
+            f"{scenario['name']}: body starts {upstream[2][:30]!r}")
     assert candidate == upstream, (
         f"{scenario['name']}: candidate={candidate!r} upstream={upstream!r}"
     )
@@ -77,6 +91,12 @@ def test_http_parity(servers, scenario):
 def test_raw_parity(servers, scenario):
     upstream = _fetch_raw(servers["upstream"].base_url, scenario["payload"])
     candidate = _fetch_raw(servers["candidate"].base_url, scenario["payload"])
+    # Anchor: without it, two servers that both just close the connection would
+    # "match" on empty bytes.
+    assert upstream.startswith(scenario["expect"].encode()), (
+        f"{scenario['name']}: upstream replied {upstream[:60]!r}, expected it to "
+        f"start with {scenario['expect']!r}"
+    )
     assert candidate == upstream, (
         f"{scenario['name']}: candidate={candidate!r} upstream={upstream!r}"
     )

@@ -165,3 +165,31 @@ release number from pkg-oss instead of assuming 1.
 The same check also found the `nginx` passwd entry differed (no comment,
 `/usr/sbin/nologin` instead of `/bin/false`); it now matches upstream exactly.
 
+## Tests that could not fail
+
+Asking "could this test pass while the image is broken?" of every test found
+several that could:
+
+- **Parity without anchors.** The parity tests compared the two images to each
+  other but never checked either was right; two images broken the same way (a
+  failed mount, a dropped connection) would "match". The raw-socket tests were
+  the worst: two servers that both close the connection match on empty bytes.
+  Every scenario now states what nginx must return, checked against upstream
+  before comparing.
+- **A gzip path that never worked.** The test "decoded" gzip bodies, but
+  `requests` already decodes them, so the extra decode always failed -- and an
+  `except OSError: pass` swallowed it every time. Worse, `requests` asks for gzip
+  on *every* request by default, so every scenario on `big.txt` was silently
+  gzipped and the plain path was never tested. Removing the silent `except` made
+  seven tests fail at once, which is how this surfaced. Requests now ask for
+  `identity` unless a scenario negotiates gzip, and the gzip scenario proves the
+  response really was gzipped and decodes to the file.
+- **image-filter** only checked for a PNG, not that it was resized; it now checks
+  the 8x8 dimensions in the PNG header.
+
+`make selfcheck` closes the loop: it runs the suite against upstream itself
+(only the CVE test may fail) and against nginx 1.27 (the parity suites must
+fail), proving the suite fails when it should.
+
+Lesson: a green suite proves nothing until you have seen it go red for the right reason.
+
