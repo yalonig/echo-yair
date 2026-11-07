@@ -1,0 +1,10 @@
+# Rendered by the entrypoint (20-envsubst-on-templates.sh) into
+# /etc/nginx/conf.d/echo.conf, with ${ECHO_GREETING} taken from the environment.
+server {
+    listen       80;
+    server_name  echo.test;
+
+    location = /greeting {
+        return 200 "${ECHO_GREETING}\n";
+    }
+}
