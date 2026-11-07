@@ -5,7 +5,7 @@ SHELL := bash
 include versions.env
 export
 
-.PHONY: help doctor pin scan-baseline scan-candidate deb image test all
+.PHONY: help doctor pin scan-baseline scan-candidate pcre2 deb image test all
 
 help: ## Show available commands
 	@awk 'BEGIN {FS = ":.*## "} /^[a-zA-Z_-]+:.*## / {printf "  %-15s %s\n", $$1, $$2}' Makefile
@@ -23,16 +23,20 @@ scan-candidate: ## Scan the built candidate image and diff it against the baseli
 	@bash scripts/scan.sh "echo-nginx:$(NGINX_VERSION)" scans/candidate candidate
 	@python3 tools/diff_scans.py --baseline scans/baseline/baseline-triage.csv --candidate scans/candidate/candidate-triage.csv --output scans/candidate/diff.md
 
+pcre2: ## Build the version-bumped PCRE2 .deb from Debian source
+	@bash scripts/build-pcre2.sh
+
 deb: ## Build the patched nginx .deb from source in a clean Debian base
 	@bash scripts/build-deb.sh
 
-image: ## Build the drop-in container image from the .deb
+image: ## Build the drop-in container image from the .debs
 	@bash scripts/build-image.sh
 
 test: ## Compare the candidate image against upstream (requires: make image)
 	@bash scripts/run-tests.sh
 
-all: ## Full pipeline: build the .deb and image, run the tests, rescan and diff
+all: ## Full pipeline: build both packages and the image, test, rescan and diff
+	@$(MAKE) pcre2
 	@$(MAKE) deb
 	@$(MAKE) image
 	@$(MAKE) test

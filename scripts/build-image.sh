@@ -10,6 +10,11 @@ if [ "${#debs[@]}" -eq 0 ]; then
   echo "No nginx .deb in dist/. Run 'make deb' first." >&2
   exit 1
 fi
+pcre=(dist/libpcre2-8-0_*.deb)
+if [ "${#pcre[@]}" -eq 0 ]; then
+  echo "No PCRE2 .deb in dist/. Run 'make pcre2' first." >&2
+  exit 1
+fi
 
 upstream="${UPSTREAM_IMAGE}"
 [ -n "${UPSTREAM_DIGEST:-}" ] && upstream="${UPSTREAM_IMAGE}@${UPSTREAM_DIGEST}"

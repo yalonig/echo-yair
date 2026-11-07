@@ -17,19 +17,20 @@ RUN set -eux; \
     useradd --system --gid nginx --no-create-home --home /nonexistent \
             --shell /usr/sbin/nologin --uid 101 nginx
 
-# Install our patched nginx .deb. apt resolves its runtime deps (libssl3,
-# libpcre2-8-0, zlib1g). gettext-base + tzdata match the upstream image and are
+# Install our patched nginx .deb together with our version-bumped PCRE2 .deb
+# (built from source in build/build-pcre2.sh). apt resolves the remaining runtime
+# deps (libssl3, zlib1g); gettext-base + tzdata match the upstream image and are
 # needed by the entrypoint scripts (envsubst, timezones).
-COPY dist/nginx_*.deb /tmp/
+COPY dist/nginx_*.deb dist/libpcre2-8-0_*.deb /tmp/
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends /tmp/nginx_*.deb gettext-base tzdata \
+    && apt-get install -y --no-install-recommends \
+       /tmp/libpcre2-8-0_*.deb /tmp/nginx_*.deb gettext-base tzdata \
     && rm -rf /var/lib/apt/lists/* /tmp/*.deb
 
-# Version-bump remediation. nginx links PCRE2 and OpenSSL; both carry CVE fixes in
-# Debian bookworm (PCRE2 10.42-1 -> +deb12u2 clears 7 CVEs, OpenSSL 3.0.11 -> 3.0.22
-# clears many). Building on the current base installs the patched versions; this
-# step makes that explicit and FAILS the build if either library is older than its
-# fixed version, so a stale base cannot ship the vulnerable libraries unnoticed.
+# Version-bump safety gate. PCRE2 is installed above from our own source build;
+# OpenSSL comes patched from the current base (3.0.11 -> 3.0.22). This step FAILS
+# the build if either linked library is older than its CVE-fixed version, so a
+# stale base or a missing PCRE2 package cannot ship the vulnerable libraries.
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends libpcre2-8-0 libssl3; \

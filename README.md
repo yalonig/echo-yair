@@ -41,6 +41,7 @@ Individual stages:
 
 | Command | What it does |
 |---|---|
+| `make pcre2` | Rebuild the version-bumped PCRE2 `.deb` from Debian source. |
 | `make deb` | Compile the patched nginx `.deb` from source in a clean `debian:bookworm-slim`. |
 | `make image` | Build the drop-in image `echo-nginx:1.25.5` from the `.deb`. |
 | `make test` | Boot both images and assert identical responses + prove the CVE fix. |
@@ -77,22 +78,29 @@ location prefix, and nginx writes past the end of the path buffer. Unauthenticat
   logs `"alias" cannot be used in location "/foo/" where URI was rewritten` and
   returns an empty body — while the original maps the path and returns it.
 
-### 2. Version bump — PCRE2 and OpenSSL
+### 2. Version bump — PCRE2 (from source) and OpenSSL
 
-nginx links PCRE2 (every config regex) and OpenSSL (TLS). The original image was
-built against older versions; rebuilding on current bookworm installs the patched
-ones:
+nginx links PCRE2 (every config regex) and OpenSSL (TLS), both of which have CVE
+fixes in Debian bookworm:
 
 | Library | Original | Rebuilt | Effect |
 |---|---|---|---|
-| `libpcre2-8-0` | `10.42-1` | `10.42-1+deb12u2` | clears 7 CVEs (incl. an arbitrary-code-execution OOB write) |
+| `libpcre2-8-0` | `10.42-1` | `10.42-1+deb12u2+echo1` | clears 7 CVEs (incl. an arbitrary-code-execution OOB write) |
 | `libssl3` | `3.0.11-1~deb12u2` | `3.0.22-1~deb12u2` | clears the OpenSSL set |
 
+- **PCRE2 is rebuilt from source** as the deliberate bump: `build/build-pcre2.sh`
+  (run via `make pcre2`) enables Debian source repos, runs `apt source pcre2`,
+  bumps the version with a `+echo1` suffix, and `dpkg-buildpackage` produces our
+  own `libpcre2-8-0` `.deb`. The image installs that package; nginx links it
+  dynamically, so no nginx build flags change. This is the version bump applied as
+  a from-source build step, alongside the backport.
+- **OpenSSL** is bumped by rebuilding on the current base (`3.0.11` → `3.0.22`).
+
 Because the package versions change, the scanners drop these on their own — no VEX
-needed. The `Containerfile` makes this an explicit, enforced step: it installs the
-libraries and **fails the build** if either is older than its fixed version
-(`dpkg --compare-versions`), so a stale base can't silently ship the vulnerable
-`10.42-1`.
+needed. A safety gate in the `Containerfile` additionally **fails the build** if
+either linked library is below its CVE-fixed version
+(`dpkg --compare-versions`), so a stale base or a missing PCRE2 package can't
+silently ship the vulnerable `10.42-1`.
 
 ---
 
@@ -126,7 +134,7 @@ the diff is fair). Full reports in `scans/`; the diff is `scans/candidate/diff.m
 | CVE | Severity | Fix method | Evidence |
 |---|---|---|---|
 | CVE-2026-15176 | Critical (Grype 9.2; medium per nginx.org) | backport | [patch](build/patches/CVE-2026-15176.patch) · [behaviour test](test/compat_test.py) · [upstream fix](https://github.com/nginx/nginx/commit/f8a23425bd6840c4c36b4264edf576ba3646156f) |
-| CVE-2026-103111 | High | bump — PCRE2 → `10.42-1+deb12u2` | [scan diff](scans/candidate/diff.md) |
+| CVE-2026-103111 | High | bump — PCRE2 (from source) | [build script](build/build-pcre2.sh) · [scan diff](scans/candidate/diff.md) |
 | CVE-2026-86145 | High | bump — PCRE2 → `10.42-1+deb12u1` | [scan diff](scans/candidate/diff.md) |
 | CVE-2026-89157 | High | bump — PCRE2 | [scan diff](scans/candidate/diff.md) |
 | CVE-2026-89161 | High | bump — PCRE2 | [scan diff](scans/candidate/diff.md) |
@@ -232,7 +240,9 @@ finicky, and it was out of scope for the time spent.
 ```text
 build/
   Dockerfile              # clean debian:bookworm-slim that runs build.sh
-  build.sh                # fetch + verify source, apply patches, compile the .deb
+  build.sh                # fetch + verify nginx source, apply patches, compile the .deb
+  build-pcre2.sh          # version bump: apt source pcre2 -> dpkg-buildpackage
+  Dockerfile.pcre2        # clean base that runs build-pcre2.sh
   patches/
     CVE-2026-15176.patch  # the backport, with DEP-3 provenance
 Containerfile             # the drop-in image, with the version-bump gate
