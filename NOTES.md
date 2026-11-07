@@ -188,6 +188,10 @@ several that could:
   response really was gzipped and decodes to the file.
 - **image-filter** only checked for a PNG, not that it was resized; it now checks
   the 8x8 dimensions in the PNG header.
+- **The anchors paid off at once.** The new 8 MiB download test first came back
+  403 on *both* images: pytest's temp dirs are private (0700) and nginx's worker
+  runs as the `nginx` user. Two 403s would have "matched" and passed; the
+  anchor (upstream must return 200 with the whole file) failed it instead.
 
 `make selfcheck` closes the loop: it runs the suite against upstream itself
 (only the CVE test may fail) and against nginx 1.27 (the parity suites must

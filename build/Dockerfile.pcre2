@@ -2,6 +2,11 @@
 # Build the version-bumped PCRE2 .deb from source in a clean Debian base.
 ARG BASE_IMAGE=debian:bookworm-slim
 FROM ${BASE_IMAGE}
-ENV OUT_DIR=/out DEBIAN_FRONTEND=noninteractive
+ARG PCRE2_VERSION
+ARG PCRE2_SNAPSHOT
+ARG PCRE2_FROM_SNAPSHOT=
+ENV OUT_DIR=/out DEBIAN_FRONTEND=noninteractive \
+    PCRE2_VERSION=${PCRE2_VERSION} PCRE2_SNAPSHOT=${PCRE2_SNAPSHOT} \
+    PCRE2_FROM_SNAPSHOT=${PCRE2_FROM_SNAPSHOT}
 COPY build-pcre2.sh /usr/local/bin/build-pcre2.sh
 RUN chmod +x /usr/local/bin/build-pcre2.sh && /usr/local/bin/build-pcre2.sh

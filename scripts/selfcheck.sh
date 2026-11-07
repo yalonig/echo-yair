@@ -14,6 +14,8 @@ set -euo pipefail
 
 source versions.env
 other="${SELFCHECK_OTHER_IMAGE:-nginx:1.27-bookworm}"
+upstream="${UPSTREAM_IMAGE}"   # the same pinned upstream the scans and tests use
+[ -n "${UPSTREAM_DIGEST:-}" ] && upstream="${UPSTREAM_IMAGE}@${UPSTREAM_DIGEST}"
 pytest="${TMPDIR:-/tmp}/echo-nginx-venv/bin/pytest"
 [ -x "$pytest" ] || { echo "Run 'make test' first (it creates the test venv)." >&2; exit 1; }
 
@@ -23,7 +25,7 @@ failed_tests() {  # <candidate image> -> sorted failing test ids
   # no tests collected, a broken working directory) aborts instead of being
   # misread as "nothing failed".
   local out rc=0
-  out="$(UPSTREAM_IMAGE="$UPSTREAM_IMAGE" CANDIDATE_IMAGE="$1" \
+  out="$(UPSTREAM_IMAGE="$upstream" CANDIDATE_IMAGE="$1" \
          "$pytest" -q -rf -p no:cacheprovider test/ 2>&1)" || rc=$?
   if [ "$rc" -gt 1 ]; then
     printf 'ERROR: the test suite did not run against %s (pytest exit %s):\n' "$1" "$rc" >&2
@@ -35,8 +37,8 @@ failed_tests() {  # <candidate image> -> sorted failing test ids
 
 ok=1
 
-printf '1/2  upstream vs itself (%s)\n' "$UPSTREAM_IMAGE"
-got="$(failed_tests "$UPSTREAM_IMAGE")" || exit $?
+printf '1/2  upstream vs itself (%s)\n' "$upstream"
+got="$(failed_tests "$upstream")" || exit $?
 want="test/compat_test.py::test_cve_2026_15176_is_fixed"
 if [ "$got" = "$want" ]; then
   echo "     ok   only the CVE-fix test failed: it detects the patch, and parity holds for identical images"

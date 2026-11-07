@@ -92,9 +92,12 @@ fixed seven CVEs in `10.42-1+deb12u1`/`+deb12u2`.
 |---|---|---|---|
 | `libpcre2-8-0` | `10.42-1` | `10.42-1+deb12u2+echo1` | clears 7 CVEs (incl. an arbitrary-code-execution OOB write) |
 
-`build/build-pcre2.sh` (run via `make pcre2`) enables Debian source repos, runs
-`apt source pcre2`, bumps the version with a `+echo1` suffix, and
-`dpkg-buildpackage` produces our own `libpcre2-8-0` `.deb`. nginx links it
+`build/build-pcre2.sh` (run via `make pcre2`) enables Debian source repos, fetches
+the exact pinned source `pcre2=10.42-1+deb12u2`, bumps the version with a `+echo1`
+suffix, and `dpkg-buildpackage` produces our own `libpcre2-8-0` `.deb`. Debian drops
+old versions from its live archive when newer updates land, so if the pinned version
+has gone, the build fetches it from snapshot.debian.org — Debian's immutable archive —
+at a pinned timestamp, and the build stays reproducible. nginx links it
 dynamically, so no nginx build flags change. Because the version string changes,
 scanners see this fix on their own — no VEX needed.
 
@@ -116,7 +119,10 @@ their CVE-fixed versions.
 Scanned with Trivy 0.76.2 and Grype 0.121.2 using **the same vulnerability database
 for both images** (recorded in `scans/*/…-meta.txt`), so the diff is fair. `make all`
 rescans both images, so a reviewer's diff always uses one database too. Full
-reports are in `scans/`; the diff is `scans/candidate/diff.md`.
+reports are in `scans/`; the diff is `scans/candidate/diff.md`. Severity counts can
+shift as the databases re-rate CVEs: a clean-clone run on Nov 7 with a newer Grype
+database gave identical totals (846 → 465, 381 fixed) with a few CVEs re-rated
+(baseline Critical 56 → 60).
 
 | | Baseline (original) | Candidate (rebuilt) |
 |---|---|---|
@@ -269,7 +275,15 @@ and most of the entrypoint:
 - the entrypoint's **template feature** works the same: a `*.template` file plus an
   environment variable is rendered (via `envsubst`) and served identically.
 
-A fourth file (`test/contract_test.py`) checks what no HTTP request can see — the
+`test/large_body_test.py` covers the brief's "large body" case in both directions,
+where buffering, `sendfile` and temp files actually matter: an 8 MiB download and a
+range from its middle must match byte for byte (compared by SHA-256), and a 4 MiB
+upload must be *accepted* — WebDAV `PUT` reads the whole body and writes it to disk,
+and reading it back must return exactly what was sent. A body that size spills into
+`/var/cache/nginx/client_temp`, so this also checks that directory exists and is
+writable by the `nginx` user in our image.
+
+A further file (`test/contract_test.py`) checks what no HTTP request can see — the
 brief's "filesystem layout, user, working directory, ports, and entrypoint exactly":
 image metadata from `docker inspect` (user, workdir, entrypoint, cmd, ports, stop
 signal, volumes, platform, every env variable), the `nginx` passwd/group entries, and
@@ -287,9 +301,9 @@ runs the whole suite against images that must fail it:
 - **upstream vs itself:** every parity test passes (identical images) and *only* the
   CVE test fails, because that image isn't patched. So the CVE test detects the fix,
   and the parity tests don't flag a correct match.
-- **upstream vs nginx 1.27:** 22 tests fail — all 11 HTTP scenarios, the default
-  pages, the env contract, the CVE test and 3 of the 4 raw-socket cases — as they
-  must for a server that isn't a drop-in. (The fourth raw case, HTTP/0.9, rightly
+- **upstream vs nginx 1.27:** 24 tests fail — all 11 HTTP scenarios, the default
+  pages, the large download and range, the env contract, the CVE test and 3 of the
+  4 raw-socket cases — as they must for a server that isn't a drop-in. (The fourth raw case, HTTP/0.9, rightly
   passes: it returns the bare page, with no status line or version header.)
 
 **What "working correctly" means here:** for every scenario the candidate returns
@@ -357,7 +371,7 @@ tools/
   triage.py               # merge Trivy + Grype reports into one CVE table
   diff_scans.py           # baseline-vs-candidate diff: fixed vs not-shipped, drop-in package check
   make_vex.py             # generate the OpenVEX doc from the candidate scan
-test/                     # pytest suites: compat, module/TLS, out-of-the-box, image contract
+test/                     # pytest suites: compat, large bodies, module/TLS, out-of-the-box, contract
 scans/                    # committed reports, package lists, and the diff
 vex/                      # OpenVEX doc asserting the backport CVE is fixed
 versions.env              # every pinned input (digests, versions, checksums, pkg-oss commit)
@@ -365,7 +379,7 @@ TRIAGE.md                 # which CVEs were chosen and why
 NOTES.md                  # decisions and the things that broke along the way
 ```
 
-## What broke, and what I learned
+## What surprised me, and what broke
 
 `NOTES.md` is the running log. The ones worth calling out:
 
@@ -391,6 +405,23 @@ NOTES.md                  # decisions and the things that broke along the way
   distro. Build trees are now deleted in-layer and `make doctor` checks disk first.
 - A `set -e` trap: a failed `docker pull` inside a command substitution didn't stop
   the script, hiding the real error behind a later one.
+
+## With more time
+
+- **Backport CVE-2026-93479** — the next nginx Critical — resolving its cherry-pick
+  conflict by hand, and VEX it the same way as CVE-2026-15176.
+- **Stop patching 1.25.x:** move to a supported nginx release on a minimal base and
+  rebuild on a schedule, so most fixes arrive as clean version bumps.
+- **Run nginx's own test suite** (pkg-oss can run `nginx-tests` against the built
+  binary) in addition to our parity suite, plus performance and concurrency
+  comparisons (e.g. with `wrk`), IPv6 traffic, and the geoip/xslt modules' behaviour.
+- **Ship evidence with the image, not just in the repo:** sign it, and attach the VEX
+  document and an SBOM as OCI attestations (cosign/ORAS), so a scanner can pick them
+  up from the registry.
+- **Fully hermetic, bit-for-bit reproducible builds:** pin the build toolchain via
+  snapshot.debian.org too (only PCRE2's source is pinned that way today), and prove
+  it by building twice and comparing the packages.
+- **CI:** run `make all` and `make selfcheck` on every pull request.
 
 ## Use of AI
 
