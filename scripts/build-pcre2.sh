@@ -10,7 +10,11 @@ if [ -n "${BUILD_BASE_DIGEST:-}" ]; then
 fi
 
 image="echo-pcre2-build:bookworm"
-docker build --build-arg BASE_IMAGE="$base" -f build/Dockerfile.pcre2 -t "$image" build
+docker build --build-arg BASE_IMAGE="$base" \
+  --build-arg PCRE2_VERSION="$PCRE2_VERSION" \
+  --build-arg PCRE2_SNAPSHOT="$PCRE2_SNAPSHOT" \
+  --build-arg PCRE2_FROM_SNAPSHOT="${PCRE2_FROM_SNAPSHOT:-}" \
+  -f build/Dockerfile.pcre2 -t "$image" build
 
 mkdir -p dist
 cid="$(docker create "$image")"

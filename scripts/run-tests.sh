@@ -5,16 +5,19 @@ set -euo pipefail
 source versions.env
 
 candidate="echo-nginx:${NGINX_VERSION}"
+# Boot the same pinned upstream the scans use (tag@digest), not a moving tag.
+upstream="${UPSTREAM_IMAGE}"
+[ -n "${UPSTREAM_DIGEST:-}" ] && upstream="${UPSTREAM_IMAGE}@${UPSTREAM_DIGEST}"
 if ! docker image inspect "$candidate" >/dev/null 2>&1; then
   echo "Image $candidate not found. Run 'make image' first." >&2
   exit 1
 fi
-if ! docker image inspect "${UPSTREAM_IMAGE}" >/dev/null 2>&1; then
-  docker pull "${UPSTREAM_IMAGE}" >/dev/null
+if ! docker image inspect "$upstream" >/dev/null 2>&1; then
+  docker pull "$upstream" >/dev/null
 fi
 
 run_pytest() {
-  env UPSTREAM_IMAGE="${UPSTREAM_IMAGE}" CANDIDATE_IMAGE="$candidate" \
+  env UPSTREAM_IMAGE="$upstream" CANDIDATE_IMAGE="$candidate" \
       "$@" -v --durations=5 test/
 }
 

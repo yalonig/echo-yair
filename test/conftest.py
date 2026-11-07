@@ -15,6 +15,7 @@ Kept separate so a problem in one setup can only fail its own tests.
 import contextlib
 import os
 import pathlib
+import random
 import subprocess
 import time
 
@@ -127,10 +128,26 @@ def _self_signed_cert(dest_dir):
     )
 
 
+LARGE_FILE_BYTES = 8 * 1024 * 1024
+LARGE_FILE_SEED = 20261107
+
+
+def large_file_bytes():
+    """Deterministic, incompressible 8 MiB: generated per run, never committed."""
+    return random.Random(LARGE_FILE_SEED).randbytes(LARGE_FILE_BYTES)
+
+
 @pytest.fixture(scope="session")
-def servers():
+def servers(tmp_path_factory):
+    large = tmp_path_factory.mktemp("large")
+    (large / "large.bin").write_bytes(large_file_bytes())
+    # pytest makes its temp dirs private (0700); nginx's worker runs as the
+    # nginx user, so open them up or it answers 403 (the anchor caught exactly that).
+    large.chmod(0o755)
+    (large / "large.bin").chmod(0o644)
     with _pair(mounts=[(FIXTURES / "nginx.conf", "/etc/nginx/nginx.conf"),
-                       (FIXTURES / "srv", "/srv")]) as started:
+                       (FIXTURES / "srv", "/srv"),
+                       (large, "/large")]) as started:  # own path: not inside read-only /srv
         yield started
 
 
