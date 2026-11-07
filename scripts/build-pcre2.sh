@@ -14,7 +14,10 @@ docker build --build-arg BASE_IMAGE="$base" -f build/Dockerfile.pcre2 -t "$image
 
 mkdir -p dist
 cid="$(docker create "$image")"
-trap 'docker rm -f "$cid" >/dev/null 2>&1 || true' EXIT
+trap 'docker rm -f "$cid" >/dev/null 2>&1 || true; docker image rm "$image" >/dev/null 2>&1 || true' EXIT
+# Clear this step's previous outputs first, so a stale package (e.g. an older
+# module release) can never sit next to the fresh one and get installed.
+rm -f dist/libpcre2-8-0_*.deb
 docker cp "$cid:/out/." dist/
 printf '\nVersion-bumped PCRE2 package in dist/:\n'
 ls -la dist/libpcre2-8-0_*.deb

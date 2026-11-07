@@ -16,6 +16,12 @@ if [ "${#pcre[@]}" -eq 0 ]; then
   exit 1
 fi
 
+mods=(dist/nginx-module-*.deb)
+if [ "${#mods[@]}" -ne 4 ]; then
+  echo "Expected 4 nginx-module .debs in dist/ (found ${#mods[@]}). Run 'make deb' first." >&2
+  exit 1
+fi
+
 upstream="${UPSTREAM_IMAGE}"
 [ -n "${UPSTREAM_DIGEST:-}" ] && upstream="${UPSTREAM_IMAGE}@${UPSTREAM_DIGEST}"
 base="${BUILD_BASE_IMAGE}"

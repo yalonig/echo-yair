@@ -49,3 +49,6 @@ log "6/6  Collect the runtime library package that nginx links"
 mkdir -p "$OUT_DIR"
 cp "${WORK}"/libpcre2-8-0_*.deb "$OUT_DIR"/
 ls -la "$OUT_DIR" >&2
+
+# Drop the build tree in this same layer so the build image stays small.
+cd /; rm -rf "$WORK"

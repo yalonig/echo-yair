@@ -91,5 +91,8 @@ techniques, not shrinking the whole list.
 - **OpenSSL (libssl3):** the most Critical findings, but a heavy rebuild and we
   would clear only the subset fixed by our target version. PCRE2 is lighter and
   more directly tied to how nginx parses configuration.
+  OpenSSL still moves from `3.0.11` to `3.0.22` via the base refresh (and the
+  build gate enforces the fixed floor), but that is apt's work, not a
+  remediation we performed, so it is not counted.
 - **zlib (zlib1g):** flagged, but Debian marks the open issues `will_not_fix` /
   not-fixed, so there is no version to bump to.
