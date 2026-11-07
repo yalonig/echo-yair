@@ -79,3 +79,25 @@ passes.
 
 Lesson: "the patch applies cleanly" is not "the patch is in the binary." Only a
 test that exercises the fixed behaviour proves the backport shipped.
+
+## VEX on a locally-built image: which identifier does Grype match?
+
+The backport CVE needed a VEX statement, which was straightforward to write but
+fiddly to make Grype actually honour. Grype applies a statement when the
+statement's *product* matches the scanned image and its *subcomponent* matches
+the vulnerable package. The subcomponent was easy -- copy the package PURL
+verbatim from Grype's own report. The product was the catch: a locally built
+image was never pushed to a registry, so there is no canonical reference for it.
+Grype knows it variously by tag, image ID and manifest digest depending on how
+it was invoked.
+
+Rather than hard-code one guess, `tools/make_vex.py` reads all of them out of the
+candidate report and emits one statement listing all three as products, so the
+assertion matches whichever identifier Grype uses. `make vex` then regenerates
+the document and re-scans with `--vex --show-suppressed`, asserting the CVE moved
+to the suppressed list -- the VEX is self-verifying rather than taken on faith.
+
+Lesson: a VEX document is only useful if the consuming scanner matches it, and
+PURL/product matching on locally-built images is the part that bites. Deriving
+the identifiers from the scan output instead of hand-writing them removes the
+guesswork.

@@ -1,0 +1,44 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://openvex.dev/docs/echo/vex-0e7a0b7fb4d434db47071bc84d6602dc7901de47c5ff762957e6ff0056790013",
+  "author": "Echo image maintainers",
+  "role": "Document Creator",
+  "timestamp": "2026-11-07T01:31:06+00:00",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "CVE-2026-15176"
+      },
+      "timestamp": "2026-11-07T01:31:06+00:00",
+      "products": [
+        {
+          "@id": "pkg:oci/echo-nginx@sha256:2674a8180bbd971b5b4f77b23b865afd49c9c8dbe4480fd02fdb199c4dc2a9f5?tag=1.25.5",
+          "subcomponents": [
+            {
+              "@id": "pkg:deb/debian/nginx@1.25.5-1~bookworm%2Becho1?arch=amd64&distro=debian-12.15"
+            }
+          ]
+        },
+        {
+          "@id": "pkg:oci/echo-nginx@sha256:46c2e52f532e6578e59b64d474f1019de2a912eb65fc89cfcb54b2db139d6116?tag=1.25.5",
+          "subcomponents": [
+            {
+              "@id": "pkg:deb/debian/nginx@1.25.5-1~bookworm%2Becho1?arch=amd64&distro=debian-12.15"
+            }
+          ]
+        },
+        {
+          "@id": "echo-nginx:1.25.5",
+          "subcomponents": [
+            {
+              "@id": "pkg:deb/debian/nginx@1.25.5-1~bookworm%2Becho1?arch=amd64&distro=debian-12.15"
+            }
+          ]
+        }
+      ],
+      "status": "fixed",
+      "status_notes": "Fixed by backporting the upstream patch for this CVE onto the shipped source. The Debian package version is unchanged, so version-based scanners still flag it; this statement records that the vulnerable code path is patched in the binary."
+    }
+  ]
+}
